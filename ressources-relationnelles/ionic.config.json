@@ -1,0 +1,7 @@
+{
+  "name": "ressources-relationnelles",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}

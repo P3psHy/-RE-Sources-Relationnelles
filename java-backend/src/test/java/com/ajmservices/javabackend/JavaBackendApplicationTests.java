@@ -1,10 +1,10 @@
-package cesi.javabackend;
+package com.ajmservices.javabackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBackendApplicationTests {
+class JavaBackendApplicationTests {
 
 	@Test
 	void contextLoads() {

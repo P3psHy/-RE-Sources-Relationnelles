@@ -1,13 +1,13 @@
-package cesi.javabackend;
+package com.ajmservices.javabackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBackendApplication {
+public class JavaBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBackendApplication.class, args);
+		SpringApplication.run(JavaBackendApplication.class, args);
 	}
 
 }

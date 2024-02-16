@@ -1,4 +1,4 @@
-package com.ajmservices.javabackend.MySQLDataTest;
+package com.ajmservices.javabackend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

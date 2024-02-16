@@ -2,10 +2,13 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Accueil</ion-title>
-        <ion-button router-link="/ressource">Publier</ion-button>
-        <ion-button router-link="/connect">Se connecter</ion-button>
-        <ion-button router-link="/profile">Mon profil</ion-button>
+        <ion-img class="logo" src="../sources/Logo application.png"></ion-img>
+        <ion-segment value="Accueil">
+          <ion-segment-button value="Accueil">Accueil</ion-segment-button>
+          <ion-segment-button router-link="/ressource" value="Publier">Publier</ion-segment-button>
+          <ion-segment-button router-link="/connect" value="Se connecter">Se connecter</ion-segment-button>
+          <ion-segment-button router-link="/profile" value="Mon profil">Mon profil</ion-segment-button>
+        </ion-segment>
       </ion-toolbar>
     </ion-header>
 
@@ -21,11 +24,18 @@
         <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
       </div>
     </ion-content>
+
+    <ion-footer collapse="fade">
+      <ion-toolbar>
+        <ion-img class="logo" src="../sources/gouvernement-logos-idpqhzX_Mk.png"></ion-img>
+      </ion-toolbar>
+    </ion-footer>
+
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+  import { IonContent, IonImg, IonHeader, IonSegment, IonSegmentButton, IonFooter, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
 </script>
 
 <style scoped>
@@ -55,5 +65,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from 
 
 #container a {
   text-decoration: none;
+}
+
+.logo {
+  max-width: 5vw;
 }
 </style>

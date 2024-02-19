@@ -4,11 +4,10 @@
             <ion-grid>
                 <ion-row>
                     <ion-col>
-                        <ion-img class="logo" src="../sources/Logo application.png"></ion-img>
+                        <ion-img id="header-logo" @click="goToHome" src="../sources/header-logo.png"></ion-img>
                     </ion-col>
                     <ion-col>
                         <ion-segment ref="pageName" v-model="pageName">
-                            <ion-segment-button router-link="/home" value="Home">Accueil</ion-segment-button>
                             <ion-segment-button router-link="/ressource" value="Ressource">Publier</ion-segment-button>
                             <ion-segment-button router-link="/connect" value="Connection">Se connecter</ion-segment-button>
                             <ion-segment-button router-link="/profile" value="Profile">Mon profil</ion-segment-button>
@@ -24,20 +23,31 @@
     import { IonImg, IonHeader, IonSegment, IonSegmentButton, IonToolbar} from '@ionic/vue';
     import { watch, ref } from 'vue'; 
     import { useRoute } from 'vue-router';
+    import { useRouter } from 'vue-router';
     const route = useRoute();
+    const router = useRouter();
     const pageName = ref()
 
     // Mettre à jour le nom de la page lors du changement de route
     watch(route, (currentValue, newValue) => {
         console.log(newValue.name);
-        pageName.value = newValue.name || 'Home';
+        pageName.value = newValue.name || '';
     });
+
+    const goToHome = () => {
+        router.push("/home")
+    };
     
 </script>
 
 <style scoped>
-.logo {
-    max-width: 5vw;
-}
+    ion-header {
+        background-color: #03989E;
+    }
+
+    #header-logo {
+        max-width: 5vw;
+        cursor: pointer;
+    }
 </style>
   

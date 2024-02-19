@@ -6,6 +6,8 @@ import ProfilePage from '../views/ProfilePage.vue';
 import RessourcePage from '../views/RessourcePage.vue';
 import ConnectionPage from '../views/ConnectionPage.vue';
 import RessourceNew from '../views/RessourceNew.vue';
+import PrivacyPolicyPage from '../views/PrivacyPolicy.vue';
+import TermsConditionsPage from '../views/TermsConditions.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -37,6 +39,16 @@ const routes: Array<RouteRecordRaw> = [
         path: '/ressource/new',
         name: 'RessourceNew',
         component: RessourceNew
+      },
+      {
+        path: '/privacy-policy',
+        name: 'PrivacyPolicy',
+        component: PrivacyPolicyPage
+      },
+      {
+        path: '/terms-conditions',
+        name: 'TermsConditions',
+        component: TermsConditionsPage
       }
     ]
   },

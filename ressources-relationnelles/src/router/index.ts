@@ -5,6 +5,7 @@ import HomePage from '../views/HomePage.vue';
 import ProfilePage from '../views/ProfilePage.vue';
 import RessourcePage from '../views/RessourcePage.vue';
 import ConnectionPage from '../views/ConnectionPage.vue';
+import RessourceNew from '../views/RessourceNew.vue';
 import PrivacyPolicyPage from '../views/PrivacyPolicy.vue';
 import TermsConditionsPage from '../views/TermsConditions.vue';
 
@@ -33,6 +34,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/ressource',
         name: 'Ressource',
         component: RessourcePage
+      },
+      {
+        path: '/ressource/new',
+        name: 'RessourceNew',
+        component: RessourceNew
       },
       {
         path: '/privacy-policy',

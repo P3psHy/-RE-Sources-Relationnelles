@@ -7,7 +7,7 @@
                         <ion-img class="logo" src="../sources/Logo application.png"></ion-img>
                     </ion-col>
                     <ion-col>
-                        <ion-segment ref="pageName" :value="pageName">
+                        <ion-segment ref="pageName" v-model="pageName">
                             <ion-segment-button router-link="/home" value="Home">Accueil</ion-segment-button>
                             <ion-segment-button router-link="/ressource" value="Ressource">Publier</ion-segment-button>
                             <ion-segment-button router-link="/connect" value="Connection">Se connecter</ion-segment-button>
@@ -30,7 +30,7 @@
     // Mettre à jour le nom de la page lors du changement de route
     watch(route, (currentValue, newValue) => {
         console.log(newValue.name);
-        pageName = newValue.name || 'Home';
+        pageName.value = newValue.name || 'Home';
     });
     
 </script>

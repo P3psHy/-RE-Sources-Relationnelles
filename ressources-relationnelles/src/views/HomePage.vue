@@ -15,18 +15,15 @@
       </div>
     </ion-content>
 
-    <ion-footer collapse="fade">
-      <ion-toolbar>
-        <ion-img class="logo" src="../sources/gouvernement-logos-idpqhzX_Mk.png"></ion-img>
-      </ion-toolbar>
-    </ion-footer>
+    <Footer></Footer>
 
   </ion-page>
 </template>
 
 <script setup lang="ts">
-  import { IonContent, IonImg, IonHeader, IonSegment, IonSegmentButton, IonFooter, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   import Header from '@/components/Header.vue'
+  import Footer from '@/components/Footer.vue'
 </script>
 
 <style scoped>

@@ -13,12 +13,16 @@
           <strong>Cette page permettra d'accéder aux informations du profil</strong>
         </div>
       </ion-content>
+
+      <Footer></Footer>
     </ion-page>
 </template>
 
 <script setup lang="ts">
-  import Header from '@/components/Header.vue'
   import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+  import Header from '@/components/Header.vue'
+  import Footer from '@/components/Footer.vue'
+
 </script>
 
 <style scoped>

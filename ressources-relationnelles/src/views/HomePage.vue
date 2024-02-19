@@ -1,16 +1,6 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-img class="logo" src="../sources/Logo application.png"></ion-img>
-        <ion-segment value="Accueil">
-          <ion-segment-button value="Accueil">Accueil</ion-segment-button>
-          <ion-segment-button router-link="/ressource" value="Publier">Publier</ion-segment-button>
-          <ion-segment-button router-link="/connect" value="Se connecter">Se connecter</ion-segment-button>
-          <ion-segment-button router-link="/profile" value="Mon profil">Mon profil</ion-segment-button>
-        </ion-segment>
-      </ion-toolbar>
-    </ion-header>
+    <Header></Header>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
@@ -36,6 +26,7 @@
 
 <script setup lang="ts">
   import { IonContent, IonImg, IonHeader, IonSegment, IonSegmentButton, IonFooter, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+  import Header from '@/components/Header.vue'
 </script>
 
 <style scoped>

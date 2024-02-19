@@ -1,14 +1,7 @@
 <template>
     <ion-page>
-      <ion-header :translucent="true">
-        <ion-toolbar>
-          <ion-title>Page de connection/inscription</ion-title>
-          <ion-button router-link="/home">Accueil</ion-button>
-          <ion-button router-link="/ressource">Publier</ion-button>
-          <ion-button router-link="/profile">Mon profil</ion-button>
-        </ion-toolbar>
-      </ion-header>
-  
+      <Header></Header>
+
       <ion-content :fullscreen="true">
         <ion-header collapse="condense">
           <ion-toolbar>
@@ -24,7 +17,8 @@
   </template>
   
   <script setup lang="ts">
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+    import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+    import Header from '@/components/Header.vue'
   </script>
   
   <style scoped>

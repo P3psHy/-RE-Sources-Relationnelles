@@ -1,28 +1,20 @@
 <template>
-    <ion-page>
-      <Header></Header>
+  <ion-content :fullscreen="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Blank</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-      <ion-content :fullscreen="true">
-        <ion-header collapse="condense">
-          <ion-toolbar>
-            <ion-title size="large">Blank</ion-title>
-          </ion-toolbar>
-        </ion-header>
-  
-        <div id="container">
-          <strong>Cette page servira à se connecter ou à créer son compte d'utilisateur</strong>
-        </div>
-      </ion-content>
-
-      <Footer></Footer>
-    </ion-page>
-  </template>
+    <div id="container">
+      <strong>Cette page servira à se connecter ou à créer son compte d'utilisateur</strong>
+    </div>
+  </ion-content>
+</template>
   
   <script setup lang="ts">
-    import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
-    import Header from '@/components/Header.vue'
-    import Footer from '@/components/Footer.vue'
-
+    import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+    
   </script>
   
   <style scoped>

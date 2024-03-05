@@ -24,8 +24,7 @@ public class Ressource {
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_fichier", referencedColumnName = "id_ressource")
+    @OneToOne(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Fichier fichier;
     
     @OneToMany(mappedBy = "ressource")

@@ -2,6 +2,8 @@ package com.ajmservices.javabackend.model;
 
 import jakarta.persistence.*;
 
+@Entity
+
 public class Fichier {
 
     @Id
@@ -11,7 +13,8 @@ public class Fichier {
     private String nom;
     private float tailleFichier;
 
-    @OneToOne(mappedBy = "fichier")
+    @OneToOne
+    @JoinColumn(name = "id_ressource")
     private Ressource ressource;
 
     public Fichier() {

@@ -3,6 +3,8 @@ package com.ajmservices.javabackend.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -25,6 +27,9 @@ public class Ressource {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_fichier", referencedColumnName = "id_ressource")
     private Fichier fichier;
+    
+    @OneToMany(mappedBy = "ressource")
+    private Set<Commentaire> commentaires = new HashSet<>();
 
     public int getIdRessource() {
         return idRessource;
@@ -98,4 +103,15 @@ public class Ressource {
     public void setFichier(Fichier fichier) {
         this.fichier = fichier;
     }
+    
+    public Set<Commentaire> getCommentaires() {
+        return commentaires;
+    }
+
+    @ManyToMany
+    @JoinTable(
+        name = "_lier_ressource_type_relation", 
+        joinColumns = @JoinColumn(name = "id_ressource"), 
+        inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
+    Set<TypeRelation> linkedTypeRelations;
 }

@@ -1,5 +1,7 @@
 package com.ajmservices.javabackend.model;
 
+import java.util.Date;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -14,13 +16,16 @@ public class Log {
     @JoinColumn(name = "idUtilisateur")
     private Utilisateur utilisateur;
 
+    private Date dateLog;
+
     // Constructors
     public Log() {
     }
 
-    public Log(String textLog, Utilisateur utilisateur) {
+    public Log(String textLog, Utilisateur utilisateur, Date dateLog) {
         this.textLog = textLog;
         this.utilisateur = utilisateur;
+        this.dateLog = dateLog;
     }
 
     // Getters and Setters
@@ -48,6 +53,14 @@ public class Log {
         this.utilisateur = utilisateur;
     }
 
+    public Date getDateLog() {
+        return dateLog;
+    }
+
+    public void setDateLog(Date dateLog) {
+        this.dateLog = dateLog;
+    }
+
     // toString method
     @Override
     public String toString() {
@@ -55,6 +68,7 @@ public class Log {
                 "idLog=" + idLog +
                 ", textLog='" + textLog + '\'' +
                 ", utilisateur=" + utilisateur +
+                ", dateLog=" + dateLog +
                 '}';
     }
 }

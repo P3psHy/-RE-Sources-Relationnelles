@@ -28,6 +28,10 @@ public class Role {
         return idRole;
     }
 
+    public void setIdRole(Long idRole) {
+        this.idRole = idRole;
+    }
+
     public String getTypeRole() {
         return typeRole;
     }

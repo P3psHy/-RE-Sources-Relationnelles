@@ -29,6 +29,10 @@ public class Fichier {
         return this.idFichier;
     }
 
+    public void setIdFichier(Long idFichier) {
+        this.idFichier = idFichier;
+    }
+
     public String getNom() {
         return nom;
     }

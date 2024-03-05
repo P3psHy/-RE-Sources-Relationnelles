@@ -23,6 +23,10 @@ public class Categorie {
         return idCategorie;
     }
 
+    public void setIdCategorie(Long idCategorie) {
+        this.idCategorie = idCategorie;
+    }
+
     public String getNom() {
         return nom;
     }

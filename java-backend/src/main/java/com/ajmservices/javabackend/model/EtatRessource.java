@@ -23,6 +23,10 @@ public class EtatRessource {
         return idEtatRessource;
     }
 
+    public void setIdEtatRessource(Long idEtatRessource) {
+        this.idEtatRessource = idEtatRessource;
+    }
+
     public String getTexte() {
         return texte;
     }

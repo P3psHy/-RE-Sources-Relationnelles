@@ -144,9 +144,9 @@ public class Utilisateur {
                 ", mail='" + mail + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
                 ", departement='" + departement + '\'' +
-                ", statut=" + statut +
-                ", dateDesactivation=" + dateDesactivation +
-                ", dateCreation=" + dateCreation +
+                ", statut=" + statut + '\'' +
+                ", dateDesactivation=" + dateDesactivation + '\'' +
+                ", dateCreation=" + dateCreation + '\'' +
                 ", role=" + role +
                 '}';
     }

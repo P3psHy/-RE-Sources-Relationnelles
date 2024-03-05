@@ -78,7 +78,7 @@ public class Notification {
                 "idNotification=" + idNotification +
                 ", titre='" + titre + '\'' +
                 ", texte='" + texte + '\'' +
-                ", utilisateur=" + utilisateur +
+                ", utilisateur=" + utilisateur + '\'' +
                 ", dateNotification=" + dateNotification +
                 '}';
     }

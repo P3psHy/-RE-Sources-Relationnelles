@@ -67,7 +67,7 @@ public class Log {
         return "Log{" +
                 "idLog=" + idLog +
                 ", textLog='" + textLog + '\'' +
-                ", utilisateur=" + utilisateur +
+                ", utilisateur=" + utilisateur + '\'' +
                 ", dateLog=" + dateLog +
                 '}';
     }

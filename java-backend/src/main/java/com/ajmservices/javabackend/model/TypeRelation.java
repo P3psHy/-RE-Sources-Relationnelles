@@ -50,7 +50,7 @@ public class TypeRelation {
         public String toString() {
             return "TypeRelation{" +
                     "idTypeRelation=" + idTypeRelation +
-                    ", titre='" + titre +
+                    ", titre='" + titre + '\'' +
                     ", description='" + description +
                     '}';
         }

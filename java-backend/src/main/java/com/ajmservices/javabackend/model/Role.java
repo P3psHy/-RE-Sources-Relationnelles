@@ -2,6 +2,8 @@ package com.ajmservices.javabackend.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Role {
     @Id
@@ -9,6 +11,9 @@ public class Role {
     private int idRole;
 
     private String typeRole;
+
+    @OneToMany(mappedBy = "role")
+    private List<Utilisateur> utilisateurs;
 
     // Constructors
     public Role() {

@@ -38,9 +38,9 @@ public class TypeRessource {
         // toString method
         @Override
         public String toString() {
-            return "Role{" +
-                    "idRole=" + idTypeRessource +
-                    ", typeRole='" + nom +
+            return "TypeRessource{" +
+                    "idTypeRessource=" + idTypeRessource +
+                    ", nom='" + nom +
                     '}';
         }
 

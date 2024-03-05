@@ -1,5 +1,7 @@
 package com.ajmservices.javabackend.model;
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -45,14 +47,17 @@ public class TypeRelation {
         this.description = description;
     }
 
-        // toString method
-        @Override
-        public String toString() {
-            return "TypeRelation{" +
-                    "idTypeRelation=" + idTypeRelation +
-                    ", titre='" + titre + '\'' +
-                    ", description='" + description +
-                    '}';
-        }
+    @ManyToMany(mappedBy = "linkedTypeRelations")
+    Set<Ressource> linkedRessources;
+
+    // toString method
+    @Override
+    public String toString() {
+        return "TypeRelation{" +
+                "idTypeRelation=" + idTypeRelation +
+                ", titre='" + titre + '\'' +
+                ", description='" + description +
+                '}';
+    }
 
 }

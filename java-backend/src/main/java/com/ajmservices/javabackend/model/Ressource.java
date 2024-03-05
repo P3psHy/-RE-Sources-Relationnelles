@@ -94,4 +94,11 @@ public class Ressource {
     public Set<Commentaire> getCommentaires() {
         return commentaires;
     }
+
+    @ManyToMany
+    @JoinTable(
+        name = "_lier_ressource_type_relation", 
+        joinColumns = @JoinColumn(name = "id_ressource"), 
+        inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
+    Set<TypeRelation> linkedTypeRelations;
 }

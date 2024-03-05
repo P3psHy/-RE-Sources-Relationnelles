@@ -24,6 +24,9 @@ public class Ressource {
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
+    @OneToOne(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Fichier fichier;
+    
     @OneToMany(mappedBy = "ressource")
     private Set<Commentaire> commentaires = new HashSet<>();
 
@@ -89,6 +92,15 @@ public class Ressource {
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
+    }
+
+    public Fichier getFichier() {
+        return fichier;
+    }
+
+    // Setter pour fichier
+    public void setFichier(Fichier fichier) {
+        this.fichier = fichier;
     }
     
     public Set<Commentaire> getCommentaires() {

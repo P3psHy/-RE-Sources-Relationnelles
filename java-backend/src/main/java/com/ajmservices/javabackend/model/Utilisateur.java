@@ -2,6 +2,7 @@ package com.ajmservices.javabackend.model;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -34,7 +35,11 @@ public class Utilisateur {
                inverseJoinColumns = @JoinColumn(name = "id_ressource"))
     private Set<Ressource> ressourcesFavoris = new HashSet<>();
 
+    @OneToMany(mappedBy="utilisateur1", fetch = FetchType.EAGER)
+    private Collection<MessageUtilisateur> envoyes;
 
+    @OneToMany(mappedBy="utilisateur2", fetch = FetchType.EAGER)
+    private Collection<MessageUtilisateur> recus;
 
 
     public Utilisateur() {

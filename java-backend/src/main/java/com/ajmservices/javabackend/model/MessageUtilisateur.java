@@ -14,11 +14,11 @@ public class MessageUtilisateur {
     private Date dateMessageUtilisateur;
 
     @ManyToOne
-    @JoinColumn(name = "id_utilisateur")
+    @JoinColumn(name = "id_utilisateur1")
     private Utilisateur utilisateur1;
 
     @ManyToOne
-    @JoinColumn(name = "id_utilisateur")
+    @JoinColumn(name = "id_utilisateur2")
     private Utilisateur utilisateur2;
 
 

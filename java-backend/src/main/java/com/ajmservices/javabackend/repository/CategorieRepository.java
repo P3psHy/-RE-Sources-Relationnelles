@@ -6,6 +6,6 @@ import com.ajmservices.javabackend.model.Categorie;
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
-public interface CategorieRepository extends CrudRepository<Categorie, Integer> {
+public interface CategorieRepository extends CrudRepository<Categorie, Long> {
 
 }

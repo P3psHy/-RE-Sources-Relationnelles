@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.ajmservices.javabackend.model.MessageActivite;
 
 
-public interface MessageActiviteRepository extends CrudRepository<MessageActivite, Integer>{
+public interface MessageActiviteRepository extends CrudRepository<MessageActivite, Long>{
 
     
 }

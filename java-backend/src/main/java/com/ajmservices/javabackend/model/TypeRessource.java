@@ -2,7 +2,7 @@ package com.ajmservices.javabackend.model;
 
 import jakarta.persistence.*;
 
-
+@Entity
 public class TypeRessource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,6 +10,8 @@ public class TypeRessource {
 
     private String nom;
 
+    public TypeRessource() {
+    }
 
     public TypeRessource(String nom){
         this.nom = nom;

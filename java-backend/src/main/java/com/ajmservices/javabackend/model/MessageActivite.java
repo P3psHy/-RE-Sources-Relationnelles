@@ -1,8 +1,10 @@
 package com.ajmservices.javabackend.model;
 
+import java.util.Date;
+
 import jakarta.persistence.*;
 
-import java.util.Date;
+
 
 @Entity
 public class MessageActivite {

@@ -24,6 +24,14 @@ public class Ressource {
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
+    @ManyToOne
+    @JoinColumn(name = "id_categorie")
+    private Categorie categorie;
+
+    @ManyToOne
+    @JoinColumn(name = "id_type_ressource")
+    private TypeRessource typeRessource;
+
     @OneToOne(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Fichier fichier;
     

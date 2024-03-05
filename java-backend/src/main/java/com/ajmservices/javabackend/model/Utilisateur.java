@@ -41,6 +41,11 @@ public class Utilisateur {
     @OneToMany(mappedBy="utilisateur2", fetch = FetchType.EAGER)
     private Collection<MessageUtilisateur> recus;
 
+    @OneToMany(mappedBy = "utilisateur1")
+    private Set<RelationUtilisateur> relations1 = new HashSet<>();
+
+    @OneToMany(mappedBy = "utilisateur2")
+    private Set<RelationUtilisateur> relations2 = new HashSet<>();
 
     public Utilisateur() {
     }

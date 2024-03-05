@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class EtatRessource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idStatusRessource;
+    private int idEtatRessource;
 
     private String texte;
 
@@ -19,8 +19,8 @@ public class EtatRessource {
     }
 
     // Getters and Setters
-    public int getidStatusRessource() {
-        return idStatusRessource;
+    public int getidEtatRessource() {
+        return idEtatRessource;
     }
 
     public String getTexte() {
@@ -35,7 +35,7 @@ public class EtatRessource {
     @Override
     public String toString() {
         return "EtatRessource{" +
-                "idStatusRessource=" + idStatusRessource +
+                "idEtatRessource=" + idEtatRessource +
                 ", texte='" + texte +
                 '}';
     }

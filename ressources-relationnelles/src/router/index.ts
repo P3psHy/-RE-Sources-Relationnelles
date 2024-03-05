@@ -1,52 +1,68 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import BaseLayout from "@/components/BaseLayout.vue"
-import HomePage from '../views/HomePage.vue';
-import ProfilePage from '../views/ProfilePage.vue';
-import RessourcePage from '../views/RessourcePage.vue';
-import ConnectionPage from '../views/ConnectionPage.vue';
-import RessourceNew from '../views/RessourceNew.vue';
-import PrivacyPolicyPage from '../views/PrivacyPolicy.vue';
-import TermsConditionsPage from '../views/TermsConditions.vue';
+import HomePage from '@/views/HomePage.vue';
+import ProfilePage from '@/views/ProfilePage.vue';
+import RessourcePage from '@/views/RessourcePage.vue';
+import ConnectionPage from '@/views/ConnectionPage.vue';
+import RessourceNew from '@/views/RessourceNew.vue';
+import PrivacyPolicyPage from '@/views/PrivacyPolicy.vue';
+import TermsConditionsPage from '@/views/TermsConditions.vue';
+import ConnectionForm from '@/components/ConnectionForm.vue';
+import SubscriptionForm from '@/components/SubscriptionForm.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     component: BaseLayout,
-    redirect: "/home",
+    redirect: "home",
     children: [
       {
-        path: '/home',
+        path: 'home',
         name: 'Home',
         component: HomePage
       },
       {
-        path: '/connect',
+        // la redirection se fait quand le / est absent au début du path
+        path: 'us',
         name: 'Connection',
-        component: ConnectionPage
+        component: ConnectionPage,
+        redirect: "/us/connexion",
+        children: [
+          {
+            path: 'connexion',
+            name: 'Connexion',
+            component: ConnectionForm
+          },
+          {
+            path: 'inscription',
+            name: 'Inscription',
+            component: SubscriptionForm
+          }
+        ]
       },
       {
-        path: '/profile',
+        path: 'profile',
         name: 'Profile',
         component: ProfilePage
       },
       {
-        path: '/ressource',
+        path: 'ressource',
         name: 'Ressource',
         component: RessourcePage
       },
       {
-        path: '/ressource/new',
+        path: 'ressource/new',
         name: 'RessourceNew',
         component: RessourceNew
       },
       {
-        path: '/privacy-policy',
+        path: 'privacy-policy',
         name: 'PrivacyPolicy',
         component: PrivacyPolicyPage
       },
       {
-        path: '/terms-conditions',
+        path: 'terms-conditions',
         name: 'TermsConditions',
         component: TermsConditionsPage
       }

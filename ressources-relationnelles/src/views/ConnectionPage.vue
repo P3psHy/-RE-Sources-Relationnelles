@@ -7,7 +7,7 @@
     </ion-header>
 
     <div id="container">
-      <strong>Cette page servira à se connecter ou à créer son compte d'utilisateur</strong>
+      <router-view></router-view>
     </div>
   </ion-content>
 </template>
@@ -26,11 +26,6 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-  }
-  
-  #container strong {
-    font-size: 20px;
-    line-height: 26px;
   }
   
   #container p {

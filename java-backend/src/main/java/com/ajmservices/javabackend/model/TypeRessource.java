@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class TypeRessource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTypeRessource;
+    private Long idTypeRessource;
 
     private String nom;
 
@@ -19,11 +19,11 @@ public class TypeRessource {
     }
 
     // Getters and Setters
-    public int getIdTypeRessource() {
+    public Long getIdTypeRessource() {
         return this.idTypeRessource;
     }
 
-    public void setIdTypeRessource(int idTypeRessource) {
+    public void setIdTypeRessource(Long idTypeRessource) {
         this.idTypeRessource = idTypeRessource;
     }
 

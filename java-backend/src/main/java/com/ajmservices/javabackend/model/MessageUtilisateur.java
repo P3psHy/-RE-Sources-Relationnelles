@@ -8,7 +8,7 @@ import java.util.Date;
 public class MessageUtilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idMessageUtilisateur;
+    private Long idMessageUtilisateur;
 
     private String message;
     private Date dateMessageUtilisateur;
@@ -35,11 +35,11 @@ public class MessageUtilisateur {
     }
 
     // Getters and Setters
-    public int getIdMessageUtilisateur() {
+    public Long getIdMessageUtilisateur() {
         return idMessageUtilisateur;
     }
 
-    public void setIdMessageUtilisateur(int idMessageUtilisateur) {
+    public void setIdMessageUtilisateur(Long idMessageUtilisateur) {
         this.idMessageUtilisateur = idMessageUtilisateur;
     }
 

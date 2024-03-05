@@ -8,7 +8,7 @@ import java.util.Date;
 public class Reponse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idReponse;
+    private Long idReponse;
 
     private String texte;
     private Date dateReponse;
@@ -35,11 +35,11 @@ public class Reponse {
     }
 
     // Getters and Setters
-    public int getIdReponse() {
+    public Long getIdReponse() {
         return idReponse;
     }
 
-    public void setIdReponse(int idReponse) {
+    public void setIdReponse(Long idReponse) {
         this.idReponse = idReponse;
     }
 

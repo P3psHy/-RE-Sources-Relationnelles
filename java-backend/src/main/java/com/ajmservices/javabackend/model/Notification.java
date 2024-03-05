@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idNotification;
+    private Long idNotification;
 
     private String titre;
     private String texte;
@@ -31,11 +31,11 @@ public class Notification {
     }
 
     // Getters and Setters
-    public int getIdNotification() {
+    public Long getIdNotification() {
         return idNotification;
     }
 
-    public void setIdNotification(int idNotification) {
+    public void setIdNotification(Long idNotification) {
         this.idNotification = idNotification;
     }
 

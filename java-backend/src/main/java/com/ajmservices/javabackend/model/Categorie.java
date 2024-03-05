@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCategorie;
+    private Long idCategorie;
 
     private String nom;
 
@@ -19,7 +19,7 @@ public class Categorie {
     }
 
     // Getters and Setters
-    public int getIdCategorie() {
+    public Long getIdCategorie() {
         return idCategorie;
     }
 

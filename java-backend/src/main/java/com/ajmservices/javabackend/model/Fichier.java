@@ -8,7 +8,7 @@ public class Fichier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idFichier;
+    private Long idFichier;
 
     private String nom;
     private float tailleFichier;
@@ -25,7 +25,7 @@ public class Fichier {
     }
 
     // Getters and Setters
-    public int getIdEtatRessource() {
+    public Long getIdFichier() {
         return this.idFichier;
     }
 

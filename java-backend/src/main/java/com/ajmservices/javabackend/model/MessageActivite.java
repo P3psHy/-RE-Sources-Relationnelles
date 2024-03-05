@@ -8,7 +8,7 @@ import java.util.Date;
 public class MessageActivite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idMessageActivite;
+    private Long idMessageActivite;
 
     private String message;
     private Date dateMessageActivite;
@@ -35,11 +35,11 @@ public class MessageActivite {
     }
 
     // Getters and Setters
-    public int getIdMessageActivite() {
+    public Long getIdMessageActivite() {
         return idMessageActivite;
     }
 
-    public void setIdMessageActivite(int idMessageActivite) {
+    public void setIdMessageActivite(Long idMessageActivite) {
         this.idMessageActivite = idMessageActivite;
     }
 

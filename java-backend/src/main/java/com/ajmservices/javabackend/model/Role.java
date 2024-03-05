@@ -8,7 +8,7 @@ import java.util.List;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRole;
+    private Long idRole;
 
     private String typeRole;
 
@@ -24,7 +24,7 @@ public class Role {
     }
 
     // Getters and Setters
-    public int getIdRole() {
+    public Long getIdRole() {
         return idRole;
     }
 

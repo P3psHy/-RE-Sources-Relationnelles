@@ -11,7 +11,7 @@ import java.util.Set;
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUtilisateur;
+    private Long idUtilisateur;
 
     private String nom;
     private String prenom;
@@ -63,11 +63,11 @@ public class Utilisateur {
     }
 
     // Getters and Setters
-    public int getIdUtilisateur() {
+    public Long getIdUtilisateur() {
         return idUtilisateur;
     }
 
-    public void setIdUtilisateur(int idUtilisateur) {
+    public void setIdUtilisateur(Long idUtilisateur) {
         this.idUtilisateur = idUtilisateur;
     }
 

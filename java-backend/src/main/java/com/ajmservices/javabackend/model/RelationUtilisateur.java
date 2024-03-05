@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class RelationUtilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRelationUtilisateur;
+    private Long idRelationUtilisateur;
 
     private boolean estAccepte;
 
@@ -30,11 +30,11 @@ public class RelationUtilisateur {
 
     }
 
-    public int getIdRelationUtilisateur() {
+    public Long getIdRelationUtilisateur() {
         return this.idRelationUtilisateur;
     }
 
-    public void setIdRelationUtilisateur(int idRelationUtilisateur) {
+    public void setIdRelationUtilisateur(Long idRelationUtilisateur) {
         this.idRelationUtilisateur = idRelationUtilisateur;
     }
 

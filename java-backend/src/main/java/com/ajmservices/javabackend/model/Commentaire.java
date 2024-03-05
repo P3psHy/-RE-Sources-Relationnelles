@@ -8,7 +8,7 @@ import java.util.Date;
 public class Commentaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCommentaire;
+    private Long idCommentaire;
 
     private String texte;
     private Date dateCommentaire;
@@ -35,11 +35,11 @@ public class Commentaire {
     }
 
     // Getters and Setters
-    public int getIdCommentaire() {
+    public Long getIdCommentaire() {
         return idCommentaire;
     }
 
-    public void setIdCommentaire(int idCommentaire) {
+    public void setIdCommentaire(Long idCommentaire) {
         this.idCommentaire = idCommentaire;
     }
 

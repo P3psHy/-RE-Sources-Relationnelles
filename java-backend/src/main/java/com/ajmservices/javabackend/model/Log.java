@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idLog;
+    private Long idLog;
 
     private String textLog;
 
@@ -29,11 +29,11 @@ public class Log {
     }
 
     // Getters and Setters
-    public int getIdLog() {
+    public Long getIdLog() {
         return idLog;
     }
 
-    public void setIdLog(int idLog) {
+    public void setIdLog(Long idLog) {
         this.idLog = idLog;
     }
 

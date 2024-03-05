@@ -11,7 +11,7 @@ import java.util.Set;
 public class Ressource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRessource;
+    private Long idRessource;
 
     private String titre;
     private String description;
@@ -38,11 +38,11 @@ public class Ressource {
     @OneToMany(mappedBy = "ressource")
     private Set<Commentaire> commentaires = new HashSet<>();
 
-    public int getIdRessource() {
+    public Long getIdRessource() {
         return idRessource;
     }
 
-    public void setIdRessource(int idRessource) {
+    public void setIdRessource(Long idRessource) {
         this.idRessource = idRessource;
     }
 

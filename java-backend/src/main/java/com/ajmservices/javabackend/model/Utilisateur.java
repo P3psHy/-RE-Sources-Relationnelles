@@ -28,7 +28,15 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur")
     private Set<Ressource> ressources = new HashSet<>();
 
-    // Constructors
+    @ManyToMany
+    @JoinTable(name = "_utilisateur_ressource_favoris",
+               joinColumns = @JoinColumn(name = "id_utilisateur"),
+               inverseJoinColumns = @JoinColumn(name = "id_ressource"))
+    private Set<Ressource> ressourcesFavoris = new HashSet<>();
+
+
+
+
     public Utilisateur() {
     }
 
@@ -132,6 +140,15 @@ public class Utilisateur {
     // Setter pour ressources
     public void setRessources(Set<Ressource> ressources) {
         this.ressources = ressources;
+    }
+
+    public Set<Ressource> getRessourcesFavoris() {
+        return ressourcesFavoris;
+    }
+
+    // Setter pour ressourcesFavoris
+    public void setRessourcesFavoris(Set<Ressource> ressourcesFavoris) {
+        this.ressourcesFavoris = ressourcesFavoris;
     }
 
     // toString method

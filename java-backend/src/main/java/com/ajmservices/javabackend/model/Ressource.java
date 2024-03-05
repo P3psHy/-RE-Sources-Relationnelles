@@ -22,7 +22,9 @@ public class Ressource {
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_fichier", referencedColumnName = "id_ressource")
+    private Fichier fichier;
 
     public int getIdRessource() {
         return idRessource;
@@ -86,5 +88,14 @@ public class Ressource {
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
+    }
+
+    public Fichier getFichier() {
+        return fichier;
+    }
+
+    // Setter pour fichier
+    public void setFichier(Fichier fichier) {
+        this.fichier = fichier;
     }
 }

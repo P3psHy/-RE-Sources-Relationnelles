@@ -19,7 +19,7 @@ public class EtatRessource {
     }
 
     // Getters and Setters
-    public int getidEtatRessource() {
+    public int getIdEtatRessource() {
         return idEtatRessource;
     }
 

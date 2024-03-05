@@ -21,7 +21,7 @@ public class TypeRelation {
     }
 
     // Getters and Setters
-    public int getID() {
+    public int getIdTypeRelation() {
         return this.idTypeRelation;
     }
 

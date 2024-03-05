@@ -19,7 +19,7 @@ public class TypeRessource {
     }
 
     // Getters and Setters
-    public int getID() {
+    public int getIdTypeRessource() {
         return this.idTypeRessource;
     }
 

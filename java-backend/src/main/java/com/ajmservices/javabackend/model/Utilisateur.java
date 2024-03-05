@@ -3,6 +3,8 @@ package com.ajmservices.javabackend.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Utilisateur {
@@ -22,6 +24,9 @@ public class Utilisateur {
     @ManyToOne
     @JoinColumn(name = "id_role")
     private Role role;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private Set<Ressource> ressources = new HashSet<>();
 
     // Constructors
     public Utilisateur() {
@@ -118,6 +123,15 @@ public class Utilisateur {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Set<Ressource> getRessources() {
+        return ressources;
+    }
+
+    // Setter pour ressources
+    public void setRessources(Set<Ressource> ressources) {
+        this.ressources = ressources;
     }
 
     // toString method

@@ -23,10 +23,6 @@ public class Categorie {
         return idCategorie;
     }
 
-    public void setIdCategorie(int idCategorie) {
-        this.idCategorie = idCategorie;
-    }
-
     public String getNom() {
         return nom;
     }

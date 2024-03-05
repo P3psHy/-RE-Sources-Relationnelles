@@ -33,4 +33,13 @@ public class TypeRessource {
         this.nom = nom;
     }
 
+        // toString method
+        @Override
+        public String toString() {
+            return "Role{" +
+                    "idRole=" + idTypeRessource +
+                    ", typeRole='" + nom +
+                    '}';
+        }
+
 }

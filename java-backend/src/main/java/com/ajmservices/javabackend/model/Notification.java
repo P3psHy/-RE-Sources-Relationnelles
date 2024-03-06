@@ -14,7 +14,7 @@ public class Notification {
     private String texte;
 
     @ManyToOne
-    @JoinColumn(name = "idUtilisateur")
+    @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
     private Date dateNotification;

@@ -47,6 +47,7 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur2")
     private Set<RelationUtilisateur> relations2 = new HashSet<>();
 
+    
     public Utilisateur() {
     }
 

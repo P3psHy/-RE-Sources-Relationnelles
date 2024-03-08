@@ -6,11 +6,14 @@ import org.springframework.stereotype.Service;
 import com.ajmservices.javabackend.model.Utilisateur;
 import com.ajmservices.javabackend.repository.UtilisateurRepository;
 
+
+
 @Service
 public class UtilisateurService {
 
     @Autowired
     private UtilisateurRepository utilisateurRepository;
+    
 
     public Utilisateur createUtilisateur(Utilisateur utilisateur) {
         return utilisateurRepository.save(utilisateur);
@@ -32,4 +35,7 @@ public class UtilisateurService {
     public void deleteUtilisateur(Long id) {
         utilisateurRepository.deleteById(id);
     }
+
+    
+
 }

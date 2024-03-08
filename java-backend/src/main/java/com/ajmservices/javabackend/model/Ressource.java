@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Ressource {
@@ -22,6 +23,7 @@ public class Ressource {
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
+    @JsonBackReference
     private Utilisateur utilisateur;
 
     @ManyToOne
@@ -34,7 +36,7 @@ public class Ressource {
 
     @OneToOne(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Fichier fichier;
-    
+
     @OneToMany(mappedBy = "ressource")
     private Set<Commentaire> commentaires = new HashSet<>();
 
@@ -110,16 +112,13 @@ public class Ressource {
     public void setFichier(Fichier fichier) {
         this.fichier = fichier;
     }
-    
+
     public Set<Commentaire> getCommentaires() {
         return commentaires;
     }
 
     @ManyToMany
-    @JoinTable(
-        name = "_lier_ressource_type_relation", 
-        joinColumns = @JoinColumn(name = "id_ressource"), 
-        inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
+    @JoinTable(name = "_lier_ressource_type_relation", joinColumns = @JoinColumn(name = "id_ressource"), inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
     Set<TypeRelation> linkedTypeRelations;
 
     // toString method

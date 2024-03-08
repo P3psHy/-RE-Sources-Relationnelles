@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Utilisateur {
     @Id
@@ -27,18 +29,17 @@ public class Utilisateur {
     private Role role;
 
     @OneToMany(mappedBy = "utilisateur")
+    @JsonManagedReference
     private Set<Ressource> ressources = new HashSet<>();
 
     @ManyToMany
-    @JoinTable(name = "_utilisateur_ressource_favoris",
-               joinColumns = @JoinColumn(name = "id_utilisateur"),
-               inverseJoinColumns = @JoinColumn(name = "id_ressource"))
+    @JoinTable(name = "_utilisateur_ressource_favoris", joinColumns = @JoinColumn(name = "id_utilisateur"), inverseJoinColumns = @JoinColumn(name = "id_ressource"))
     private Set<Ressource> ressourcesFavoris = new HashSet<>();
 
-    @OneToMany(mappedBy="utilisateur1", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "utilisateur1", fetch = FetchType.EAGER)
     private Collection<MessageUtilisateur> envoyes;
 
-    @OneToMany(mappedBy="utilisateur2", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "utilisateur2", fetch = FetchType.EAGER)
     private Collection<MessageUtilisateur> recus;
 
     @OneToMany(mappedBy = "utilisateur1")
@@ -47,7 +48,6 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur2")
     private Set<RelationUtilisateur> relations2 = new HashSet<>();
 
-    
     public Utilisateur() {
     }
 

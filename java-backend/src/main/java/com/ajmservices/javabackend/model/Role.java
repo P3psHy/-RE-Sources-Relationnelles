@@ -15,6 +15,8 @@ public class Role {
     @OneToMany(mappedBy = "role")
     private List<Utilisateur> utilisateurs;
 
+
+    
     // Constructors
     public Role() {
     }

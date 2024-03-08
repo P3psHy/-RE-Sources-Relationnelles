@@ -10,6 +10,8 @@ import PrivacyPolicyPage from '@/views/PrivacyPolicy.vue';
 import TermsConditionsPage from '@/views/TermsConditions.vue';
 import ConnectionForm from '@/components/ConnectionForm.vue';
 import SubscriptionForm from '@/components/SubscriptionForm.vue';
+import ProfileData from '@/components/ProfileData.vue';
+import ProfileFiles from '@/components/ProfileFiles.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -44,7 +46,13 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'profile',
         name: 'Profile',
-        component: ProfilePage
+        component: ProfileFiles,
+      },
+      {
+          path: 'profile/data',
+          name: 'InfoProfile',
+          component: ProfileData
+          
       },
       {
         path: 'ressource',

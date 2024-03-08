@@ -8,8 +8,10 @@
                     </ion-col>
                     <ion-col>
                         <ion-segment ref="pageName" v-model="pageName">
-                            <ion-segment-button router-link="/ressource/new" value="Ressource">Publier</ion-segment-button>
-                            <ion-segment-button router-link="/us/connexion" value="Connection">Se connecter</ion-segment-button>
+                            <ion-segment-button router-link="/ressource" value="Ressource">Publier</ion-segment-button>
+                            <ion-segment-button router-link="/us/connexion" value="Connection">Se déconnecter</ion-segment-button>
+                            <ion-segment-button router-link="/profile" value="Profile">Mon profil</ion-segment-button>
+                            <ion-segment-button router-link="/notifications" value="Profile">🔔</ion-segment-button>
                         </ion-segment>
                     </ion-col>
                 </ion-row>

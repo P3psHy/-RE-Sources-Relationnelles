@@ -27,9 +27,11 @@ public class Commentaire {
     }
 
     public Commentaire(String texte, Date dateCommentaire,
-            Ressource ressource, Utilisateur utilisateur) {
+        Ressource ressource, Utilisateur utilisateur) {
         this.texte = texte;
         this.dateCommentaire = dateCommentaire;
+        // Générer la date et heure du commentaire à son instanciation
+        // this.dateCommentaire = new Date();
         this.ressource = ressource;
         this.utilisateur = utilisateur;
     }

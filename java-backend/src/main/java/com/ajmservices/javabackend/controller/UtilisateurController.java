@@ -17,7 +17,7 @@ public class UtilisateurController {
     public Utilisateur createUtilisateur(@RequestBody Utilisateur utilisateur) {
         return utilisateurService.createUtilisateur(utilisateur);
     }
-w
+
     @GetMapping
     public Iterable<Utilisateur> getAllUtilisateurs() {
         return utilisateurService.getAllUtilisateurs();

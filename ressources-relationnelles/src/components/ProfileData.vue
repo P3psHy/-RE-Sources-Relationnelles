@@ -16,7 +16,7 @@
 </template> -->
 
 <!-- <script setup lang="ts"> -->
-// import { IonContent } from '@ionic/vue';
+<!-- // import { IonContent } from '@ionic/vue';
 // import axios from 'axios';
 // import {reactive, onMounted} from 'vue';
 
@@ -32,7 +32,7 @@
       
 //     });
 
-//     console.log(jsonData);  
+//     console.log(jsonData);   -->
 
 <!-- </script> -->
 
@@ -40,12 +40,12 @@
 <template>
   <IonContent>
     <div class="ion-padding">
-      <p v-if="premierUtilisateur">Nom: {{ premierUtilisateur.nom }}</p>
-      <p v-if="premierUtilisateur">Prénom: {{ premierUtilisateur.prenom }}</p>
-      <p v-if="premierUtilisateur">Email: {{ premierUtilisateur.mail }}</p>
-      <ion-button>Changer le mot de passe</ion-button>
-      <p></p>
-      <ion-button>Supprimer le compte</ion-button>
+        <p v-if="premierUtilisateur">Nom: {{ premierUtilisateur.nom }}</p>
+        <p v-if="premierUtilisateur">Prénom: {{ premierUtilisateur.prenom }}</p>
+        <p v-if="premierUtilisateur">Email: {{ premierUtilisateur.mail }}</p>
+        <ion-button>Changer le mot de passe</ion-button>
+        <p></p>
+        <ion-button>Supprimer le compte</ion-button>
     </div>
   </IonContent>
 </template>
@@ -82,9 +82,9 @@ export default {
 
 <style scoped>
 .ion-padding {
-text-align: center;
-padding: 1rem;
-margin-left: auto;
-margin-right: auto;
+    text-align: center;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>

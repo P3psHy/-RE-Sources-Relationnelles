@@ -1,0 +1,27 @@
+[
+    {
+        "idTypeRelation": 1,
+        "titre": "Famille",
+        "description": "Parents, enfants, fratrie, etc"
+    },
+    {
+        "idTypeRelation": 2,
+        "titre": "Conjoints",
+        "description": ""
+    },
+    {
+        "idTypeRelation": 3,
+        "titre": "Professionnelle",
+        "description": "Collègues, collaborateurs et managers"
+    },
+    {
+        "idTypeRelation": 4,
+        "titre": "Amis et communautés",
+        "description": ""
+    },
+    {
+        "idTypeRelation": 5,
+        "titre": "Inconnus",
+        "description": ""
+    }
+]

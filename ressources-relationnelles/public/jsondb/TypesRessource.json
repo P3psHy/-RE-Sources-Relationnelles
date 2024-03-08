@@ -1,0 +1,34 @@
+[
+    {
+        "idTypeRessource": 1,
+        "nom": "Activité / Jeu à réaliser"
+    },
+    {
+        "idTypeRessource": 2,
+        "nom": "Article"
+    },
+    {
+        "idTypeRessource": 3,
+        "nom": "Carte défi"
+    },
+    {
+        "idTypeRessource": 4,
+        "nom": "Cours au format PDF"
+    },
+    {
+        "idTypeRessource": 5,
+        "nom": "Exercice / Atelier"
+    },
+    {
+        "idTypeRessource": 6,
+        "nom": "Fiche de lecture"
+    },
+    {
+        "idTypeRessource": 7,
+        "nom": "Jeu en ligne"
+    },
+    {
+        "idTypeRessource": 8,
+        "nom": "Vidéo"
+    }
+]

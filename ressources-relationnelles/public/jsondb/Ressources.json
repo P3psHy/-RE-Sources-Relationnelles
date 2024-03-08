@@ -1,0 +1,387 @@
+[
+    {
+        "idRessource": 1,
+        "titre": "Apprenez à votre enfant à tomber",
+        "description": "Jeter votre enfant par la fenêtre et voyez sa réaction.",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 7,
+        "nbRecherche": 2,
+        "nbPartage": 1,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 7,
+            "nom": "Parentalité"
+        },
+        "typeRessource": {
+            "idTypeRessource": 6,
+            "nom": "Fiche de lecture"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 2,
+        "titre": "hrgtsvsbgrthgevsbr",
+        "description": "gbref bver gzrea gfv zgt rategrztrhs gre",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 486,
+        "nbRecherche": 15,
+        "nbPartage": 5,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 7,
+            "nom": "Parentalité"
+        },
+        "typeRessource": {
+            "idTypeRessource": 2,
+            "nom": "Article"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 3,
+        "titre": "lukiyjrthrgfed",
+        "description": "rehy( -ehzbqer tytèejh grz t z-'hgrt",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 453,
+        "nbRecherche": 21,
+        "nbPartage": 8,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 7,
+            "nom": "Parentalité"
+        },
+        "typeRessource": {
+            "idTypeRessource": 2,
+            "nom": "Article"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 4,
+        "titre": "zqgresht htzybrt",
+        "description": "g'tzhb gtbgtrsb rqeztgseth(rsge ",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 74,
+        "nbRecherche": 6,
+        "nbPartage": 2,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 7,
+            "nom": "Parentalité"
+        },
+        "typeRessource": {
+            "idTypeRessource": 2,
+            "nom": "Article"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 5,
+        "titre": "yterhsbt thzgsrtqeh e",
+        "description": "fceqtzrh ytegq frea zhgrq etzyjhzgrath g'ezrf",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 75,
+        "nbRecherche": 12,
+        "nbPartage": 8,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 10,
+            "nom": "Santé physique"
+        },
+        "typeRessource": {
+            "idTypeRessource": 2,
+            "nom": "Article"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 6,
+        "titre": "erg zthgteaghrtzt reagfzer",
+        "description": " erbtgrgbtey(rbvqrezgt rgvar egzreagfergt frazegt(argf reztr",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 13,
+        "nbRecherche": 3,
+        "nbPartage": 8,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 7,
+            "nom": "Parentalité"
+        },
+        "typeRessource": {
+            "idTypeRessource": 6,
+            "nom": "Fiche de lecture"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 7,
+        "titre": "bsrhbts hbzrsbtrhhbrzt qrhgrtsh",
+        "description": "fzgrh tbryhjet rsgtez'hbterq gtzyhjsgre frae",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 42,
+        "nbRecherche": 7,
+        "nbPartage": 6,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 7,
+            "nom": "Parentalité"
+        },
+        "typeRessource": {
+            "idTypeRessource": 2,
+            "nom": "Article"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 8,
+        "titre": "gtz etghyrhte gergtvzt re",
+        "description": "grthbgr qegthgqfger zteqfrev eztgreqzgt rezgreatre fgre",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 3,
+        "nbRecherche": 0,
+        "nbPartage": 0,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 7,
+            "nom": "Parentalité"
+        },
+        "typeRessource": {
+            "idTypeRessource": 6,
+            "nom": "Fiche de lecture"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 9,
+        "titre": "fqregztregv rzqgfrae",
+        "description": "JerzgvtrzfzeREG REQFGREG REAGREGFgf rezg ergvreg",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 0,
+        "nbRecherche": 0,
+        "nbPartage": 0,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 7,
+            "nom": "Parentalité"
+        },
+        "typeRessource": {
+            "idTypeRessource": 2,
+            "nom": "Article"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 10,
+        "titre": "vegrthbgreqg tzhgegttr",
+        "description": "gezrbreg tregtter qgvrzbvfeqzr fqgrzegerqgtr",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 61,
+        "nbRecherche": 31,
+        "nbPartage": 2,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 10,
+            "nom": "Santé physique"
+        },
+        "typeRessource": {
+            "idTypeRessource": 2,
+            "nom": "Article"
+        },
+        "fichier": null,
+        "commentaires": []
+    },
+    {
+        "idRessource": 11,
+        "titre": "vsrzgtze gfreagvet",
+        "description": "vgetrb rtqegrezgrqe gftrz qrtr vbgergres",
+        "datePublication": "2024-03-08T09:52:50",
+        "nbConsultation": 74,
+        "nbRecherche": 64,
+        "nbPartage": 2,
+        "utilisateur": {
+            "idUtilisateur": 3,
+            "nom": "Scardin",
+            "prenom": "Maëlly",
+            "mail": "mscardin@gmail.fr",
+            "motDePasse": "lemotdepassetropbeau",
+            "departement": "Côtes d'Armor",
+            "status": true,
+            "dateDesactivation": null,
+            "dateCreation": "2024-02-08T09:30:30",
+            "role": {
+                "idRole": 1,
+                "typeRole": "Utilisateur"
+            },
+            "ressources": []
+        },
+        "categorie": {
+            "idCategorie": 7,
+            "nom": "Parentalité"
+        },
+        "typeRessource": {
+            "idTypeRessource": 6,
+            "nom": "Fiche de lecture"
+        },
+        "fichier": null,
+        "commentaires": []
+    }
+]

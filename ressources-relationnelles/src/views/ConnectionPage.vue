@@ -1,30 +1,20 @@
 <template>
-    <ion-page>
-      <ion-header :translucent="true">
-        <ion-toolbar>
-          <ion-title>Page de connection/inscription</ion-title>
-          <ion-button router-link="/home">Accueil</ion-button>
-          <ion-button router-link="/ressource">Publier</ion-button>
-          <ion-button router-link="/profile">Mon profil</ion-button>
-        </ion-toolbar>
-      </ion-header>
-  
-      <ion-content :fullscreen="true">
-        <ion-header collapse="condense">
-          <ion-toolbar>
-            <ion-title size="large">Blank</ion-title>
-          </ion-toolbar>
-        </ion-header>
-  
-        <div id="container">
-          <strong>Cette page servira à se connecter ou à créer son compte d'utilisateur</strong>
-        </div>
-      </ion-content>
-    </ion-page>
-  </template>
+  <ion-content :fullscreen="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Blank</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <div id="container">
+      <router-view></router-view>
+    </div>
+  </ion-content>
+</template>
   
   <script setup lang="ts">
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+    import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+    
   </script>
   
   <style scoped>
@@ -36,11 +26,6 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-  }
-  
-  #container strong {
-    font-size: 20px;
-    line-height: 26px;
   }
   
   #container p {

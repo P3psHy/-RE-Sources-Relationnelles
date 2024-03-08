@@ -121,4 +121,23 @@ public class Ressource {
         joinColumns = @JoinColumn(name = "id_ressource"), 
         inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
     Set<TypeRelation> linkedTypeRelations;
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Ressource{" +
+                "idRessource=" + idRessource +
+                ", titre='" + titre + '\'' +
+                ", description='" + description + '\'' +
+                ", datePublication='" + datePublication + '\'' +
+                ", nbConsultation='" + nbConsultation + '\'' +
+                ", nbPartage='" + nbPartage + '\'' +
+                ", nbRecherche=" + nbRecherche + '\'' +
+                ", utilisateur=" + utilisateur + '\'' +
+                ", categorie=" + categorie + '\'' +
+                ", typeRessource=" + typeRessource + '\'' +
+                ", fichier=" + fichier + '\'' +
+                ", commentaires=" + commentaires +
+                '}';
+    }
 }

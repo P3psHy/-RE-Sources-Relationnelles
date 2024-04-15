@@ -6,6 +6,11 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Ressource {
@@ -20,8 +25,10 @@ public class Ressource {
     private int nbRecherche;
     private int nbPartage;
 
-    @ManyToOne
-    @JoinColumn(name = "id_utilisateur")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_utilisateur", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private Utilisateur utilisateur;
 
     @ManyToOne
@@ -37,6 +44,24 @@ public class Ressource {
     
     @OneToMany(mappedBy = "ressource")
     private Set<Commentaire> commentaires = new HashSet<>();
+
+    public Ressource() {
+    }
+
+    public Ressource(String titre, String description, Date datePublication, int nbConsultation,
+            int nbRecherche, int nbPartage, Utilisateur utilisateur, Categorie categorie, TypeRessource typeRessource,
+            Fichier fichier) {
+        this.titre = titre;
+        this.description = description;
+        this.datePublication = datePublication;
+        this.nbConsultation = nbConsultation;
+        this.nbRecherche = nbRecherche;
+        this.nbPartage = nbPartage;
+        this.utilisateur = utilisateur;
+        this.categorie = categorie;
+        this.typeRessource = typeRessource;
+        this.fichier = fichier;
+    }
 
     public Long getIdRessource() {
         return idRessource;

@@ -8,43 +8,43 @@ import jakarta.persistence.*;
 public class TypeRelation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idTypeRelation;
+    private Long id_type_relation;
 
-    private String titre;
-    private String description;
+    private String nom;
+    private String commentaire;
 
     public TypeRelation() {
     }
 
-    public TypeRelation(String titre, String description) {
-        this.titre = titre;
-        this.description = description;
+    public TypeRelation(String nom, String commentaire) {
+        this.nom = nom;
+        this.commentaire = commentaire;
 
     }
 
     // Getters and Setters
     public Long getIdTypeRelation() {
-        return this.idTypeRelation;
+        return this.id_type_relation;
     }
 
-    public void setIdTypeRelation(Long idTypeRelation) {
-        this.idTypeRelation = idTypeRelation;
+    public void setIdTypeRelation(Long id_type_relation) {
+        this.id_type_relation = id_type_relation;
     }
 
-    public String getTitre() {
-        return this.titre;
+    public String getNom() {
+        return this.nom;
     }
 
-    public void setTitre(String titre) {
-        this.titre = titre;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getDescription() {
-        return this.description;
+    public String getCommentaire() {
+        return this.commentaire;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     @ManyToMany(mappedBy = "linkedTypeRelations")
@@ -54,9 +54,9 @@ public class TypeRelation {
     @Override
     public String toString() {
         return "TypeRelation{" +
-                "idTypeRelation=" + idTypeRelation +
-                ", titre='" + titre + '\'' +
-                ", description='" + description +
+                "id_type_relation=" + id_type_relation +
+                ", nom='" + nom + '\'' +
+                ", commentaire='" + commentaire +
                 '}';
     }
 

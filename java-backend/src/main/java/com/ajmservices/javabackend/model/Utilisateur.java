@@ -13,16 +13,16 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUtilisateur;
+    private Long id_utilisateur;
 
     private String nom;
     private String prenom;
     private String mail;
-    private String motDePasse;
+    private String mot_de_passe;
     private String departement;
     private boolean statut;
-    private Date dateDesactivation;
-    private Date dateCreation;
+    private Date date_desactivation;
+    private Date date_creation;
 
     @ManyToOne
     @JoinColumn(name = "id_role")
@@ -51,25 +51,25 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String prenom, String mail, String motDePasse, String departement, boolean statut,
-            Date dateCreation, Role role) {
+    public Utilisateur(String nom, String prenom, String mail, String mot_de_passe, String departement, boolean statut,
+            Date date_creation, Role role) {
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
-        this.motDePasse = motDePasse;
+        this.mot_de_passe = mot_de_passe;
         this.departement = departement;
         this.statut = statut;
-        this.dateCreation = dateCreation;
+        this.date_creation = date_creation;
         this.role = role;
     }
 
     // Getters and Setters
     public Long getIdUtilisateur() {
-        return idUtilisateur;
+        return id_utilisateur;
     }
 
-    public void setIdUtilisateur(Long idUtilisateur) {
-        this.idUtilisateur = idUtilisateur;
+    public void setIdUtilisateur(Long id_utilisateur) {
+        this.id_utilisateur = id_utilisateur;
     }
 
     public String getNom() {
@@ -97,11 +97,11 @@ public class Utilisateur {
     }
 
     public String getMotDePasse() {
-        return motDePasse;
+        return mot_de_passe;
     }
 
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
+    public void setMotDePasse(String mot_de_passe) {
+        this.mot_de_passe = mot_de_passe;
     }
 
     public String getDepartement() {
@@ -121,19 +121,19 @@ public class Utilisateur {
     }
 
     public Date getDateDesactivation() {
-        return dateDesactivation;
+        return date_desactivation;
     }
 
-    public void setDateDesactivation(Date dateDesactivation) {
-        this.dateDesactivation = dateDesactivation;
+    public void setDateDesactivation(Date date_desactivation) {
+        this.date_desactivation = date_desactivation;
     }
 
     public Date getDateCreation() {
-        return dateCreation;
+        return date_creation;
     }
 
-    public void setDateCreation(Date dateCreation) {
-        this.dateCreation = dateCreation;
+    public void setDateCreation(Date date_creation) {
+        this.date_creation = date_creation;
     }
 
     public Role getRole() {
@@ -177,15 +177,15 @@ public class Utilisateur {
     @Override
     public String toString() {
         return "Utilisateur{" +
-                "idUtilisateur=" + idUtilisateur +
+                "id_utilisateur=" + id_utilisateur +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", mail='" + mail + '\'' +
-                ", motDePasse='" + motDePasse + '\'' +
+                ", mot_de_passe='" + mot_de_passe + '\'' +
                 ", departement='" + departement + '\'' +
                 ", statut=" + statut + '\'' +
-                ", dateDesactivation=" + dateDesactivation + '\'' +
-                ", dateCreation=" + dateCreation + '\'' +
+                ", date_desactivation=" + date_desactivation + '\'' +
+                ", date_creation=" + date_creation + '\'' +
                 ", role=" + role +
                 '}';
     }

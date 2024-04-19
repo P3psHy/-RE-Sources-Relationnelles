@@ -6,41 +6,41 @@ import jakarta.persistence.*;
 public class EtatRessource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEtatRessource;
+    private Long id_etat_ressource;
 
-    private String texte;
+    private String nom;
 
     // Constructors
     public EtatRessource() {
     }
 
-    public EtatRessource(String texte) {
-        this.texte = texte;
+    public EtatRessource(String nom) {
+        this.nom = nom;
     }
 
     // Getters and Setters
     public Long getIdEtatRessource() {
-        return idEtatRessource;
+        return id_etat_ressource;
     }
 
-    public void setIdEtatRessource(Long idEtatRessource) {
-        this.idEtatRessource = idEtatRessource;
+    public void setIdEtatRessource(Long id_etat_ressource) {
+        this.id_etat_ressource = id_etat_ressource;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getNom() {
+        return nom;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     // toString method
     @Override
     public String toString() {
         return "EtatRessource{" +
-                "idEtatRessource=" + idEtatRessource +
-                ", texte='" + texte +
+                "id_etat_ressource=" + id_etat_ressource +
+                ", nom='" + nom +
                 '}';
     }
 }

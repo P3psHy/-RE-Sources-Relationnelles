@@ -8,10 +8,10 @@ import java.util.Date;
 public class Reponse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idReponse;
+    private Long id_reponse;
 
-    private String texte;
-    private Date dateReponse;
+    private String contenu;
+    private Date date_reponse;
 
     @ManyToOne
     @JoinColumn(name = "id_commentaire")
@@ -26,37 +26,37 @@ public class Reponse {
     public Reponse() {
     }
 
-    public Reponse(String texte, Date dateReponse,
+    public Reponse(String contenu, Date dateReponse,
             Commentaire commentaire, Utilisateur utilisateur) {
-        this.texte = texte;
-        this.dateReponse = dateReponse;
+        this.contenu = contenu;
+        this.date_reponse = date_reponse;
         this.commentaire = commentaire;
         this.utilisateur = utilisateur;
     }
 
     // Getters and Setters
     public Long getIdReponse() {
-        return idReponse;
+        return id_reponse;
     }
 
-    public void setIdReponse(Long idReponse) {
-        this.idReponse = idReponse;
+    public void setIdReponse(Long id_reponse) {
+        this.id_reponse = id_reponse;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Date getDateReponse() {
-        return dateReponse;
+        return date_reponse;
     }
 
-    public void setDateReponse(Date dateReponse) {
-        this.dateReponse = dateReponse;
+    public void setDateReponse(Date date_reponse) {
+        this.date_reponse = date_reponse;
     }
 
     public Commentaire getCommentaire() {
@@ -79,9 +79,9 @@ public class Reponse {
     @Override
     public String toString() {
         return "Reponse{" +
-                "idReponse=" + idReponse +
-                ", texte='" + texte + '\'' +
-                ", dateReponse='" + dateReponse + '\'' +
+                "id_reponse=" + id_reponse +
+                ", contenu='" + contenu + '\'' +
+                ", date_reponse='" + date_reponse + '\'' +
                 ", commentaire=" + commentaire + '\'' +
                 ", utilisateur=" + utilisateur +
                 '}';

@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCategorie;
+    private Long id_categorie;
 
     private String nom;
 
@@ -20,11 +20,11 @@ public class Categorie {
 
     // Getters and Setters
     public Long getIdCategorie() {
-        return idCategorie;
+        return id_categorie;
     }
 
-    public void setIdCategorie(Long idCategorie) {
-        this.idCategorie = idCategorie;
+    public void setIdCategorie(Long id_categorie) {
+        this.id_categorie = id_categorie;
     }
 
     public String getNom() {
@@ -39,7 +39,7 @@ public class Categorie {
     @Override
     public String toString() {
         return "Categorie{" +
-                "idCategorie=" + idCategorie +
+                "id_categorie=" + id_categorie +
                 ", nom='" + nom +
                 '}';
     }

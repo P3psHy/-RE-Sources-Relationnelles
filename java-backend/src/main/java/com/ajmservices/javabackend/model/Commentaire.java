@@ -8,10 +8,10 @@ import java.util.Date;
 public class Commentaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCommentaire;
+    private Long id_commentaire;
 
-    private String texte;
-    private Date dateCommentaire;
+    private String contenu;
+    private Date date_commentaire;
 
     @ManyToOne
     @JoinColumn(name = "id_ressource")
@@ -26,10 +26,10 @@ public class Commentaire {
     public Commentaire() {
     }
 
-    public Commentaire(String texte, Date dateCommentaire,
+    public Commentaire(String contenu, Date date_commentaire,
         Ressource ressource, Utilisateur utilisateur) {
-        this.texte = texte;
-        this.dateCommentaire = dateCommentaire;
+        this.contenu = contenu;
+        this.date_commentaire = date_commentaire;
         // Générer la date et heure du commentaire à son instanciation
         // this.dateCommentaire = new Date();
         this.ressource = ressource;
@@ -38,27 +38,27 @@ public class Commentaire {
 
     // Getters and Setters
     public Long getIdCommentaire() {
-        return idCommentaire;
+        return id_commentaire;
     }
 
-    public void setIdCommentaire(Long idCommentaire) {
-        this.idCommentaire = idCommentaire;
+    public void setIdCommentaire(Long id_commentaire) {
+        this.id_commentaire = id_commentaire;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Date getDateCommentaire() {
-        return dateCommentaire;
+        return date_commentaire;
     }
 
-    public void setDateCommentaire(Date dateCommentaire) {
-        this.dateCommentaire = dateCommentaire;
+    public void setDateCommentaire(Date date_commentaire) {
+        this.date_commentaire = date_commentaire;
     }
 
     public Ressource getRessource() {
@@ -81,9 +81,9 @@ public class Commentaire {
     @Override
     public String toString() {
         return "Commentaire{" +
-                "idCommentaire=" + idCommentaire +
-                ", texte='" + texte + '\'' +
-                ", dateCommentaire='" + dateCommentaire + '\'' +
+                "id_commentaire=" + id_commentaire +
+                ", contenu='" + contenu + '\'' +
+                ", date_commentaire='" + date_commentaire + '\'' +
                 ", ressource=" + ressource + '\'' +
                 ", utilisateur=" + utilisateur +
                 '}';

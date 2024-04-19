@@ -6,9 +6,9 @@ import jakarta.persistence.*;
 public class RelationUtilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRelationUtilisateur;
+    private Long id_relation_utilisateur;
 
-    private boolean estAccepte;
+    private boolean est_accepte;
 
 
     @ManyToOne
@@ -31,19 +31,19 @@ public class RelationUtilisateur {
     }
 
     public Long getIdRelationUtilisateur() {
-        return this.idRelationUtilisateur;
+        return this.id_relation_utilisateur;
     }
 
-    public void setIdRelationUtilisateur(Long idRelationUtilisateur) {
-        this.idRelationUtilisateur = idRelationUtilisateur;
+    public void setIdRelationUtilisateur(Long id_relation_utilisateur) {
+        this.id_relation_utilisateur = id_relation_utilisateur;
     }
 
     public boolean isEstAccepte() {
-        return this.estAccepte;
+        return this.est_accepte;
     }
 
-    public void setEstAccepte(boolean estAccepte) {
-        this.estAccepte = estAccepte;
+    public void setEstAccepte(boolean est_accepte) {
+        this.est_accepte = est_accepte;
     }
 
     public Utilisateur getUtilisateur1() {

@@ -8,51 +8,51 @@ import jakarta.persistence.*;
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idNotification;
+    private Long id_notification;
 
     private String titre;
-    private String texte;
+    private String contenu;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
-    private Date dateNotification;
+    private Date date_notification;
 
     // Constructors
     public Notification() {
     }
 
-    public Notification(String titre, String texte, Utilisateur utilisateur, Date dateNotification) {
+    public Notification(String titre, String contenu, Utilisateur utilisateur, Date date_notification) {
         this.titre = titre;
-        this.texte = texte;
+        this.contenu = contenu;
         this.utilisateur = utilisateur;
-        this.dateNotification = dateNotification;
+        this.date_notification = date_notification;
     }
 
     // Getters and Setters
     public Long getIdNotification() {
-        return idNotification;
+        return id_notification;
     }
 
-    public void setIdNotification(Long idNotification) {
-        this.idNotification = idNotification;
+    public void setIdNotification(Long id_notification) {
+        this.id_notification = id_notification;
     }
 
     public String getTitre() {
-        return texte;
+        return titre;
     }
 
     public void setTitre(String titre) {
         this.titre = titre;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Utilisateur getUtilisateur() {
@@ -64,22 +64,22 @@ public class Notification {
     }
 
     public Date getDateNotification() {
-        return dateNotification;
+        return date_notification;
     }
 
-    public void setDateNotification(Date dateNotification) {
-        this.dateNotification = dateNotification;
+    public void setDateNotification(Date date_notification) {
+        this.date_notification = date_notification;
     }
 
     // toString method
     @Override
     public String toString() {
         return "Notification{" +
-                "idNotification=" + idNotification +
+                "id_notification=" + id_notification +
                 ", titre='" + titre + '\'' +
-                ", texte='" + texte + '\'' +
+                ", contenu='" + contenu + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
-                ", dateNotification=" + dateNotification +
+                ", date_notification=" + date_notification +
                 '}';
     }
 }

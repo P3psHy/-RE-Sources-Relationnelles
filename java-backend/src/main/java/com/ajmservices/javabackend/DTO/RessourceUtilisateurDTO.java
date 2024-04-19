@@ -3,15 +3,15 @@ package com.ajmservices.javabackend.DTO;
 import java.util.Date;
 
 public class RessourceUtilisateurDTO {
-    private Long idRessource;
+    private Long id_ressource;
     private String titre;
     private String description;
-    private Date datePublication;
-    private int nbConsultation;
-    private int nbRecherche;
-    private int nbPartage;
-    private String nomUser;
-    private String prenomUser;
+    private Date date_publication;
+    private int nb_consultation;
+    private int nb_recherche;
+    private int nb_Partage;
+    private String nom_utilisateur;
+    private String prenom_utilisateur;
 
     public RessourceUtilisateurDTO(){
 
@@ -19,11 +19,11 @@ public class RessourceUtilisateurDTO {
 
 
     public Long getIdRessource() {
-        return this.idRessource;
+        return this.id_ressource;
     }
 
-    public void setIdRessource(Long idRessource) {
-        this.idRessource = idRessource;
+    public void setIdRessource(Long id_ressource) {
+        this.id_ressource = id_ressource;
     }
 
     public String getTitre() {
@@ -43,51 +43,51 @@ public class RessourceUtilisateurDTO {
     }
 
     public Date getDatePublication() {
-        return this.datePublication;
+        return this.date_publication;
     }
 
-    public void setDatePublication(Date datePublication) {
-        this.datePublication = datePublication;
+    public void setDatePublication(Date date_publication) {
+        this.date_publication = date_publication;
     }
 
     public int getNbConsultation() {
-        return this.nbConsultation;
+        return this.nb_consultation;
     }
 
-    public void setNbConsultation(int nbConsultation) {
-        this.nbConsultation = nbConsultation;
+    public void setNbConsultation(int nb_consultation) {
+        this.nb_consultation = nb_consultation;
     }
 
     public int getNbRecherche() {
-        return this.nbRecherche;
+        return this.nb_recherche;
     }
 
-    public void setNbRecherche(int nbRecherche) {
-        this.nbRecherche = nbRecherche;
+    public void setNbRecherche(int nb_recherche) {
+        this.nb_recherche = nb_recherche;
     }
 
     public int getNbPartage() {
-        return this.nbPartage;
+        return this.nb_Partage;
     }
 
-    public void setNbPartage(int nbPartage) {
-        this.nbPartage = nbPartage;
+    public void setNbPartage(int nb_Partage) {
+        this.nb_Partage = nb_Partage;
     }
 
-    public String getNomUser() {
-        return this.nomUser;
+    public String getNomUtilisateur() {
+        return this.nom_utilisateur;
     }
 
-    public void setNomUser(String nomUser) {
-        this.nomUser = nomUser;
+    public void setNomUtilisateur(String nom_utilisateur) {
+        this.nom_utilisateur = nom_utilisateur;
     }
 
-    public String getPrenomUser() {
-        return this.prenomUser;
+    public String getPrenomUtilisateur() {
+        return this.prenom_utilisateur;
     }
 
-    public void setPrenomUser(String prenomUser) {
-        this.prenomUser = prenomUser;
+    public void setPrenomUtilisateur(String prenom_utilisateur) {
+        this.prenom_utilisateur = prenom_utilisateur;
     }
 
 }

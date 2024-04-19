@@ -8,10 +8,10 @@ import java.util.Date;
 public class MessageUtilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idMessageUtilisateur;
+    private Long id_message_utilisateur;
 
-    private String message;
-    private Date dateMessageUtilisateur;
+    private String contenu;
+    private Date date_message_utilisateur;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur1")
@@ -26,37 +26,37 @@ public class MessageUtilisateur {
     public MessageUtilisateur() {
     }
 
-    public MessageUtilisateur(String message, Date dateMessageUtilisateur,
+    public MessageUtilisateur(String contenu, Date date_message_utilisateur,
             Utilisateur utilisateur1, Utilisateur utilisateur2) {
-        this.message = message;
-        this.dateMessageUtilisateur = dateMessageUtilisateur;
+        this.contenu = contenu;
+        this.date_message_utilisateur = date_message_utilisateur;
         this.utilisateur1 = utilisateur1;
         this.utilisateur2 = utilisateur2;
     }
 
     // Getters and Setters
     public Long getIdMessageUtilisateur() {
-        return idMessageUtilisateur;
+        return id_message_utilisateur;
     }
 
-    public void setIdMessageUtilisateur(Long idMessageUtilisateur) {
-        this.idMessageUtilisateur = idMessageUtilisateur;
+    public void setIdMessageUtilisateur(Long id_message_utilisateur) {
+        this.id_message_utilisateur = id_message_utilisateur;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Date getDateMessageUtilisateur() {
-        return dateMessageUtilisateur;
+        return date_message_utilisateur;
     }
 
-    public void setDateMessageUtilisateur(Date dateMessageUtilisateur) {
-        this.dateMessageUtilisateur = dateMessageUtilisateur;
+    public void setDateMessageUtilisateur(Date date_message_utilisateur) {
+        this.date_message_utilisateur = date_message_utilisateur;
     }
 
     public Utilisateur getUtilisateur1() {
@@ -79,9 +79,9 @@ public class MessageUtilisateur {
     @Override
     public String toString() {
         return "MessageUtilisateur{" +
-                "idMessageUtilisateur=" + idMessageUtilisateur +
-                ", message='" + message + '\'' +
-                ", dateMessageUtilisateur='" + dateMessageUtilisateur + '\'' +
+                "id_message_utilisateur=" + id_message_utilisateur +
+                ", contenu='" + contenu + '\'' +
+                ", date_message_utilisateur='" + date_message_utilisateur + '\'' +
                 ", utilisateur1=" + utilisateur1 + '\'' +
                 ", utilisateur2=" + utilisateur2 +
                 '}';

@@ -55,8 +55,8 @@ public class RessourceService {
             dto.setNbConsultation(rs.getInt("nb_consultation"));
             dto.setNbRecherche(rs.getInt("nb_recherche"));
             dto.setNbPartage(rs.getInt("nb_partage"));
-            dto.setNomUser(rs.getString("nomUser"));
-            dto.setPrenomUser(rs.getString("prenomUser"));
+            dto.setNomUtilisateur(rs.getString("nomUtilisateur"));
+            dto.setPrenomUtilisateur(rs.getString("prenomUtilisateur"));
             return dto;
         }, ressourceId);
     }

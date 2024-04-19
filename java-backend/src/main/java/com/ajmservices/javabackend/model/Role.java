@@ -8,9 +8,9 @@ import java.util.List;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRole;
+    private Long id_role;
 
-    private String typeRole;
+    private String nom;
 
     @OneToMany(mappedBy = "role")
     private List<Utilisateur> utilisateurs;
@@ -21,33 +21,33 @@ public class Role {
     public Role() {
     }
 
-    public Role(String typeRole) {
-        this.typeRole = typeRole;
+    public Role(String nom) {
+        this.nom = nom;
     }
 
     // Getters and Setters
     public Long getIdRole() {
-        return idRole;
+        return id_role;
     }
 
-    public void setIdRole(Long idRole) {
-        this.idRole = idRole;
+    public void setIdRole(Long id_role) {
+        this.id_role = id_role;
     }
 
-    public String getTypeRole() {
-        return typeRole;
+    public String getNom() {
+        return nom;
     }
 
-    public void setTypeRole(String typeRole) {
-        this.typeRole = typeRole;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     // toString method
     @Override
     public String toString() {
         return "Role{" +
-                "idRole=" + idRole +
-                ", typeRole='" + typeRole +
+                "id_role=" + id_role +
+                ", nom='" + nom +
                 '}';
     }
 }

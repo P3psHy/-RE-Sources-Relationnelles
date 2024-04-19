@@ -8,41 +8,41 @@ import jakarta.persistence.*;
 public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idLog;
+    private Long id_log;
 
-    private String textLog;
+    private String contenu;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
-    private Date dateLog;
+    private Date date_log;
 
     // Constructors
     public Log() {
     }
 
-    public Log(String textLog, Utilisateur utilisateur, Date dateLog) {
-        this.textLog = textLog;
+    public Log(String contenu, Utilisateur utilisateur, Date dateLog) {
+        this.contenu = contenu;
         this.utilisateur = utilisateur;
-        this.dateLog = dateLog;
+        this.date_log = date_log;
     }
 
     // Getters and Setters
     public Long getIdLog() {
-        return idLog;
+        return id_log;
     }
 
-    public void setIdLog(Long idLog) {
-        this.idLog = idLog;
+    public void setIdLog(Long id_log) {
+        this.id_log = id_log;
     }
 
-    public String getTextLog() {
-        return textLog;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setTextLog(String textLog) {
-        this.textLog = textLog;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Utilisateur getUtilisateur() {
@@ -54,21 +54,21 @@ public class Log {
     }
 
     public Date getDateLog() {
-        return dateLog;
+        return date_log;
     }
 
-    public void setDateLog(Date dateLog) {
-        this.dateLog = dateLog;
+    public void setDateLog(Date date_log) {
+        this.date_log = date_log;
     }
 
     // toString method
     @Override
     public String toString() {
         return "Log{" +
-                "idLog=" + idLog +
-                ", textLog='" + textLog + '\'' +
+                "id_log=" + id_log +
+                ", contenu='" + contenu + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
-                ", dateLog=" + dateLog +
+                ", date_log=" + date_log +
                 '}';
     }
 }

@@ -10,10 +10,10 @@ import jakarta.persistence.*;
 public class MessageActivite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idMessageActivite;
+    private Long id_message_activite;
 
-    private String message;
-    private Date dateMessageActivite;
+    private String contenu;
+    private Date date_message_activite;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
@@ -28,37 +28,37 @@ public class MessageActivite {
     public MessageActivite() {
     }
 
-    public MessageActivite(String message, Date dateMessageActivite,
+    public MessageActivite(String contenu, Date date_message_activite,
             Utilisateur utilisateur, Activite activite) {
-        this.message = message;
-        this.dateMessageActivite = dateMessageActivite;
+        this.contenu = contenu;
+        this.date_message_activite = date_message_activite;
         this.utilisateur = utilisateur;
         this.activite = activite;
     }
 
     // Getters and Setters
     public Long getIdMessageActivite() {
-        return idMessageActivite;
+        return id_message_activite;
     }
 
-    public void setIdMessageActivite(Long idMessageActivite) {
-        this.idMessageActivite = idMessageActivite;
+    public void setIdMessageActivite(Long id_message_activite) {
+        this.id_message_activite = id_message_activite;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Date getDateMessageActivite() {
-        return dateMessageActivite;
+        return date_message_activite;
     }
 
-    public void setDateMessageActivite(Date dateMessageActivite) {
-        this.dateMessageActivite = dateMessageActivite;
+    public void setDateMessageActivite(Date date_message_activite) {
+        this.date_message_activite = date_message_activite;
     }
 
     public Utilisateur getUtilisateur() {
@@ -81,9 +81,9 @@ public class MessageActivite {
     @Override
     public String toString() {
         return "MessageActivite{" +
-                "idMessageActivite=" + idMessageActivite +
-                ", message='" + message + '\'' +
-                ", dateMessageActivite='" + dateMessageActivite + '\'' +
+                "id_message_activite=" + id_message_activite +
+                ", contenu='" + contenu + '\'' +
+                ", date_message_activite='" + date_message_activite + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
                 ", activite=" + activite +
                 '}';

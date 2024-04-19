@@ -12,14 +12,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Ressource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRessource;
+    private Long id_ressource;
 
     private String titre;
     private String description;
-    private Date datePublication;
-    private int nbConsultation;
-    private int nbRecherche;
-    private int nbPartage;
+    private Date date_publication;
+    private int nb_consultation;
+    private int nb_recherche;
+    private int nb_partage;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
@@ -41,11 +41,11 @@ public class Ressource {
     private Set<Commentaire> commentaires = new HashSet<>();
 
     public Long getIdRessource() {
-        return idRessource;
+        return id_ressource;
     }
 
-    public void setIdRessource(Long idRessource) {
-        this.idRessource = idRessource;
+    public void setIdRessource(Long id_ressource) {
+        this.id_ressource = id_ressource;
     }
 
     public String getTitre() {
@@ -65,35 +65,35 @@ public class Ressource {
     }
 
     public Date getDatePublication() {
-        return datePublication;
+        return date_publication;
     }
 
-    public void setDatePublication(Date datePublication) {
-        this.datePublication = datePublication;
+    public void setDatePublication(Date date_publication) {
+        this.date_publication = date_publication;
     }
 
     public int getNbConsultation() {
-        return nbConsultation;
+        return nb_consultation;
     }
 
-    public void setNbConsultation(int nbConsultation) {
-        this.nbConsultation = nbConsultation;
+    public void setNbConsultation(int nb_consultation) {
+        this.nb_consultation = nb_consultation;
     }
 
     public int getNbRecherche() {
-        return nbRecherche;
+        return nb_recherche;
     }
 
-    public void setNbRecherche(int nbRecherche) {
-        this.nbRecherche = nbRecherche;
+    public void setNbRecherche(int nb_recherche) {
+        this.nb_recherche = nb_recherche;
     }
 
     public int getNbPartage() {
-        return nbPartage;
+        return nb_partage;
     }
 
-    public void setNbPartage(int nbPartage) {
-        this.nbPartage = nbPartage;
+    public void setNbPartage(int nb_partage) {
+        this.nb_partage = nb_partage;
     }
 
     public Utilisateur getUtilisateur() {
@@ -125,13 +125,13 @@ public class Ressource {
     @Override
     public String toString() {
         return "Ressource{" +
-                "idRessource=" + idRessource +
+                "id_ressource=" + id_ressource +
                 ", titre='" + titre + '\'' +
                 ", description='" + description + '\'' +
-                ", datePublication='" + datePublication + '\'' +
-                ", nbConsultation='" + nbConsultation + '\'' +
-                ", nbPartage='" + nbPartage + '\'' +
-                ", nbRecherche=" + nbRecherche + '\'' +
+                ", date_publication='" + date_publication + '\'' +
+                ", nb_consultation='" + nb_consultation + '\'' +
+                ", nb_partage='" + nb_partage + '\'' +
+                ", nb_recherche=" + nb_recherche + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
                 ", categorie=" + categorie + '\'' +
                 ", typeRessource=" + typeRessource + '\'' +

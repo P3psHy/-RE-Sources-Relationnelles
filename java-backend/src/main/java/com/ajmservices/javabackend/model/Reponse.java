@@ -26,7 +26,7 @@ public class Reponse {
     public Reponse() {
     }
 
-    public Reponse(String contenu, Date dateReponse,
+    public Reponse(String contenu, Date date_reponse,
             Commentaire commentaire, Utilisateur utilisateur) {
         this.contenu = contenu;
         this.date_reponse = date_reponse;

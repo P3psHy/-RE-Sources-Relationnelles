@@ -22,7 +22,7 @@ public class Log {
     public Log() {
     }
 
-    public Log(String contenu, Utilisateur utilisateur, Date dateLog) {
+    public Log(String contenu, Utilisateur utilisateur, Date date_log) {
         this.contenu = contenu;
         this.utilisateur = utilisateur;
         this.date_log = date_log;

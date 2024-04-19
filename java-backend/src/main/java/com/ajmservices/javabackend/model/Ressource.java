@@ -34,11 +34,38 @@ public class Ressource {
     @JoinColumn(name = "id_type_ressource")
     private TypeRessource typeRessource;
 
+    @ManyToOne
+    @JoinColumn(name = "id_etat_ressource")
+    private EtatRessource etatRessource;
+
     @OneToOne(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Fichier fichier;
 
     @OneToMany(mappedBy = "ressource")
     private Set<Commentaire> commentaires = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(name = "_lier_ressource_type_relation", joinColumns = @JoinColumn(name = "id_ressource"), inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
+    Set<TypeRelation> linkedTypeRelations;
+
+    public Ressource(){
+
+    };
+
+    public Ressource(String titre, String description, Date date_publication, int nb_consultation,
+            int nb_recherche, int nb_partage, Utilisateur utilisateur, Categorie categorie, TypeRessource typeRessource,
+            EtatRessource etatRessource) {
+        this.titre = titre;
+        this.description = description;
+        this.date_publication = date_publication;
+        this.nb_consultation = nb_consultation;
+        this.nb_recherche = nb_recherche;
+        this.nb_partage = nb_partage;
+        this.utilisateur = utilisateur;
+        this.categorie = categorie;
+        this.typeRessource = typeRessource;
+        this.etatRessource = etatRessource;
+    };
 
     public Long getIdRessource() {
         return id_ressource;
@@ -116,10 +143,6 @@ public class Ressource {
     public Set<Commentaire> getCommentaires() {
         return commentaires;
     }
-
-    @ManyToMany
-    @JoinTable(name = "_lier_ressource_type_relation", joinColumns = @JoinColumn(name = "id_ressource"), inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
-    Set<TypeRelation> linkedTypeRelations;
 
     // toString method
     @Override

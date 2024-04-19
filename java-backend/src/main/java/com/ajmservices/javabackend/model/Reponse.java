@@ -8,10 +8,10 @@ import java.util.Date;
 public class Reponse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_reponse;
+    private Long idReponse;
 
     private String contenu;
-    private Date date_reponse;
+    private Date dateReponse;
 
     @ManyToOne
     @JoinColumn(name = "id_commentaire")
@@ -26,21 +26,21 @@ public class Reponse {
     public Reponse() {
     }
 
-    public Reponse(String contenu, Date date_reponse,
+    public Reponse(String contenu, Date dateReponse,
             Commentaire commentaire, Utilisateur utilisateur) {
         this.contenu = contenu;
-        this.date_reponse = date_reponse;
+        this.dateReponse = dateReponse;
         this.commentaire = commentaire;
         this.utilisateur = utilisateur;
     }
 
     // Getters and Setters
     public Long getIdReponse() {
-        return id_reponse;
+        return idReponse;
     }
 
-    public void setIdReponse(Long id_reponse) {
-        this.id_reponse = id_reponse;
+    public void setIdReponse(Long idReponse) {
+        this.idReponse = idReponse;
     }
 
     public String getContenu() {
@@ -52,11 +52,11 @@ public class Reponse {
     }
 
     public Date getDateReponse() {
-        return date_reponse;
+        return dateReponse;
     }
 
-    public void setDateReponse(Date date_reponse) {
-        this.date_reponse = date_reponse;
+    public void setDateReponse(Date dateReponse) {
+        this.dateReponse = dateReponse;
     }
 
     public Commentaire getCommentaire() {
@@ -79,9 +79,9 @@ public class Reponse {
     @Override
     public String toString() {
         return "Reponse{" +
-                "id_reponse=" + id_reponse +
+                "idReponse=" + idReponse +
                 ", contenu='" + contenu + '\'' +
-                ", date_reponse='" + date_reponse + '\'' +
+                ", dateReponse='" + dateReponse + '\'' +
                 ", commentaire=" + commentaire + '\'' +
                 ", utilisateur=" + utilisateur +
                 '}';

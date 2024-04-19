@@ -13,16 +13,16 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_utilisateur;
+    private Long idUtilisateur;
 
     private String nom;
     private String prenom;
     private String mail;
-    private String mot_de_passe;
+    private String motDePasse;
     private String departement;
-    private boolean est_active;
-    private Date date_desactivation;
-    private Date date_creation;
+    private boolean estActive;
+    private Date dateDesactivation;
+    private Date dateCreation;
 
     @ManyToOne
     @JoinColumn(name = "id_role")
@@ -33,7 +33,7 @@ public class Utilisateur {
     private Set<Ressource> ressources = new HashSet<>();
 
     @ManyToMany
-    @JoinTable(name = "_utilisateur_ressource_favoris", joinColumns = @JoinColumn(name = "id_utilisateur"), inverseJoinColumns = @JoinColumn(name = "id_ressource"))
+    @JoinTable(name = "_utilisateur_ressource_favoris", joinColumns = @JoinColumn(name = "idUtilisateur"), inverseJoinColumns = @JoinColumn(name = "id_ressource"))
     private Set<Ressource> ressourcesFavoris = new HashSet<>();
 
     @OneToMany(mappedBy = "utilisateur1", fetch = FetchType.EAGER)
@@ -51,25 +51,25 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String prenom, String mail, String mot_de_passe, String departement, boolean est_active, Role role) {
+    public Utilisateur(String nom, String prenom, String mail, String motDePasse, String departement, boolean estActive, Role role) {
 
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
-        this.mot_de_passe = mot_de_passe;
+        this.motDePasse = motDePasse;
         this.departement = departement;
-        this.est_active = est_active;
-        this.date_creation = new Date();
+        this.estActive = estActive;
+        this.dateCreation = new Date();
         this.role = role;
     }
 
     // Getters and Setters
     public Long getIdUtilisateur() {
-        return id_utilisateur;
+        return idUtilisateur;
     }
 
-    public void setIdUtilisateur(Long id_utilisateur) {
-        this.id_utilisateur = id_utilisateur;
+    public void setIdUtilisateur(Long idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     public String getNom() {
@@ -97,11 +97,11 @@ public class Utilisateur {
     }
 
     public String getMotDePasse() {
-        return mot_de_passe;
+        return motDePasse;
     }
 
-    public void setMotDePasse(String mot_de_passe) {
-        this.mot_de_passe = mot_de_passe;
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 
     public String getDepartement() {
@@ -113,27 +113,27 @@ public class Utilisateur {
     }
 
     public boolean getEstActive() {
-        return est_active;
+        return estActive;
     }
 
-    public void setEstActive(boolean est_active) {
-        this.est_active = est_active;
+    public void setEstActive(boolean estActive) {
+        this.estActive = estActive;
     }
 
     public Date getDateDesactivation() {
-        return date_desactivation;
+        return dateDesactivation;
     }
 
-    public void setDateDesactivation(Date date_desactivation) {
-        this.date_desactivation = date_desactivation;
+    public void setDateDesactivation(Date dateDesactivation) {
+        this.dateDesactivation = dateDesactivation;
     }
 
     public Date getDateCreation() {
-        return date_creation;
+        return dateCreation;
     }
 
-    public void setDateCreation(Date date_creation) {
-        this.date_creation = date_creation;
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
     }
 
     public Role getRole() {
@@ -177,15 +177,15 @@ public class Utilisateur {
     @Override
     public String toString() {
         return "Utilisateur{" +
-                "id_utilisateur=" + id_utilisateur +
+                "idUtilisateur=" + idUtilisateur +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", mail='" + mail + '\'' +
-                ", mot_de_passe='" + mot_de_passe + '\'' +
+                ", motDePasse='" + motDePasse + '\'' +
                 ", departement='" + departement + '\'' +
-                ", est_active=" + est_active + '\'' +
-                ", date_desactivation=" + date_desactivation + '\'' +
-                ", date_creation=" + date_creation + '\'' +
+                ", estActive=" + estActive + '\'' +
+                ", dateDesactivation=" + dateDesactivation + '\'' +
+                ", dateCreation=" + dateCreation + '\'' +
                 ", role=" + role +
                 '}';
     }

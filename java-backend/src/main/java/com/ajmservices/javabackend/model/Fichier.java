@@ -8,10 +8,10 @@ public class Fichier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_fichier;
+    private Long idFichier;
 
     private String nom;
-    private float taille_fichier;
+    private float tailleFichier;
 
     @OneToOne
     @JoinColumn(name = "id_ressource")
@@ -26,11 +26,11 @@ public class Fichier {
 
     // Getters and Setters
     public Long getIdFichier() {
-        return this.id_fichier;
+        return this.idFichier;
     }
 
-    public void setIdFichier(Long id_fichier) {
-        this.id_fichier = id_fichier;
+    public void setIdFichier(Long idFichier) {
+        this.idFichier = idFichier;
     }
 
     public String getNom() {
@@ -42,11 +42,11 @@ public class Fichier {
     }
 
     public Float getTailleFichier() {
-        return taille_fichier;
+        return tailleFichier;
     }
 
-    public void setTailleFichier(Float taille_fichier) {
-        this.taille_fichier = taille_fichier;
+    public void setTailleFichier(Float tailleFichier) {
+        this.tailleFichier = tailleFichier;
     }
 
     public Ressource getRessource() {
@@ -61,9 +61,9 @@ public class Fichier {
     @Override
     public String toString() {
         return "EtatRessource{" +
-                "id_fichier=" + id_fichier +
+                "idFichier=" + idFichier +
                 ", nom='" + nom +
-                ", taille_fichier='" + taille_fichier +
+                ", tailleFichier='" + tailleFichier +
                 '}';
     }
 

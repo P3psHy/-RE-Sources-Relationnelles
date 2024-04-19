@@ -8,10 +8,10 @@ import java.util.Date;
 public class MessageUtilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_message_utilisateur;
+    private Long idMessageUtilisateur;
 
     private String contenu;
-    private Date date_message_utilisateur;
+    private Date dateMessageUtilisateur;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur1")
@@ -26,21 +26,21 @@ public class MessageUtilisateur {
     public MessageUtilisateur() {
     }
 
-    public MessageUtilisateur(String contenu, Date date_message_utilisateur,
+    public MessageUtilisateur(String contenu, Date dateMessageUtilisateur,
             Utilisateur utilisateur1, Utilisateur utilisateur2) {
         this.contenu = contenu;
-        this.date_message_utilisateur = date_message_utilisateur;
+        this.dateMessageUtilisateur = dateMessageUtilisateur;
         this.utilisateur1 = utilisateur1;
         this.utilisateur2 = utilisateur2;
     }
 
     // Getters and Setters
     public Long getIdMessageUtilisateur() {
-        return id_message_utilisateur;
+        return idMessageUtilisateur;
     }
 
-    public void setIdMessageUtilisateur(Long id_message_utilisateur) {
-        this.id_message_utilisateur = id_message_utilisateur;
+    public void setIdMessageUtilisateur(Long idMessageUtilisateur) {
+        this.idMessageUtilisateur = idMessageUtilisateur;
     }
 
     public String getContenu() {
@@ -52,11 +52,11 @@ public class MessageUtilisateur {
     }
 
     public Date getDateMessageUtilisateur() {
-        return date_message_utilisateur;
+        return dateMessageUtilisateur;
     }
 
-    public void setDateMessageUtilisateur(Date date_message_utilisateur) {
-        this.date_message_utilisateur = date_message_utilisateur;
+    public void setDateMessageUtilisateur(Date dateMessageUtilisateur) {
+        this.dateMessageUtilisateur = dateMessageUtilisateur;
     }
 
     public Utilisateur getUtilisateur1() {
@@ -79,9 +79,9 @@ public class MessageUtilisateur {
     @Override
     public String toString() {
         return "MessageUtilisateur{" +
-                "id_message_utilisateur=" + id_message_utilisateur +
+                "idMessageUtilisateur=" + idMessageUtilisateur +
                 ", contenu='" + contenu + '\'' +
-                ", date_message_utilisateur='" + date_message_utilisateur + '\'' +
+                ", dateMessageUtilisateur='" + dateMessageUtilisateur + '\'' +
                 ", utilisateur1=" + utilisateur1 + '\'' +
                 ", utilisateur2=" + utilisateur2 +
                 '}';

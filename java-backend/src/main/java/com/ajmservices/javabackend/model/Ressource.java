@@ -12,14 +12,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Ressource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_ressource;
+    private Long idRessource;
 
     private String titre;
     private String description;
-    private Date date_publication;
-    private int nb_consultation;
-    private int nb_recherche;
-    private int nb_partage;
+    private Date datePublication;
+    private int nbConsultation;
+    private int nbRecherche;
+    private int nbPartage;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
@@ -45,22 +45,22 @@ public class Ressource {
     private Set<Commentaire> commentaires = new HashSet<>();
 
     @ManyToMany
-    @JoinTable(name = "_lier_ressource_type_relation", joinColumns = @JoinColumn(name = "id_ressource"), inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
+    @JoinTable(name = "_lier_ressource_type_relation", joinColumns = @JoinColumn(name = "idRessource"), inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
     Set<TypeRelation> linkedTypeRelations;
 
     public Ressource(){
 
     };
 
-    public Ressource(String titre, String description, Date date_publication, int nb_consultation,
-            int nb_recherche, int nb_partage, Utilisateur utilisateur, Categorie categorie, TypeRessource typeRessource,
+    public Ressource(String titre, String description, Date datePublication, int nbConsultation,
+            int nbRecherche, int nbPartage, Utilisateur utilisateur, Categorie categorie, TypeRessource typeRessource,
             EtatRessource etatRessource) {
         this.titre = titre;
         this.description = description;
-        this.date_publication = date_publication;
-        this.nb_consultation = nb_consultation;
-        this.nb_recherche = nb_recherche;
-        this.nb_partage = nb_partage;
+        this.datePublication = datePublication;
+        this.nbConsultation = nbConsultation;
+        this.nbRecherche = nbRecherche;
+        this.nbPartage = nbPartage;
         this.utilisateur = utilisateur;
         this.categorie = categorie;
         this.typeRessource = typeRessource;
@@ -68,11 +68,11 @@ public class Ressource {
     };
 
     public Long getIdRessource() {
-        return id_ressource;
+        return idRessource;
     }
 
-    public void setIdRessource(Long id_ressource) {
-        this.id_ressource = id_ressource;
+    public void setIdRessource(Long idRessource) {
+        this.idRessource = idRessource;
     }
 
     public String getTitre() {
@@ -92,35 +92,35 @@ public class Ressource {
     }
 
     public Date getDatePublication() {
-        return date_publication;
+        return datePublication;
     }
 
-    public void setDatePublication(Date date_publication) {
-        this.date_publication = date_publication;
+    public void setDatePublication(Date datePublication) {
+        this.datePublication = datePublication;
     }
 
     public int getNbConsultation() {
-        return nb_consultation;
+        return nbConsultation;
     }
 
-    public void setNbConsultation(int nb_consultation) {
-        this.nb_consultation = nb_consultation;
+    public void setNbConsultation(int nbConsultation) {
+        this.nbConsultation = nbConsultation;
     }
 
     public int getNbRecherche() {
-        return nb_recherche;
+        return nbRecherche;
     }
 
-    public void setNbRecherche(int nb_recherche) {
-        this.nb_recherche = nb_recherche;
+    public void setNbRecherche(int nbRecherche) {
+        this.nbRecherche = nbRecherche;
     }
 
     public int getNbPartage() {
-        return nb_partage;
+        return nbPartage;
     }
 
-    public void setNbPartage(int nb_partage) {
-        this.nb_partage = nb_partage;
+    public void setNbPartage(int nbPartage) {
+        this.nbPartage = nbPartage;
     }
 
     public Utilisateur getUtilisateur() {
@@ -148,13 +148,13 @@ public class Ressource {
     @Override
     public String toString() {
         return "Ressource{" +
-                "id_ressource=" + id_ressource +
+                "idRessource=" + idRessource +
                 ", titre='" + titre + '\'' +
                 ", description='" + description + '\'' +
-                ", date_publication='" + date_publication + '\'' +
-                ", nb_consultation='" + nb_consultation + '\'' +
-                ", nb_partage='" + nb_partage + '\'' +
-                ", nb_recherche=" + nb_recherche + '\'' +
+                ", datePublication='" + datePublication + '\'' +
+                ", nbConsultation='" + nbConsultation + '\'' +
+                ", nbPartage='" + nbPartage + '\'' +
+                ", nbRecherche=" + nbRecherche + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
                 ", categorie=" + categorie + '\'' +
                 ", typeRessource=" + typeRessource + '\'' +

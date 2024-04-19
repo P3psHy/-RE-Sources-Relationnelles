@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_notification;
+    private Long idNotification;
 
     private String titre;
     private String contenu;
@@ -17,26 +17,26 @@ public class Notification {
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
-    private Date date_notification;
+    private Date dateNotification;
 
     // Constructors
     public Notification() {
     }
 
-    public Notification(String titre, String contenu, Utilisateur utilisateur, Date date_notification) {
+    public Notification(String titre, String contenu, Utilisateur utilisateur, Date dateNotification) {
         this.titre = titre;
         this.contenu = contenu;
         this.utilisateur = utilisateur;
-        this.date_notification = date_notification;
+        this.dateNotification = dateNotification;
     }
 
     // Getters and Setters
     public Long getIdNotification() {
-        return id_notification;
+        return idNotification;
     }
 
-    public void setIdNotification(Long id_notification) {
-        this.id_notification = id_notification;
+    public void setIdNotification(Long idNotification) {
+        this.idNotification = idNotification;
     }
 
     public String getTitre() {
@@ -64,22 +64,22 @@ public class Notification {
     }
 
     public Date getDateNotification() {
-        return date_notification;
+        return dateNotification;
     }
 
-    public void setDateNotification(Date date_notification) {
-        this.date_notification = date_notification;
+    public void setDateNotification(Date dateNotification) {
+        this.dateNotification = dateNotification;
     }
 
     // toString method
     @Override
     public String toString() {
         return "Notification{" +
-                "id_notification=" + id_notification +
+                "idNotification=" + idNotification +
                 ", titre='" + titre + '\'' +
                 ", contenu='" + contenu + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
-                ", date_notification=" + date_notification +
+                ", dateNotification=" + dateNotification +
                 '}';
     }
 }

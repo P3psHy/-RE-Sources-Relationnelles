@@ -10,10 +10,10 @@ import jakarta.persistence.*;
 public class MessageActivite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_message_activite;
+    private Long idMessageActivite;
 
     private String contenu;
-    private Date date_message_activite;
+    private Date dateMessageActivite;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
@@ -28,21 +28,21 @@ public class MessageActivite {
     public MessageActivite() {
     }
 
-    public MessageActivite(String contenu, Date date_message_activite,
+    public MessageActivite(String contenu, Date dateMessageActivite,
             Utilisateur utilisateur, Activite activite) {
         this.contenu = contenu;
-        this.date_message_activite = date_message_activite;
+        this.dateMessageActivite = dateMessageActivite;
         this.utilisateur = utilisateur;
         this.activite = activite;
     }
 
     // Getters and Setters
     public Long getIdMessageActivite() {
-        return id_message_activite;
+        return idMessageActivite;
     }
 
-    public void setIdMessageActivite(Long id_message_activite) {
-        this.id_message_activite = id_message_activite;
+    public void setIdMessageActivite(Long idMessageActivite) {
+        this.idMessageActivite = idMessageActivite;
     }
 
     public String getContenu() {
@@ -54,11 +54,11 @@ public class MessageActivite {
     }
 
     public Date getDateMessageActivite() {
-        return date_message_activite;
+        return dateMessageActivite;
     }
 
-    public void setDateMessageActivite(Date date_message_activite) {
-        this.date_message_activite = date_message_activite;
+    public void setDateMessageActivite(Date dateMessageActivite) {
+        this.dateMessageActivite = dateMessageActivite;
     }
 
     public Utilisateur getUtilisateur() {
@@ -81,9 +81,9 @@ public class MessageActivite {
     @Override
     public String toString() {
         return "MessageActivite{" +
-                "id_message_activite=" + id_message_activite +
+                "idMessageActivite=" + idMessageActivite +
                 ", contenu='" + contenu + '\'' +
-                ", date_message_activite='" + date_message_activite + '\'' +
+                ", dateMessageActivite='" + dateMessageActivite + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
                 ", activite=" + activite +
                 '}';

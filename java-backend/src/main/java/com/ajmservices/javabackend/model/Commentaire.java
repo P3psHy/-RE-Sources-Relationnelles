@@ -8,10 +8,10 @@ import java.util.Date;
 public class Commentaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_commentaire;
+    private Long idCommentaire;
 
     private String contenu;
-    private Date date_commentaire;
+    private Date dateCommentaire;
 
     @ManyToOne
     @JoinColumn(name = "id_ressource")
@@ -26,10 +26,10 @@ public class Commentaire {
     public Commentaire() {
     }
 
-    public Commentaire(String contenu, Date date_commentaire,
+    public Commentaire(String contenu, Date dateCommentaire,
         Ressource ressource, Utilisateur utilisateur) {
         this.contenu = contenu;
-        this.date_commentaire = date_commentaire;
+        this.dateCommentaire = dateCommentaire;
         // Générer la date et heure du commentaire à son instanciation
         // this.dateCommentaire = new Date();
         this.ressource = ressource;
@@ -38,11 +38,11 @@ public class Commentaire {
 
     // Getters and Setters
     public Long getIdCommentaire() {
-        return id_commentaire;
+        return idCommentaire;
     }
 
-    public void setIdCommentaire(Long id_commentaire) {
-        this.id_commentaire = id_commentaire;
+    public void setIdCommentaire(Long idCommentaire) {
+        this.idCommentaire = idCommentaire;
     }
 
     public String getContenu() {
@@ -54,11 +54,11 @@ public class Commentaire {
     }
 
     public Date getDateCommentaire() {
-        return date_commentaire;
+        return dateCommentaire;
     }
 
-    public void setDateCommentaire(Date date_commentaire) {
-        this.date_commentaire = date_commentaire;
+    public void setDateCommentaire(Date dateCommentaire) {
+        this.dateCommentaire = dateCommentaire;
     }
 
     public Ressource getRessource() {
@@ -81,9 +81,9 @@ public class Commentaire {
     @Override
     public String toString() {
         return "Commentaire{" +
-                "id_commentaire=" + id_commentaire +
+                "idCommentaire=" + idCommentaire +
                 ", contenu='" + contenu + '\'' +
-                ", date_commentaire='" + date_commentaire + '\'' +
+                ", dateCommentaire='" + dateCommentaire + '\'' +
                 ", ressource=" + ressource + '\'' +
                 ", utilisateur=" + utilisateur +
                 '}';

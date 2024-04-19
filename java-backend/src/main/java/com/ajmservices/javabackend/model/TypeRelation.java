@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class TypeRelation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_type_relation;
+    private Long idTypeRelation;
 
     private String nom;
     private String commentaire;
@@ -24,11 +24,11 @@ public class TypeRelation {
 
     // Getters and Setters
     public Long getIdTypeRelation() {
-        return this.id_type_relation;
+        return this.idTypeRelation;
     }
 
-    public void setIdTypeRelation(Long id_type_relation) {
-        this.id_type_relation = id_type_relation;
+    public void setIdTypeRelation(Long idTypeRelation) {
+        this.idTypeRelation = idTypeRelation;
     }
 
     public String getNom() {
@@ -54,7 +54,7 @@ public class TypeRelation {
     @Override
     public String toString() {
         return "TypeRelation{" +
-                "id_type_relation=" + id_type_relation +
+                "idTypeRelation=" + idTypeRelation +
                 ", nom='" + nom + '\'' +
                 ", commentaire='" + commentaire +
                 '}';

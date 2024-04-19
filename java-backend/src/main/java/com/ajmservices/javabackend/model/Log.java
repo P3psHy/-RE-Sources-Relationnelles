@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_log;
+    private Long idLog;
 
     private String contenu;
 
@@ -16,25 +16,25 @@ public class Log {
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
-    private Date date_log;
+    private Date dateLog;
 
     // Constructors
     public Log() {
     }
 
-    public Log(String contenu, Utilisateur utilisateur, Date date_log) {
+    public Log(String contenu, Utilisateur utilisateur, Date dateLog) {
         this.contenu = contenu;
         this.utilisateur = utilisateur;
-        this.date_log = date_log;
+        this.dateLog = dateLog;
     }
 
     // Getters and Setters
     public Long getIdLog() {
-        return id_log;
+        return idLog;
     }
 
-    public void setIdLog(Long id_log) {
-        this.id_log = id_log;
+    public void setIdLog(Long idLog) {
+        this.idLog = idLog;
     }
 
     public String getContenu() {
@@ -54,21 +54,21 @@ public class Log {
     }
 
     public Date getDateLog() {
-        return date_log;
+        return dateLog;
     }
 
-    public void setDateLog(Date date_log) {
-        this.date_log = date_log;
+    public void setDateLog(Date dateLog) {
+        this.dateLog = dateLog;
     }
 
     // toString method
     @Override
     public String toString() {
         return "Log{" +
-                "id_log=" + id_log +
+                "idLog=" + idLog +
                 ", contenu='" + contenu + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
-                ", date_log=" + date_log +
+                ", dateLog=" + dateLog +
                 '}';
     }
 }

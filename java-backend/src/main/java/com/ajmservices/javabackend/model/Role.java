@@ -8,7 +8,7 @@ import java.util.List;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_role;
+    private Long idRole;
 
     private String nom;
 
@@ -27,11 +27,11 @@ public class Role {
 
     // Getters and Setters
     public Long getIdRole() {
-        return id_role;
+        return idRole;
     }
 
-    public void setIdRole(Long id_role) {
-        this.id_role = id_role;
+    public void setIdRole(Long idRole) {
+        this.idRole = idRole;
     }
 
     public String getNom() {
@@ -46,7 +46,7 @@ public class Role {
     @Override
     public String toString() {
         return "Role{" +
-                "id_role=" + id_role +
+                "idRole=" + idRole +
                 ", nom='" + nom +
                 '}';
     }

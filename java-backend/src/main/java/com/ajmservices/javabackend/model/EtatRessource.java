@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class EtatRessource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_etat_ressource;
+    private Long idEtatRessource;
 
     private String nom;
 
@@ -20,11 +20,11 @@ public class EtatRessource {
 
     // Getters and Setters
     public Long getIdEtatRessource() {
-        return id_etat_ressource;
+        return idEtatRessource;
     }
 
-    public void setIdEtatRessource(Long id_etat_ressource) {
-        this.id_etat_ressource = id_etat_ressource;
+    public void setIdEtatRessource(Long idEtatRessource) {
+        this.idEtatRessource = idEtatRessource;
     }
 
     public String getNom() {
@@ -39,7 +39,7 @@ public class EtatRessource {
     @Override
     public String toString() {
         return "EtatRessource{" +
-                "id_etat_ressource=" + id_etat_ressource +
+                "idEtatRessource=" + idEtatRessource +
                 ", nom='" + nom +
                 '}';
     }

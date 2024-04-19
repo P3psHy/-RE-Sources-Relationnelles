@@ -51,15 +51,15 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String prenom, String mail, String mot_de_passe, String departement, boolean est_active,
-            Date date_creation, Role role) {
+    public Utilisateur(String nom, String prenom, String mail, String mot_de_passe, String departement, boolean est_active, Role role) {
+
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
         this.mot_de_passe = mot_de_passe;
         this.departement = departement;
         this.est_active = est_active;
-        this.date_creation = date_creation;
+        this.date_creation = new Date();
         this.role = role;
     }
 

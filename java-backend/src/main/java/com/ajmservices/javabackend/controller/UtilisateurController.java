@@ -1,5 +1,7 @@
 package com.ajmservices.javabackend.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,7 @@ public class UtilisateurController {
 
     @PostMapping
     public Utilisateur createUtilisateur(@RequestBody Utilisateur utilisateur) {
+        utilisateur.setDateCreation(new Date());
         return utilisateurService.createUtilisateur(utilisateur);
     }
 

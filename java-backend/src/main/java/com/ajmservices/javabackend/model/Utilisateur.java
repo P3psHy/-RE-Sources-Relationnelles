@@ -20,7 +20,7 @@ public class Utilisateur {
     private String mail;
     private String mot_de_passe;
     private String departement;
-    private boolean statut;
+    private boolean est_active;
     private Date date_desactivation;
     private Date date_creation;
 
@@ -51,14 +51,14 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String prenom, String mail, String mot_de_passe, String departement, boolean statut,
+    public Utilisateur(String nom, String prenom, String mail, String mot_de_passe, String departement, boolean est_active,
             Date date_creation, Role role) {
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
         this.mot_de_passe = mot_de_passe;
         this.departement = departement;
-        this.statut = statut;
+        this.est_active = est_active;
         this.date_creation = date_creation;
         this.role = role;
     }
@@ -112,12 +112,12 @@ public class Utilisateur {
         this.departement = departement;
     }
 
-    public boolean isStatut() {
-        return statut;
+    public boolean getEstActive() {
+        return est_active;
     }
 
-    public void setStatut(boolean statut) {
-        this.statut = statut;
+    public void setEstActive(boolean est_active) {
+        this.est_active = est_active;
     }
 
     public Date getDateDesactivation() {
@@ -183,7 +183,7 @@ public class Utilisateur {
                 ", mail='" + mail + '\'' +
                 ", mot_de_passe='" + mot_de_passe + '\'' +
                 ", departement='" + departement + '\'' +
-                ", statut=" + statut + '\'' +
+                ", est_active=" + est_active + '\'' +
                 ", date_desactivation=" + date_desactivation + '\'' +
                 ", date_creation=" + date_creation + '\'' +
                 ", role=" + role +

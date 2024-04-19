@@ -6,12 +6,12 @@
         "mail": "bsanchez@espagnol.es",
         "motDePasse": "holaquetal",
         "departement": "Eure-et-Loire",
-        "status": true,
+        "estActive": true,
         "dateDesactivation": null,
         "dateCreation": "2024-02-08T09:40:30",
         "role": {
             "idRole": 1,
-            "typeRole": "Utilisateur"
+            "nom": "Utilisateur"
         },
         "ressources": []
     },
@@ -22,12 +22,12 @@
         "mail": "micheldelpech@chanson.fr",
         "motDePasse": "jaDoreChantER",
         "departement": "Yvelines",
-        "status": true,
+        "estActive": true,
         "dateDesactivation": null,
         "dateCreation": "2024-02-08T09:41:30",
         "role": {
             "idRole": 1,
-            "typeRole": "Utilisateur"
+            "nom": "Utilisateur"
         },
         "ressources": []
     },
@@ -38,12 +38,12 @@
         "mail": "mscardin@gmail.fr",
         "motDePasse": "lemotdepassetropbeau",
         "departement": "Côtes d'Armor",
-        "status": true,
+        "estActive": true,
         "dateDesactivation": null,
         "dateCreation": "2024-02-08T09:30:30",
         "role": {
             "idRole": 1,
-            "typeRole": "Utilisateur"
+            "nom": "Utilisateur"
         },
         "ressources": []
     },
@@ -54,12 +54,12 @@
         "mail": "neteyamSB@gmail.com",
         "motDePasse": "ohunenfant",
         "departement": "Ille-et-Vilaine",
-        "status": true,
+        "estActive": true,
         "dateDesactivation": null,
         "dateCreation": "2024-02-08T09:44:30",
         "role": {
             "idRole": 1,
-            "typeRole": "Utilisateur"
+            "nom": "Utilisateur"
         },
         "ressources": []
     }

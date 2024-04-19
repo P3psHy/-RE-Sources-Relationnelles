@@ -2,26 +2,26 @@
     {
         "idTypeRelation": 1,
         "titre": "Famille",
-        "description": "Parents, enfants, fratrie, etc"
+        "commentaire": "Parents, enfants, fratrie, etc"
     },
     {
         "idTypeRelation": 2,
         "titre": "Conjoints",
-        "description": ""
+        "commentaire": ""
     },
     {
         "idTypeRelation": 3,
         "titre": "Professionnelle",
-        "description": "Collègues, collaborateurs et managers"
+        "commentaire": "Collègues, collaborateurs et managers"
     },
     {
         "idTypeRelation": 4,
         "titre": "Amis et communautés",
-        "description": ""
+        "commentaire": ""
     },
     {
         "idTypeRelation": 5,
         "titre": "Inconnus",
-        "description": ""
+        "commentaire": ""
     }
 ]

@@ -1,18 +1,18 @@
 [
     {
         "idRole": 1,
-        "typeRole": "Utilisateur"
+        "nom": "Utilisateur"
     },
     {
         "idRole": 2,
-        "typeRole": "Modérateur"
+        "nom": "Modérateur"
     },
     {
         "idRole": 3,
-        "typeRole": "Administrateur"
+        "nom": "Administrateur"
     },
     {
         "idRole": 4,
-        "typeRole": "Super-administrateur"
+        "nom": "Super-administrateur"
     }
 ]

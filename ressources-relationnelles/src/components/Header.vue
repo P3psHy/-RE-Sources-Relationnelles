@@ -19,7 +19,16 @@
 </template>
   
 <script setup lang="ts">
-    import { IonImg, IonHeader, IonSegment, IonSegmentButton, IonToolbar} from '@ionic/vue';
+    import { 
+        IonImg, 
+        IonHeader, 
+        IonSegment, 
+        IonSegmentButton, 
+        IonToolbar,
+        IonCol, 
+        IonGrid, 
+        IonRow 
+    } from '@ionic/vue';
     import { watch, ref } from 'vue'; 
     import { useRoute } from 'vue-router';
     import { useRouter } from 'vue-router';

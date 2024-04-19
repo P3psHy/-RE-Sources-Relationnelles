@@ -8,9 +8,6 @@ import com.ajmservices.javabackend.DTO.RessourceUtilisateurDTO;
 import com.ajmservices.javabackend.model.Ressource;
 import com.ajmservices.javabackend.repository.RessourceRepository;
 
-import java.util.List;
-import java.util.Map;
-
 @Service
 public class RessourceService {
 

@@ -7,8 +7,7 @@ import com.ajmservices.javabackend.DTO.RessourceUtilisateurDTO;
 import com.ajmservices.javabackend.model.Ressource;
 import com.ajmservices.javabackend.service.RessourceService;
 
-import java.util.List;
-import java.util.Map;
+
 
 @RestController
 @RequestMapping("/api/ressources")
@@ -46,4 +45,6 @@ public class RessourceController {
     public RessourceUtilisateurDTO getRessourceUtilisateur(@PathVariable Long ressourceId) {
         return ressourceService.getRessourceUtilisateurByRessourceId(ressourceId);
     }
+
+    
 }

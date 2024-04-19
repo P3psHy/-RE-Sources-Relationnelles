@@ -162,6 +162,17 @@ public class Utilisateur {
         this.ressourcesFavoris = ressourcesFavoris;
     }
 
+    public void ajouterRessourceFavoris(Ressource ressource) {
+        ressourcesFavoris.add(ressource);
+        // ressource.getUtilisateursFavoris().add(this); // Met à jour l'autre côté de la relation
+    }
+
+    // Méthode pour retirer une ressource des favoris de l'utilisateur
+    public void retirerRessourceFavoris(Ressource ressource) {
+        ressourcesFavoris.remove(ressource);
+        // ressource.getUtilisateursFavoris().remove(this); // Met à jour l'autre côté de la relation
+    }
+
     // toString method
     @Override
     public String toString() {

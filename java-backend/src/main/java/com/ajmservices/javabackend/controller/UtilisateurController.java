@@ -3,6 +3,7 @@ package com.ajmservices.javabackend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.ajmservices.javabackend.DTO.RessourceUtilisateurDTO;
 import com.ajmservices.javabackend.model.Utilisateur;
 import com.ajmservices.javabackend.service.UtilisateurService;
 
@@ -37,4 +38,9 @@ public class UtilisateurController {
     public void deleteUser(@PathVariable Long id) {
         utilisateurService.deleteUtilisateur(id);
     }
+
+    // @GetMapping("/utilisateurRessourcesFav/{userId}")
+    // public RessourceUtilisateurDTO getRessourceFavUtilisateur(@PathVariable Long ressourceId){
+    //     return utilisateurService.getRessourceFavUtilisisateurbyIdUser(ressourceId);
+    // }
 }

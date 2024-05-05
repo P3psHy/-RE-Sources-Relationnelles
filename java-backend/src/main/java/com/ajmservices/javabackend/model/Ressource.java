@@ -6,7 +6,11 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Ressource {
@@ -21,9 +25,10 @@ public class Ressource {
     private int nbRecherche;
     private int nbPartage;
 
-    @ManyToOne
-    @JoinColumn(name = "id_utilisateur")
-    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_utilisateur", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private Utilisateur utilisateur;
 
     @ManyToOne
@@ -44,17 +49,22 @@ public class Ressource {
     @OneToMany(mappedBy = "ressource")
     private Set<Commentaire> commentaires = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(name = "_lier_ressource_type_relation", joinColumns = @JoinColumn(name = "idRessource"), inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
-    Set<TypeRelation> linkedTypeRelations;
+    // @ManyToMany
+    // @JoinTable(name = "_lier_ressource_type_relation", joinColumns = @JoinColumn(name = "idRessource"), inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
+    // Set<TypeRelation> linkedTypeRelations;
 
     public Ressource(){
 
     };
 
+    // public Ressource(String titre, String description, Date datePublication, int nbConsultation,
+    //         int nbRecherche, int nbPartage, Utilisateur utilisateur, Categorie categorie, TypeRessource typeRessource,
+    //         Fichier fichier) {
+
     public Ressource(String titre, String description, Date datePublication, int nbConsultation,
             int nbRecherche, int nbPartage, Utilisateur utilisateur, Categorie categorie, TypeRessource typeRessource,
             EtatRessource etatRessource) {
+
         this.titre = titre;
         this.description = description;
         this.datePublication = datePublication;

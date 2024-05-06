@@ -49,9 +49,9 @@ public class Ressource {
     @OneToMany(mappedBy = "ressource")
     private Set<Commentaire> commentaires = new HashSet<>();
 
-    // @ManyToMany
-    // @JoinTable(name = "_lier_ressource_type_relation", joinColumns = @JoinColumn(name = "idRessource"), inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
-    // Set<TypeRelation> linkedTypeRelations;
+    @ManyToMany
+    @JoinTable(name = "_lier_ressource_type_relation", joinColumns = @JoinColumn(name = "idRessource"), inverseJoinColumns = @JoinColumn(name = "id_type_relation"))
+    Set<TypeRelation> linkedTypeRelations;
 
     public Ressource(){
 

@@ -1,0 +1,66 @@
+[
+    {
+        "idUtilisateur": 1,
+        "nom": "Sanchez",
+        "prenom": "Bernardo",
+        "mail": "bsanchez@espagnol.es",
+        "motDePasse": "holaquetal",
+        "departement": "Eure-et-Loire",
+        "estActive": true,
+        "dateDesactivation": null,
+        "dateCreation": "2024-02-08T09:40:30",
+        "role": {
+            "idRole": 1,
+            "nom": "Utilisateur"
+        },
+        "ressources": []
+    },
+    {
+        "idUtilisateur": 2,
+        "nom": "Delpech",
+        "prenom": "Michel",
+        "mail": "micheldelpech@chanson.fr",
+        "motDePasse": "jaDoreChantER",
+        "departement": "Yvelines",
+        "estActive": true,
+        "dateDesactivation": null,
+        "dateCreation": "2024-02-08T09:41:30",
+        "role": {
+            "idRole": 1,
+            "nom": "Utilisateur"
+        },
+        "ressources": []
+    },
+    {
+        "idUtilisateur": 3,
+        "nom": "Scardin",
+        "prenom": "Maëlly",
+        "mail": "mscardin@gmail.fr",
+        "motDePasse": "lemotdepassetropbeau",
+        "departement": "Côtes d'Armor",
+        "estActive": true,
+        "dateDesactivation": null,
+        "dateCreation": "2024-02-08T09:30:30",
+        "role": {
+            "idRole": 1,
+            "nom": "Utilisateur"
+        },
+        "ressources": []
+    },
+    {
+        "idUtilisateur": 4,
+        "nom": "Scardin Bouhier",
+        "prenom": "Neteyam",
+        "mail": "neteyamSB@gmail.com",
+        "motDePasse": "ohunenfant",
+        "departement": "Ille-et-Vilaine",
+        "estActive": true,
+        "dateDesactivation": null,
+        "dateCreation": "2024-02-08T09:44:30",
+        "role": {
+            "idRole": 1,
+            "nom": "Utilisateur"
+        },
+        "ressources": []
+    }
+]

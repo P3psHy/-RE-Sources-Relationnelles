@@ -1,29 +1,21 @@
 <template>
-  <ion-page>
-    <Header></Header>
+  <ion-content :fullscreen="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Blank</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <div id="container">
-        <strong>Cette page est la page d'accueil, on y retrouvera les ressources publiques</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
-    </ion-content>
-
-    <Footer></Footer>
-
-  </ion-page>
+    <div id="container">
+      <strong>Cette page est la page d'accueil, on y retrouvera les ressources publiques</strong>
+      <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    </div>
+  </ion-content>
 </template>
 
 <script setup lang="ts">
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-  import Header from '@/components/Header.vue'
-  import Footer from '@/components/Footer.vue'
+  import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+  
 </script>
 
 <style scoped>

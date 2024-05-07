@@ -1,0 +1,32 @@
+[
+    {
+        "idTypeRelation": 1,
+        "nom": "Soi",
+        "commentaire": null
+    },
+    {
+        "idTypeRelation": 2,
+        "nom": "Conjoints",
+        "commentaire": null
+    },
+    {
+        "idTypeRelation": 3,
+        "nom": "Famille",
+        "commentaire": "enfants / parents / fratrie"
+    },
+    {
+        "idTypeRelation": 4,
+        "nom": "Professionnelle",
+        "commentaire": "collègues, collaborateurs et managers"
+    },
+    {
+        "idTypeRelation": 5,
+        "nom": "Amis et communautés",
+        "commentaire": null
+    },
+    {
+        "idTypeRelation": 6,
+        "nom": "Inconnus",
+        "commentaire": null
+    }
+]

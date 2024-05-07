@@ -1,27 +1,19 @@
 <template>
-    <ion-page>
-      <Header></Header>
-  
-      <ion-content :fullscreen="true">
-        <ion-header collapse="condense">
-          <ion-toolbar>
-            <ion-title size="large">Blank</ion-title>
-          </ion-toolbar>
-        </ion-header>
-  
-        <div id="container">
-          <strong>Cette page permettra d'accéder aux informations du profil</strong>
-        </div>
-      </ion-content>
+  <ion-content :fullscreen="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Blank</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-      <Footer></Footer>
-    </ion-page>
+    <div id="container">
+      <router-view></router-view>
+    </div>
+  </ion-content>
 </template>
 
 <script setup lang="ts">
-  import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
-  import Header from '@/components/Header.vue'
-  import Footer from '@/components/Footer.vue'
+  import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
 
 </script>
 
@@ -34,11 +26,6 @@ left: 0;
 right: 0;
 top: 50%;
 transform: translateY(-50%);
-}
-
-#container strong {
-font-size: 20px;
-line-height: 26px;
 }
 
 #container p {

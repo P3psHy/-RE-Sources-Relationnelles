@@ -1,27 +1,32 @@
 [
     {
         "idTypeRelation": 1,
-        "titre": "Famille",
-        "commentaire": "Parents, enfants, fratrie, etc"
+        "nom": "Soi",
+        "commentaire": null
     },
     {
         "idTypeRelation": 2,
-        "titre": "Conjoints",
-        "commentaire": ""
+        "nom": "Conjoints",
+        "commentaire": null
     },
     {
         "idTypeRelation": 3,
-        "titre": "Professionnelle",
-        "commentaire": "Collègues, collaborateurs et managers"
+        "nom": "Famille",
+        "commentaire": "enfants / parents / fratrie"
     },
     {
         "idTypeRelation": 4,
-        "titre": "Amis et communautés",
-        "commentaire": ""
+        "nom": "Professionnelle",
+        "commentaire": "collègues, collaborateurs et managers"
     },
     {
         "idTypeRelation": 5,
-        "titre": "Inconnus",
-        "commentaire": ""
+        "nom": "Amis et communautés",
+        "commentaire": null
+    },
+    {
+        "idTypeRelation": 6,
+        "nom": "Inconnus",
+        "commentaire": null
     }
 ]

@@ -14,12 +14,14 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
 
 #[Route('/utilisateur')]
 class UtilisateurController extends AbstractController
 {
     #[Route('/', name: 'app_utilisateur_index', methods: ['GET'])]
-    public function index(UtilisateurRepository $utilisateurRepository, SerializerInterface $serializer): Response
+    public function index(UtilisateurRepository $utilisateurRepository, SerializerInterface $serializer ): Response
     {
 
         $users = $utilisateurRepository->findAll();
@@ -44,7 +46,7 @@ class UtilisateurController extends AbstractController
     
 
     #[Route('/', name: 'app_utilisateur_new', methods: ['POST'])]
-    public function new(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator, RoleRepository $roleRepository): JsonResponse
+    public function new(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator, RoleRepository $roleRepository, UserPasswordHasherInterface  $userPasswordHasherInterface): JsonResponse
     {
 
         $utilisateur = $serializer->deserialize($request->getContent(), Utilisateur::class, 'json');
@@ -53,9 +55,16 @@ class UtilisateurController extends AbstractController
         // Récupération de l'ensemble des données envoyées sous forme de tableau
         $content = $request->toArray();
 
-        //on va chercher l'objet role
         $idRole = $content['id_role'] ?? 1;
         $utilisateur->setRole($roleRepository->find($idRole));
+
+
+        $hashedPassword = $userPasswordHasherInterface->hashPassword(
+            $utilisateur,
+            $$utilisateur->getMotDePasse()
+        );
+        $utilisateur->setMotDePasse($hashedPassword);
+
 
         $em->persist($utilisateur);
         $em->flush();

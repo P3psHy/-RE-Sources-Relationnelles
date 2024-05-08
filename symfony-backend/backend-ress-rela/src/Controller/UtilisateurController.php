@@ -46,7 +46,7 @@ class UtilisateurController extends AbstractController
     
 
     #[Route('/', name: 'app_utilisateur_new', methods: ['POST'])]
-    public function new(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator, RoleRepository $roleRepository, UserPasswordHasherInterface  $userPasswordHasherInterface): JsonResponse
+    public function new(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator, RoleRepository $roleRepository): JsonResponse
     {
 
         $utilisateur = $serializer->deserialize($request->getContent(), Utilisateur::class, 'json');
@@ -57,14 +57,6 @@ class UtilisateurController extends AbstractController
 
         $idRole = $content['id_role'] ?? 1;
         $utilisateur->setRole($roleRepository->find($idRole));
-
-
-        $hashedPassword = $userPasswordHasherInterface->hashPassword(
-            $utilisateur,
-            $$utilisateur->getMotDePasse()
-        );
-        $utilisateur->setMotDePasse($hashedPassword);
-
 
         $em->persist($utilisateur);
         $em->flush();

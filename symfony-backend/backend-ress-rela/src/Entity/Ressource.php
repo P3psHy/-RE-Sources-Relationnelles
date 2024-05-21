@@ -65,10 +65,17 @@ class Ressource
     #[ORM\JoinColumn(nullable: false)]
     private ?TypeRessource $typeRessource = null;
 
+    /**
+     * @var Collection<int, Commentaire>
+     */
+    #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'ressource')]
+    private Collection $commentaires;
+
 
     public function __construct()
     {
         $this->typeRelations = new ArrayCollection();
+        $this->commentaires = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -216,6 +223,36 @@ class Ressource
     public function setTypeRessource(?TypeRessource $typeRessource): static
     {
         $this->typeRessource = $typeRessource;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commentaire>
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): static
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires->add($commentaire);
+            $commentaire->setRessource($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): static
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getRessource() === $this) {
+                $commentaire->setRessource(null);
+            }
+        }
 
         return $this;
     }

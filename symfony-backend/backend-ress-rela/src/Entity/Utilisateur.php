@@ -75,11 +75,25 @@ class Utilisateur
     #[ORM\OneToMany(targetEntity: MessageUtilisateur::class, mappedBy: 'utilisateur1', orphanRemoval: true)]
     private Collection $messageUtilisateurs;
 
+    /**
+     * @var Collection<int, Commentaire>
+     */
+    #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'utilisateur', orphanRemoval: true)]
+    private Collection $commentaires;
+
+    /**
+     * @var Collection<int, Reponse>
+     */
+    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'utilisateur')]
+    private Collection $reponses;
+
     public function __construct()
     {
         $this->ressources = new ArrayCollection();
         $this->relationUtilisateurs = new ArrayCollection();
         $this->messageUtilisateurs = new ArrayCollection();
+        $this->commentaires = new ArrayCollection();
+        $this->reponses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -279,6 +293,66 @@ class Utilisateur
             // set the owning side to null (unless already changed)
             if ($messageUtilisateur->getUtilisateur1() === $this) {
                 $messageUtilisateur->setUtilisateur1(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commentaire>
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): static
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires->add($commentaire);
+            $commentaire->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): static
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getUtilisateur() === $this) {
+                $commentaire->setUtilisateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reponse>
+     */
+    public function getReponses(): Collection
+    {
+        return $this->reponses;
+    }
+
+    public function addReponse(Reponse $reponse): static
+    {
+        if (!$this->reponses->contains($reponse)) {
+            $this->reponses->add($reponse);
+            $reponse->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReponse(Reponse $reponse): static
+    {
+        if ($this->reponses->removeElement($reponse)) {
+            // set the owning side to null (unless already changed)
+            if ($reponse->getUtilisateur() === $this) {
+                $reponse->setUtilisateur(null);
             }
         }
 

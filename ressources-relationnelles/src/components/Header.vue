@@ -7,13 +7,13 @@
                         <ion-img id="header-logo" @click="goToHome" src="../sources/header-logo.png"></ion-img>
                     </ion-col>
                     <ion-col id="header-menu" size="10" size-md="11">
+                        <!-- Bouton qui déclenche l'affichage de la barre de recherche -->
+                        <ion-button>
+                            <ion-icon :icon="search"></ion-icon>
+                            <ion-label v-if="$grid.breakpoint.includes('l')">Recherche</ion-label>
+                        </ion-button>
                         <ion-segment ref="pageName" v-model="pageName">
-                            <ion-segment-button>
-                                <ion-icon :icon="search"></ion-icon>
-                                <ion-label v-if="$grid.breakpoint.includes('l')">Recherche</ion-label>
-                            </ion-segment-button>
-                            <!-- Bouton qui déclenche l'affichage de la barre de recherche -->
-                            <ion-segment-button v-for="button in menuButtons" :key="button.label" :router-link="button.link">
+                            <ion-segment-button v-for="button in menuButtons" :key="button.label" :router-link="button.link" :value="button.value">
                                 <ion-icon :icon="button.icon"></ion-icon>
                                 <ion-label v-if="$grid.breakpoint.includes('l')">{{button.label}}</ion-label>
                             </ion-segment-button>
@@ -28,7 +28,14 @@
 <script setup lang="ts">
     import { 
         IonImg, 
-        IonTabs, 
+        IonHeader, 
+        IonButton,
+        IonSegment, 
+        IonSegmentButton, 
+        IonToolbar,
+        IonCol, 
+        IonGrid, 
+        IonRow,
         IonIcon
     } from '@ionic/vue';
     import { watch, ref } from 'vue'; 
@@ -56,11 +63,11 @@
     };
     
     const menuButtons = [
-        { label: 'Accueil', icon: home, link: '/home' },
-        { label: 'Publier', icon: addCircle, link: '/ressource' },
-        { label: 'Relations', icon: people, link: '/relations' },
-        { label: 'Messagerie', icon: send, link: '/messagerie' },
-        { label: 'Mon profil', icon: person, link: '/profil' },
+        { label: 'Accueil', icon: home, link: '/home', value: "Home" },
+        { label: 'Publier', icon: addCircle, link: '/ressource', value: "Ressource" },
+        { label: 'Relations', icon: people, link: '/relations', value: "Relations" },
+        { label: 'Messagerie', icon: send, link: '/messagerie', value: "Messagerie" },
+        { label: 'Mon profil', icon: person, link: '/profil', value: "Profil" },
     ];
 </script>
 
@@ -91,7 +98,6 @@
     #header-menu {
         display: flex;
         align-items: center;
-        overflow-x: auto;
     }
 
     ion-segment-button {

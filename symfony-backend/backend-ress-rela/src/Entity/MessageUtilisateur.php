@@ -16,7 +16,8 @@ class MessageUtilisateur
     #[Groups(["MessageUtilisateur"])]
     private ?int $id = null;
 
-    #[ORM\Column(length: 500)]
+    #[ORM\Column(length: 500, nullable: false)]
+    #[Groups(["MessageUtilisateur"])]
     private ?string $contenu = null;
 
     #[ORM\ManyToOne(inversedBy: 'messageUtilisateurs')]

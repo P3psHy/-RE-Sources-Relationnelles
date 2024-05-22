@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import VueScreen from 'vue-screen';
 
 import { IonicVue } from '@ionic/vue';
 
@@ -25,7 +26,14 @@ import './theme/variables.css';
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(VueScreen, {
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+    xxl: 1400,
+  });
   
 router.isReady().then(() => {
   app.mount('#app');

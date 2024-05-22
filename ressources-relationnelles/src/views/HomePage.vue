@@ -1,41 +1,21 @@
 <template>
-  <ion-page>
-    <ion-header :translucent="true">
+  <ion-content :fullscreen="true">
+    <ion-header collapse="condense">
       <ion-toolbar>
-        <ion-img class="logo" src="../sources/Logo application.png"></ion-img>
-        <ion-segment value="Accueil">
-          <ion-segment-button value="Accueil">Accueil</ion-segment-button>
-          <ion-segment-button router-link="/ressource" value="Publier">Publier</ion-segment-button>
-          <ion-segment-button router-link="/connect" value="Se connecter">Se connecter</ion-segment-button>
-          <ion-segment-button router-link="/profile" value="Mon profil">Mon profil</ion-segment-button>
-        </ion-segment>
+        <ion-title size="large">Blank</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <div id="container">
-        <strong>Cette page est la page d'accueil, on y retrouvera les ressources publiques</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
-    </ion-content>
-
-    <ion-footer collapse="fade">
-      <ion-toolbar>
-        <ion-img class="logo" src="../sources/gouvernement-logos-idpqhzX_Mk.png"></ion-img>
-      </ion-toolbar>
-    </ion-footer>
-
-  </ion-page>
+    <div id="container">
+      <strong>Cette page est la page d'accueil, on y retrouvera les ressources publiques</strong>
+      <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    </div>
+  </ion-content>
 </template>
 
 <script setup lang="ts">
-  import { IonContent, IonImg, IonHeader, IonSegment, IonSegmentButton, IonFooter, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+  import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+  
 </script>
 
 <style scoped>

@@ -1,35 +1,81 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import HomePage from '../views/HomePage.vue';
-import ProfilePage from '../views/ProfilePage.vue';
-import RessourcePage from '../views/RessourcePage.vue';
-import ConnectionPage from '../views/ConnectionPage.vue';
+import BaseLayout from "@/components/BaseLayout.vue"
+import HomePage from '@/views/HomePage.vue';
+import ProfilePage from '@/views/ProfilePage.vue';
+import RessourcePage from '@/views/RessourcePage.vue';
+import ConnectionPage from '@/views/ConnectionPage.vue';
+import RessourceNew from '@/views/RessourceNew.vue';
+import PrivacyPolicyPage from '@/views/PrivacyPolicy.vue';
+import TermsConditionsPage from '@/views/TermsConditions.vue';
+import ConnectionForm from '@/components/ConnectionForm.vue';
+import SubscriptionForm from '@/components/SubscriptionForm.vue';
+import ProfileData from '@/components/ProfileData.vue';
+import ProfileFiles from '@/components/ProfileFiles.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
+    component: BaseLayout,
+    redirect: "home",
+    children: [
+      {
+        path: 'home',
+        name: 'Home',
+        component: HomePage
+      },
+      {
+        // la redirection se fait quand le / est absent au début du path
+        path: 'us',
+        name: 'Connection',
+        component: ConnectionPage,
+        redirect: "/us/connexion",
+        children: [
+          {
+            path: 'connexion',
+            name: 'Connexion',
+            component: ConnectionForm
+          },
+          {
+            path: 'inscription',
+            name: 'Inscription',
+            component: SubscriptionForm
+          }
+        ]
+      },
+      {
+        path: 'profile',
+        name: 'Profile',
+        component: ProfileFiles,
+      },
+      {
+          path: 'profile/data',
+          name: 'InfoProfile',
+          component: ProfileData
+          
+      },
+      {
+        path: 'ressource',
+        name: 'Ressource',
+        component: RessourcePage
+      },
+      {
+        path: 'ressource/new',
+        name: 'RessourceNew',
+        component: RessourceNew
+      },
+      {
+        path: 'privacy-policy',
+        name: 'PrivacyPolicy',
+        component: PrivacyPolicyPage
+      },
+      {
+        path: 'terms-conditions',
+        name: 'TermsConditions',
+        component: TermsConditionsPage
+      }
+    ]
   },
-  {
-    path: '/home',
-    name: 'Home',
-    component: HomePage
-  },
-  {
-    path: '/connect',
-    name: 'Connection',
-    component: ConnectionPage
-  },
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: ProfilePage
-  },
-  {
-    path: '/ressource',
-    name: 'Ressource',
-    component: RessourcePage
-  }
 ]
 
 const router = createRouter({

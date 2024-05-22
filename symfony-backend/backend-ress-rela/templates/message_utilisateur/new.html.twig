@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MessageUtilisateur{% endblock %}
+
+{% block body %}
+    <h1>Create new MessageUtilisateur</h1>
+
+    {{ include('message_utilisateur/_form.html.twig') }}
+
+    <a href="{{ path('app_message_utilisateur_index') }}">back to list</a>
+{% endblock %}

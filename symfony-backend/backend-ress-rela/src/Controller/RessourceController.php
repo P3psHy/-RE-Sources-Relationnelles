@@ -74,9 +74,12 @@ class RessourceController extends AbstractController
         $ressource->setEtatRessource($etatRessourceRepository->find($idEtatRessource));
         $ressource->setDatePublication($dateTime);
 
-        foreach($idsTypeRelation as $idTypeRelation){
-            $ressource->addTypeRelation($typeRelationRepository->find($idTypeRelation));
+        if(!empty($idsTypeRelation)){
+            foreach($idsTypeRelation as $idTypeRelation){
+                $ressource->addTypeRelation($typeRelationRepository->find($idTypeRelation));
+            }
         }
+        
 
         $em->persist($ressource);
         $em->flush();

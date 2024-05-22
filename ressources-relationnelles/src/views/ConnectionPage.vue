@@ -8,6 +8,7 @@
 
     <div id="container">
       <router-view></router-view>
+      
     </div>
   </ion-content>
 </template>

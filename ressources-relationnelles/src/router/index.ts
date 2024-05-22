@@ -12,6 +12,8 @@ import ConnectionForm from '@/components/ConnectionForm.vue';
 import SubscriptionForm from '@/components/SubscriptionForm.vue';
 import ProfileData from '@/components/ProfileData.vue';
 import ProfileFiles from '@/components/ProfileFiles.vue';
+import RelationsPage from '@/views/RelationsPage.vue';
+import MessagingPage from '@/views/MessagingPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -44,17 +46,6 @@ const routes: Array<RouteRecordRaw> = [
         ]
       },
       {
-        path: 'profile',
-        name: 'Profile',
-        component: ProfileFiles,
-      },
-      {
-          path: 'profile/data',
-          name: 'InfoProfile',
-          component: ProfileData
-          
-      },
-      {
         path: 'ressource',
         name: 'Ressource',
         component: RessourcePage
@@ -63,6 +54,23 @@ const routes: Array<RouteRecordRaw> = [
         path: 'ressource/new',
         name: 'RessourceNew',
         component: RessourceNew
+      },
+      {
+        path: 'relations',
+        name: 'Relations',
+        component: RelationsPage
+      },
+      {
+        path: 'messagerie',
+        name: 'Messagerie',
+        component: MessagingPage
+          
+      },
+      {
+        path: 'profil',
+        name: 'Profil',
+        component: ProfilePage
+          
       },
       {
         path: 'privacy-policy',

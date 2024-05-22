@@ -35,7 +35,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: small;
+        font-size: x-small;
+        text-align: center;
     }
 
     a {

@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use DateTime;
+use DateTimeZone;
 use App\Entity\Utilisateur;
 use App\Repository\RoleRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -56,7 +58,11 @@ class UtilisateurController extends AbstractController
         $content = $request->toArray();
 
         $idRole = $content['id_role'] ?? 1;
+        $dateTime = new DateTime('now', new DateTimeZone('Europe/Paris'));
+
+
         $utilisateur->setRole($roleRepository->find($idRole));
+        $utilisateur->setDateCreation($dateTime);
 
         $em->persist($utilisateur);
         $em->flush();

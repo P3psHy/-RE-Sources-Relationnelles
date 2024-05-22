@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
+use DateTime;
+use DateTimeZone;
 use App\Entity\Ressource;
 use App\Form\RessourceType;
 use App\Repository\CategorieRepository;
-use App\Repository\EtatRessourceRepository;
 use App\Repository\RessourceRepository;
-use App\Repository\TypeRelationRepository;
-use App\Repository\TypeRessourceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\UtilisateurRepository;
+use App\Repository\TypeRelationRepository;
+use App\Repository\EtatRessourceRepository;
+use App\Repository\TypeRessourceRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -62,12 +64,15 @@ class RessourceController extends AbstractController
         $idTypeRessource = $content['id_type_ressource'];
         $idEtatRessource = 2;
         $idsTypeRelation = $content['ids_type_relation'];
+        $dateTime = new DateTime('now', new DateTimeZone('Europe/Paris'));
+
 
 
         $ressource->setUtilisateur($utilisateurRepository->find($idUtilisateur));
         $ressource->setCategorie($categorieRepository->find($idCategorie));
         $ressource->setTypeRessource($typeRessource->find($idTypeRessource));
         $ressource->setEtatRessource($etatRessourceRepository->find($idEtatRessource));
+        $ressource->setDatePublication($dateTime);
 
         foreach($idsTypeRelation as $idTypeRelation){
             $ressource->addTypeRelation($typeRelationRepository->find($idTypeRelation));

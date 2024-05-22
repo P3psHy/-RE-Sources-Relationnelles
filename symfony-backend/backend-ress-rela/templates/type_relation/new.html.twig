@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeRelation{% endblock %}
+
+{% block body %}
+    <h1>Create new TypeRelation</h1>
+
+    {{ include('type_relation/_form.html.twig') }}
+
+    <a href="{{ path('app_type_relation_index') }}">back to list</a>
+{% endblock %}

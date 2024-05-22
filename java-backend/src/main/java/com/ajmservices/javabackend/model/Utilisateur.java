@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Utilisateur {
     @Id
@@ -18,7 +20,7 @@ public class Utilisateur {
     private String mail;
     private String motDePasse;
     private String departement;
-    private boolean statut;
+    private boolean estActive;
     private Date dateDesactivation;
     private Date dateCreation;
 
@@ -27,18 +29,17 @@ public class Utilisateur {
     private Role role;
 
     @OneToMany(mappedBy = "utilisateur")
+    @JsonManagedReference
     private Set<Ressource> ressources = new HashSet<>();
 
     @ManyToMany
-    @JoinTable(name = "_utilisateur_ressource_favoris",
-               joinColumns = @JoinColumn(name = "id_utilisateur"),
-               inverseJoinColumns = @JoinColumn(name = "id_ressource"))
+    @JoinTable(name = "_utilisateur_ressource_favoris", joinColumns = @JoinColumn(name = "idUtilisateur"), inverseJoinColumns = @JoinColumn(name = "id_ressource"))
     private Set<Ressource> ressourcesFavoris = new HashSet<>();
 
-    @OneToMany(mappedBy="utilisateur1", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "utilisateur1", fetch = FetchType.EAGER)
     private Collection<MessageUtilisateur> envoyes;
 
-    @OneToMany(mappedBy="utilisateur2", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "utilisateur2", fetch = FetchType.EAGER)
     private Collection<MessageUtilisateur> recus;
 
     @OneToMany(mappedBy = "utilisateur1")
@@ -47,19 +48,18 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur2")
     private Set<RelationUtilisateur> relations2 = new HashSet<>();
 
-    
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String prenom, String mail, String motDePasse, String departement, boolean statut,
-            Date dateCreation, Role role) {
+    public Utilisateur(String nom, String prenom, String mail, String motDePasse, String departement, boolean estActive, Role role) {
+
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
         this.motDePasse = motDePasse;
         this.departement = departement;
-        this.statut = statut;
-        this.dateCreation = dateCreation;
+        this.estActive = estActive;
+        this.dateCreation = new Date();
         this.role = role;
     }
 
@@ -112,12 +112,12 @@ public class Utilisateur {
         this.departement = departement;
     }
 
-    public boolean isStatut() {
-        return statut;
+    public boolean getEstActive() {
+        return estActive;
     }
 
-    public void setStatut(boolean statut) {
-        this.statut = statut;
+    public void setEstActive(boolean estActive) {
+        this.estActive = estActive;
     }
 
     public Date getDateDesactivation() {
@@ -162,6 +162,17 @@ public class Utilisateur {
         this.ressourcesFavoris = ressourcesFavoris;
     }
 
+    public void ajouterRessourceFavoris(Ressource ressource) {
+        ressourcesFavoris.add(ressource);
+        // ressource.getUtilisateursFavoris().add(this); // Met à jour l'autre côté de la relation
+    }
+
+    // Méthode pour retirer une ressource des favoris de l'utilisateur
+    public void retirerRessourceFavoris(Ressource ressource) {
+        ressourcesFavoris.remove(ressource);
+        // ressource.getUtilisateursFavoris().remove(this); // Met à jour l'autre côté de la relation
+    }
+
     // toString method
     @Override
     public String toString() {
@@ -172,7 +183,7 @@ public class Utilisateur {
                 ", mail='" + mail + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
                 ", departement='" + departement + '\'' +
-                ", statut=" + statut + '\'' +
+                ", estActive=" + estActive + '\'' +
                 ", dateDesactivation=" + dateDesactivation + '\'' +
                 ", dateCreation=" + dateCreation + '\'' +
                 ", role=" + role +

@@ -1,0 +1,18 @@
+[
+    {
+        "idRole": 1,
+        "nom": "Utilisateur"
+    },
+    {
+        "idRole": 2,
+        "nom": "Modérateur"
+    },
+    {
+        "idRole": 3,
+        "nom": "Administrateur"
+    },
+    {
+        "idRole": 4,
+        "nom": "Super-Administrateur"
+    }
+]

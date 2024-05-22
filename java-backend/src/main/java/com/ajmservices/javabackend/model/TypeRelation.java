@@ -10,15 +10,15 @@ public class TypeRelation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTypeRelation;
 
-    private String titre;
-    private String description;
+    private String nom;
+    private String commentaire;
 
     public TypeRelation() {
     }
 
-    public TypeRelation(String titre, String description) {
-        this.titre = titre;
-        this.description = description;
+    public TypeRelation(String nom, String commentaire) {
+        this.nom = nom;
+        this.commentaire = commentaire;
 
     }
 
@@ -31,20 +31,20 @@ public class TypeRelation {
         this.idTypeRelation = idTypeRelation;
     }
 
-    public String getTitre() {
-        return this.titre;
+    public String getNom() {
+        return this.nom;
     }
 
-    public void setTitre(String titre) {
-        this.titre = titre;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getDescription() {
-        return this.description;
+    public String getCommentaire() {
+        return this.commentaire;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
     }
 
     @ManyToMany(mappedBy = "linkedTypeRelations")
@@ -55,8 +55,8 @@ public class TypeRelation {
     public String toString() {
         return "TypeRelation{" +
                 "idTypeRelation=" + idTypeRelation +
-                ", titre='" + titre + '\'' +
-                ", description='" + description +
+                ", nom='" + nom + '\'' +
+                ", commentaire='" + commentaire +
                 '}';
     }
 

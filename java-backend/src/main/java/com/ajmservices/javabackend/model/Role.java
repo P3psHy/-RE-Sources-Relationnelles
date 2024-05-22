@@ -10,17 +10,19 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRole;
 
-    private String typeRole;
+    private String nom;
 
     @OneToMany(mappedBy = "role")
     private List<Utilisateur> utilisateurs;
 
+
+    
     // Constructors
     public Role() {
     }
 
-    public Role(String typeRole) {
-        this.typeRole = typeRole;
+    public Role(String nom) {
+        this.nom = nom;
     }
 
     // Getters and Setters
@@ -32,12 +34,12 @@ public class Role {
         this.idRole = idRole;
     }
 
-    public String getTypeRole() {
-        return typeRole;
+    public String getNom() {
+        return nom;
     }
 
-    public void setTypeRole(String typeRole) {
-        this.typeRole = typeRole;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     // toString method
@@ -45,7 +47,7 @@ public class Role {
     public String toString() {
         return "Role{" +
                 "idRole=" + idRole +
-                ", typeRole='" + typeRole +
+                ", nom='" + nom +
                 '}';
     }
 }

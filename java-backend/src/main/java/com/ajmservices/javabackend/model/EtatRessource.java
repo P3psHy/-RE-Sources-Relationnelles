@@ -8,14 +8,14 @@ public class EtatRessource {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEtatRessource;
 
-    private String texte;
+    private String nom;
 
     // Constructors
     public EtatRessource() {
     }
 
-    public EtatRessource(String texte) {
-        this.texte = texte;
+    public EtatRessource(String nom) {
+        this.nom = nom;
     }
 
     // Getters and Setters
@@ -27,12 +27,12 @@ public class EtatRessource {
         this.idEtatRessource = idEtatRessource;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getNom() {
+        return nom;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     // toString method
@@ -40,7 +40,7 @@ public class EtatRessource {
     public String toString() {
         return "EtatRessource{" +
                 "idEtatRessource=" + idEtatRessource +
-                ", texte='" + texte +
+                ", nom='" + nom +
                 '}';
     }
 }

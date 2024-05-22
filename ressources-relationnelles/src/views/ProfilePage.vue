@@ -7,7 +7,7 @@
     </ion-header>
 
     <div id="container">
-      <strong>Cette page permettra d'accéder aux informations du profil</strong>
+      <router-view></router-view>
     </div>
   </ion-content>
 </template>
@@ -26,11 +26,6 @@ left: 0;
 right: 0;
 top: 50%;
 transform: translateY(-50%);
-}
-
-#container strong {
-font-size: 20px;
-line-height: 26px;
 }
 
 #container p {

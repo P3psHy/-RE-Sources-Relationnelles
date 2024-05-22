@@ -10,7 +10,7 @@ public class Reponse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReponse;
 
-    private String texte;
+    private String contenu;
     private Date dateReponse;
 
     @ManyToOne
@@ -26,9 +26,9 @@ public class Reponse {
     public Reponse() {
     }
 
-    public Reponse(String texte, Date dateReponse,
+    public Reponse(String contenu, Date dateReponse,
             Commentaire commentaire, Utilisateur utilisateur) {
-        this.texte = texte;
+        this.contenu = contenu;
         this.dateReponse = dateReponse;
         this.commentaire = commentaire;
         this.utilisateur = utilisateur;
@@ -43,12 +43,12 @@ public class Reponse {
         this.idReponse = idReponse;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Date getDateReponse() {
@@ -80,7 +80,7 @@ public class Reponse {
     public String toString() {
         return "Reponse{" +
                 "idReponse=" + idReponse +
-                ", texte='" + texte + '\'' +
+                ", contenu='" + contenu + '\'' +
                 ", dateReponse='" + dateReponse + '\'' +
                 ", commentaire=" + commentaire + '\'' +
                 ", utilisateur=" + utilisateur +

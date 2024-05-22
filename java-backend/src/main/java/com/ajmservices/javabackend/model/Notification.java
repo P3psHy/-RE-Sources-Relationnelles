@@ -11,7 +11,7 @@ public class Notification {
     private Long idNotification;
 
     private String titre;
-    private String texte;
+    private String contenu;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
@@ -23,9 +23,9 @@ public class Notification {
     public Notification() {
     }
 
-    public Notification(String titre, String texte, Utilisateur utilisateur, Date dateNotification) {
+    public Notification(String titre, String contenu, Utilisateur utilisateur, Date dateNotification) {
         this.titre = titre;
-        this.texte = texte;
+        this.contenu = contenu;
         this.utilisateur = utilisateur;
         this.dateNotification = dateNotification;
     }
@@ -40,19 +40,19 @@ public class Notification {
     }
 
     public String getTitre() {
-        return texte;
+        return titre;
     }
 
     public void setTitre(String titre) {
         this.titre = titre;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Utilisateur getUtilisateur() {
@@ -77,7 +77,7 @@ public class Notification {
         return "Notification{" +
                 "idNotification=" + idNotification +
                 ", titre='" + titre + '\'' +
-                ", texte='" + texte + '\'' +
+                ", contenu='" + contenu + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
                 ", dateNotification=" + dateNotification +
                 '}';

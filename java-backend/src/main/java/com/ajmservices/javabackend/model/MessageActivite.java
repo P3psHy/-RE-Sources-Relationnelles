@@ -12,7 +12,7 @@ public class MessageActivite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMessageActivite;
 
-    private String message;
+    private String contenu;
     private Date dateMessageActivite;
 
     @ManyToOne
@@ -28,9 +28,9 @@ public class MessageActivite {
     public MessageActivite() {
     }
 
-    public MessageActivite(String message, Date dateMessageActivite,
+    public MessageActivite(String contenu, Date dateMessageActivite,
             Utilisateur utilisateur, Activite activite) {
-        this.message = message;
+        this.contenu = contenu;
         this.dateMessageActivite = dateMessageActivite;
         this.utilisateur = utilisateur;
         this.activite = activite;
@@ -45,12 +45,12 @@ public class MessageActivite {
         this.idMessageActivite = idMessageActivite;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Date getDateMessageActivite() {
@@ -82,7 +82,7 @@ public class MessageActivite {
     public String toString() {
         return "MessageActivite{" +
                 "idMessageActivite=" + idMessageActivite +
-                ", message='" + message + '\'' +
+                ", contenu='" + contenu + '\'' +
                 ", dateMessageActivite='" + dateMessageActivite + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
                 ", activite=" + activite +

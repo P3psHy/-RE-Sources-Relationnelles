@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MessageUtilisateur{% endblock %}
+
+{% block body %}
+    <h1>MessageUtilisateur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ message_utilisateur.id }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ message_utilisateur.contenu }}</td>
+            </tr>
+            <tr>
+                <th>DateHeureEnvoi</th>
+                <td>{{ message_utilisateur.dateHeureEnvoi ? message_utilisateur.dateHeureEnvoi|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_message_utilisateur_index') }}">back to list</a>
+
+    <a href="{{ path('app_message_utilisateur_edit', {'id': message_utilisateur.id}) }}">edit</a>
+
+    {{ include('message_utilisateur/_delete_form.html.twig') }}
+{% endblock %}

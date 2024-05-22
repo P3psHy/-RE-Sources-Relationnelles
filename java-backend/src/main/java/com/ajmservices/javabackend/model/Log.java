@@ -10,7 +10,7 @@ public class Log {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idLog;
 
-    private String textLog;
+    private String contenu;
 
     @ManyToOne
     @JoinColumn(name = "id_utilisateur")
@@ -22,8 +22,8 @@ public class Log {
     public Log() {
     }
 
-    public Log(String textLog, Utilisateur utilisateur, Date dateLog) {
-        this.textLog = textLog;
+    public Log(String contenu, Utilisateur utilisateur, Date dateLog) {
+        this.contenu = contenu;
         this.utilisateur = utilisateur;
         this.dateLog = dateLog;
     }
@@ -37,12 +37,12 @@ public class Log {
         this.idLog = idLog;
     }
 
-    public String getTextLog() {
-        return textLog;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setTextLog(String textLog) {
-        this.textLog = textLog;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Utilisateur getUtilisateur() {
@@ -66,7 +66,7 @@ public class Log {
     public String toString() {
         return "Log{" +
                 "idLog=" + idLog +
-                ", textLog='" + textLog + '\'' +
+                ", contenu='" + contenu + '\'' +
                 ", utilisateur=" + utilisateur + '\'' +
                 ", dateLog=" + dateLog +
                 '}';

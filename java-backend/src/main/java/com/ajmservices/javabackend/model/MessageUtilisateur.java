@@ -10,7 +10,7 @@ public class MessageUtilisateur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMessageUtilisateur;
 
-    private String message;
+    private String contenu;
     private Date dateMessageUtilisateur;
 
     @ManyToOne
@@ -26,9 +26,9 @@ public class MessageUtilisateur {
     public MessageUtilisateur() {
     }
 
-    public MessageUtilisateur(String message, Date dateMessageUtilisateur,
+    public MessageUtilisateur(String contenu, Date dateMessageUtilisateur,
             Utilisateur utilisateur1, Utilisateur utilisateur2) {
-        this.message = message;
+        this.contenu = contenu;
         this.dateMessageUtilisateur = dateMessageUtilisateur;
         this.utilisateur1 = utilisateur1;
         this.utilisateur2 = utilisateur2;
@@ -43,12 +43,12 @@ public class MessageUtilisateur {
         this.idMessageUtilisateur = idMessageUtilisateur;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Date getDateMessageUtilisateur() {
@@ -80,7 +80,7 @@ public class MessageUtilisateur {
     public String toString() {
         return "MessageUtilisateur{" +
                 "idMessageUtilisateur=" + idMessageUtilisateur +
-                ", message='" + message + '\'' +
+                ", contenu='" + contenu + '\'' +
                 ", dateMessageUtilisateur='" + dateMessageUtilisateur + '\'' +
                 ", utilisateur1=" + utilisateur1 + '\'' +
                 ", utilisateur2=" + utilisateur2 +

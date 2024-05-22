@@ -10,7 +10,7 @@ public class Commentaire {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCommentaire;
 
-    private String texte;
+    private String contenu;
     private Date dateCommentaire;
 
     @ManyToOne
@@ -26,9 +26,9 @@ public class Commentaire {
     public Commentaire() {
     }
 
-    public Commentaire(String texte, Date dateCommentaire,
+    public Commentaire(String contenu, Date dateCommentaire,
         Ressource ressource, Utilisateur utilisateur) {
-        this.texte = texte;
+        this.contenu = contenu;
         this.dateCommentaire = dateCommentaire;
         // Générer la date et heure du commentaire à son instanciation
         // this.dateCommentaire = new Date();
@@ -45,12 +45,12 @@ public class Commentaire {
         this.idCommentaire = idCommentaire;
     }
 
-    public String getTexte() {
-        return texte;
+    public String getContenu() {
+        return contenu;
     }
 
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
     }
 
     public Date getDateCommentaire() {
@@ -82,7 +82,7 @@ public class Commentaire {
     public String toString() {
         return "Commentaire{" +
                 "idCommentaire=" + idCommentaire +
-                ", texte='" + texte + '\'' +
+                ", contenu='" + contenu + '\'' +
                 ", dateCommentaire='" + dateCommentaire + '\'' +
                 ", ressource=" + ressource + '\'' +
                 ", utilisateur=" + utilisateur +

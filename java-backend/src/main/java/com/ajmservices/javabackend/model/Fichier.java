@@ -37,7 +37,7 @@ public class Fichier {
         return nom;
     }
 
-    public void setTexte(String nom) {
+    public void setNom(String nom) {
         this.nom = nom;
     }
 

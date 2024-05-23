@@ -15,31 +15,31 @@ class Utilisateur
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(["Utilisateur","Ressource", "Roles", "Categorie", "TypeRelation", "RelationUtilisateur", "MessageUtilisateur", "EtatRessource", "TypeRessource"])]
+    #[Groups(["CheckUser","Utilisateur","Ressource", "Roles", "Categorie", "TypeRelation", "RelationUtilisateur", "MessageUtilisateur", "EtatRessource", "TypeRessource"])]
     private ?int $id = null;
 
-    #[Groups(["Utilisateur","Ressource", "Roles", "Categorie", "TypeRelation", "RelationUtilisateur", "MessageUtilisateur", "EtatRessource", "TypeRessource"])]
+    #[Groups(["CheckUser","Utilisateur","Ressource", "Roles", "Categorie", "TypeRelation", "RelationUtilisateur", "MessageUtilisateur", "EtatRessource", "TypeRessource"])]
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[Groups(["Utilisateur","Ressource", "Roles", "Categorie", "TypeRelation", "RelationUtilisateur", "MessageUtilisateur", "EtatRessource", "TypeRessource"])]
+    #[Groups(["CheckUser","Utilisateur","Ressource", "Roles", "Categorie", "TypeRelation", "RelationUtilisateur", "MessageUtilisateur", "EtatRessource", "TypeRessource"])]
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
-    #[Groups(["Utilisateur"])]
-    #[ORM\Column(length: 255)]
+    #[Groups(["CheckUser","Utilisateur"])]
+    #[ORM\Column(length: 255, unique:true)]
     private ?string $mail = null;
 
     #[Groups(["Utilisateur"])]
     #[ORM\Column(length: 1000)]
     private ?string $motDePasse = null;
 
-    #[Groups(["Utilisateur"])]
+    #[Groups(["CheckUser","Utilisateur"])]
     #[ORM\Column(length: 255)]
     private ?string $departement = null;
 
     #[ORM\Column]
-    #[Groups(["Utilisateur"])]
+    #[Groups(["CheckUser","Utilisateur"])]
     private ?bool $estActive = null;
 
     #[Groups(["Utilisateur"])]
@@ -51,7 +51,7 @@ class Utilisateur
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateDesactivation = null;
 
-    #[Groups(["Utilisateur"])]
+    #[Groups(["CheckUser","Utilisateur"])]
     #[ORM\ManyToOne(inversedBy: 'utilisateurs')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Role $role = null;

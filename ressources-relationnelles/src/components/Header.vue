@@ -3,35 +3,19 @@
         <ion-toolbar>
             <ion-grid>
                 <ion-row>
-                    <ion-col id="logo">
+                    <ion-col id="logo" size="2" size-md="1" >
                         <ion-img id="header-logo" @click="goToHome" src="../sources/header-logo.png"></ion-img>
                     </ion-col>
-                    <ion-col>
-                        <ion-segment ref="pageName" v-model="pageName">
-                            <ion-segment-button>
-                                <ion-icon :icon="search"></ion-icon>
-                                <ion-label v-if="$grid.breakpoint.includes('l')">Recherche</ion-label>
-                            </ion-segment-button>
-                            <!-- Bouton qui déclenche l'affichage de la barre de recherche -->
-                            <ion-segment-button router-link="/home" value="Home">
-                                <ion-icon :icon="home"></ion-icon>
-                                <ion-label v-if="$grid.breakpoint.includes('l')">Accueil</ion-label>
-                            </ion-segment-button>
-                            <ion-segment-button router-link="/ressource" value="Ressource">
-                                <ion-icon :icon="addCircle"></ion-icon>
-                                <ion-label v-if="$grid.breakpoint.includes('l')">Publier</ion-label>
-                            </ion-segment-button>
-                            <ion-segment-button router-link="/relations" value="Relations">
-                                <ion-icon :icon="people"></ion-icon>
-                                <ion-label v-if="$grid.breakpoint.includes('l')">Relations</ion-label>
-                            </ion-segment-button>
-                            <ion-segment-button router-link="/messagerie" value="Messagerie">
-                                <ion-icon :icon="send"></ion-icon>
-                                <ion-label v-if="$grid.breakpoint.includes('l')">Messagerie</ion-label>
-                            </ion-segment-button>
-                            <ion-segment-button router-link="/profil" value="Profil">
-                                <ion-icon :icon="person"></ion-icon>
-                                <ion-label v-if="$grid.breakpoint.includes('l')">Mon profil</ion-label>
+                    <ion-col id="header-menu" size="10" size-md="11">
+                        <!-- Bouton qui déclenche l'affichage de la barre de recherche -->
+                        <ion-button>
+                            <ion-icon :icon="search"></ion-icon>
+                            <ion-label v-if="$grid.breakpoint.includes('l')">Recherche</ion-label>
+                        </ion-button>
+                        <ion-segment ref="pageName">
+                            <ion-segment-button v-for="button in menuButtons" :key="button.label" :router-link="button.link" :value="button.value">
+                                <ion-icon :icon="button.icon"></ion-icon>
+                                <ion-label v-if="$grid.breakpoint.includes('l')">{{button.label}}</ion-label>
                             </ion-segment-button>
                         </ion-segment>
                     </ion-col>
@@ -45,13 +29,15 @@
     import { 
         IonImg, 
         IonHeader, 
+        IonButton,
         IonSegment, 
         IonSegmentButton, 
         IonToolbar,
         IonCol, 
         IonGrid, 
         IonRow,
-        IonIcon
+        IonIcon,
+        IonLabel
     } from '@ionic/vue';
     import { watch, ref } from 'vue'; 
     import { useRoute } from 'vue-router';
@@ -62,7 +48,7 @@
         addCircle,
         people,
         send,
-        person
+        person,
      } from 'ionicons/icons';
     const route = useRoute();
     const router = useRouter();
@@ -77,6 +63,13 @@
         router.push("/home")
     };
     
+    const menuButtons = [
+        { label: 'Accueil', icon: home, link: '/home', value: "Home" },
+        { label: 'Publier', icon: addCircle, link: '/ressource', value: "Ressource" },
+        { label: 'Relations', icon: people, link: '/relations', value: "Relations" },
+        { label: 'Messagerie', icon: send, link: '/messagerie', value: "Messagerie" },
+        { label: 'Mon profil', icon: person, link: '/profil', value: "Profil" },
+    ];
 </script>
 
 <style scoped>
@@ -86,12 +79,41 @@
 
     #logo {
         display: flex;
-        
+        align-items: center;
     }
 
     #header-logo {
         height: 5vh;
         cursor: pointer;
     }
+
+    ion-row {
+        display: flex;
+        width: 100%;
+    }
+
+    ion-col {
+        width: fit-content;
+    }
+
+    #header-menu {
+        display: flex;
+        align-items: center;
+    }
+
+    ion-segment-button {
+        min-width: auto;
+    }
+
+    ion-icon {
+        margin: auto;
+    }
+
+    ion-label {
+        font-size:x-small;
+        margin: 0%;
+        min-width: 0px !important;
+    }
+
 </style>
   

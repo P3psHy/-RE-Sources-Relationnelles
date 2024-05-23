@@ -2,18 +2,19 @@
   <ion-content :fullscreen="true">
     <ion-header collapse="condense">
       <ion-toolbar>
-        <ion-title size="large">Blank</ion-title>
+        <ion-title size="large">Ressources</ion-title>
       </ion-toolbar>
     </ion-header>
-
     <div id="container">
-      <strong>Cette page permettra de créer / modifier une ressource</strong>
+      <router-view></router-view>
     </div>
+    
   </ion-content>
 </template>
 
 <script setup lang="ts">
-  import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+  import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+  console.log("testing");
 
 </script>
 
@@ -44,6 +45,10 @@ margin: 0;
 
 #container a {
 text-decoration: none;
+}
+
+body{
+  color : white !important;
 }
 </style>
   

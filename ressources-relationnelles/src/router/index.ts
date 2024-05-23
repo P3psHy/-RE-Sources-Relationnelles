@@ -48,13 +48,21 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'ressource',
         name: 'Ressource',
-        component: RessourcePage
+        component: RessourcePage,
+        children: [
+          {
+            path: 'new',
+            name: 'Publier une ressource',
+            component: RessourceNew
+          },
+          {
+            path: 'see',
+            name: 'Voir une ressource',
+            component: RessourceData
+          },
+        ]
       },
-      {
-        path: 'ressource/new',
-        name: 'RessourceNew',
-        component: RessourceNew
-      },
+
       {
         path: 'relations',
         name: 'Relations',

@@ -27,7 +27,7 @@ class Utilisateur
     private ?string $prenom = null;
 
     #[Groups(["CheckUser","Utilisateur"])]
-    #[ORM\Column(length: 255, unique:true)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $mail = null;
 
     #[Groups(["Utilisateur"])]

@@ -61,8 +61,8 @@ class UtilisateurController extends AbstractController
     public function new(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator, RoleRepository $roleRepository): JsonResponse
     {
 
-        $utilisateur = $serializer->deserialize($request->getContent(), Utilisateur::class, 'json');
 
+        $utilisateur = $serializer->deserialize($request->getContent(), Utilisateur::class, 'json');
 
         // Récupération de l'ensemble des données envoyées sous forme de tableau
         $content = $request->toArray();

@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use DateTime;
+use DateTimeZone;
 use App\Entity\Utilisateur;
 use App\Repository\RoleRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,7 +44,20 @@ class UtilisateurController extends AbstractController
         
     }
 
+    // #[Route('/user/CheckUser', name: 'app_utilisateur_check_User', methods: ['GET'])]
+    // public function checkUser(Request $request, UtilisateurRepository $utilisateurRepository, SerializerInterface $serializer): Response
+    // {
+    //     $login = $request->get('login');
+    //     $password = $request->get('password');
 
+
+    //     $user = $utilisateurRepository->findOneBy(['mail'=>$login, 'motDePasse'=>$password]);
+
+    //     dd($user);
+
+    //     $jsonUsers = $serializer->serialize($user, 'json', ['groups' => 'Utilisateur']);
+    //     return new JsonResponse($jsonUsers, Response::HTTP_OK, [], true);
+    // }
     
 
     #[Route('/', name: 'app_utilisateur_new', methods: ['POST'])]
@@ -56,7 +71,12 @@ class UtilisateurController extends AbstractController
         $content = $request->toArray();
 
         $idRole = $content['id_role'] ?? 1;
+        $dateTime = new DateTime('now', new DateTimeZone('Europe/Paris'));
+
+
         $utilisateur->setRole($roleRepository->find($idRole));
+        $utilisateur->setDateCreation($dateTime);
+        $utilisateur->setEstActive(true);
 
         $em->persist($utilisateur);
         $em->flush();

@@ -8,10 +8,27 @@
 </template>
 
 <script setup lang="ts">
-    import { IonInput, IonTextarea, IonButton } from '@ionic/vue';
+    import { IonInput, IonButton } from '@ionic/vue';
     
-  </script>
   
+
+
+</script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <style scoped>
 
   #formulaire{

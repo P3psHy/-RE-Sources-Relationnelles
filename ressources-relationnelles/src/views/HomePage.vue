@@ -31,13 +31,14 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 import Ressource from "../components/Ressource.vue";
 import { onMounted, ref } from 'vue';
 import axios from "axios";
+import { API_BASE_URL } from '../config';
 
 const typeRelations = ref(null);
 
 const fetchData = async () => {
   typeRelations.value = null;
   try {
-    const response = await axios.get("http://localhost:8000/TypeRelation");
+    const response = await axios.get(`${API_BASE_URL}/TypeRelation`);
     console.log(response.data)
     typeRelations.value = response.data;
     console.log(typeRelations.value)

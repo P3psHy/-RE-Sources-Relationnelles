@@ -1,53 +1,56 @@
 <template>
-  <ion-content :fullscreen="true">
-    <ion-header collapse="condense">
+  <ion-page>
+    <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title size="large">Blank</ion-title>
+        <ion-buttons slot="start">
+          <ion-menu-button color="primary"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>TITRE</ion-title>
       </ion-toolbar>
     </ion-header>
-
-    <div id="container">
-      <strong>Cette page est la page d'accueil, on y retrouvera les ressources publiques</strong>
-      <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    </div>
-  </ion-content>
+    
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">Titre</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    
+      <div id="container">
+        <!-- Loop over each relation type -->
+        <div v-for="relation in typeRelations" :key="relation.id">
+          <p>{{ relation.nom }}</p>
+        </div>
+      </div>
+    </ion-content>
+  </ion-page>
 </template>
 
 <script setup lang="ts">
-  import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
-  
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import Ressource from "../components/Ressource.vue";
+import { onMounted, ref } from 'vue';
+import axios from "axios";
+
+const typeRelations = ref(null);
+
+const fetchData = async () => {
+  typeRelations.value = null;
+  try {
+    const response = await axios.get("http://localhost:8000/TypeRelation");
+    console.log(response.data)
+    typeRelations.value = response.data;
+    console.log(typeRelations.value)
+  } catch (error) {
+    console.error('Error fetching type relations:', error);
+  }
+};
+
+onMounted(() => {
+  fetchData();
+});
 </script>
 
 <style scoped>
-#container {
-  text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-.logo {
-  max-width: 5vw;
-}
+/* Styles here */
 </style>

@@ -14,10 +14,10 @@ class Role
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(["Utilisateur", "Roles"])]
+    #[Groups(["CheckUser","Utilisateur", "Roles"])]
     private ?int $id = null;
 
-    #[Groups(["Utilisateur", "Roles"])]
+    #[Groups(["CheckUser","Utilisateur", "Roles"])]
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 

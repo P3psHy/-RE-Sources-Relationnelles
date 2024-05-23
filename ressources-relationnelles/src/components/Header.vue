@@ -12,7 +12,7 @@
                             <ion-icon :icon="search"></ion-icon>
                             <ion-label v-if="$grid.breakpoint.includes('l')">Recherche</ion-label>
                         </ion-button>
-                        <ion-segment ref="pageName" v-model="pageName">
+                        <ion-segment ref="pageName">
                             <ion-segment-button v-for="button in menuButtons" :key="button.label" :router-link="button.link" :value="button.value">
                                 <ion-icon :icon="button.icon"></ion-icon>
                                 <ion-label v-if="$grid.breakpoint.includes('l')">{{button.label}}</ion-label>
@@ -36,7 +36,8 @@
         IonCol, 
         IonGrid, 
         IonRow,
-        IonIcon
+        IonIcon,
+        IonLabel
     } from '@ionic/vue';
     import { watch, ref } from 'vue'; 
     import { useRoute } from 'vue-router';

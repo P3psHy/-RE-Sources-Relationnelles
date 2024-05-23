@@ -37,8 +37,7 @@ const typeRelations = ref(null);
 const fetchData = async () => {
   typeRelations.value = null;
   try {
-    // const response = await axios.get("https://localhost:8000/TypeRelation");
-    const response = await axios.get("http://localhost:8008/TypeRelation");
+    const response = await axios.get("http://localhost:8000/TypeRelation");
     console.log(response.data)
     typeRelations.value = response.data;
     console.log(typeRelations.value)

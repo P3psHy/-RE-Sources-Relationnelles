@@ -10,10 +10,9 @@ import PrivacyPolicyPage from '@/views/PrivacyPolicy.vue';
 import TermsConditionsPage from '@/views/TermsConditions.vue';
 import ConnectionForm from '@/components/ConnectionForm.vue';
 import SubscriptionForm from '@/components/SubscriptionForm.vue';
-import ProfileData from '@/components/ProfileData.vue';
-import ProfileFiles from '@/components/ProfileFiles.vue';
 import RelationsPage from '@/views/RelationsPage.vue';
 import MessagingPage from '@/views/MessagingPage.vue';
+import Ressource from '@/components/Ressource.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -52,13 +51,13 @@ const routes: Array<RouteRecordRaw> = [
         children: [
           {
             path: 'new',
-            name: 'Publier une ressource',
+            name: 'PublierRessource',
             component: RessourceNew
           },
           {
             path: 'see',
-            name: 'Voir une ressource',
-            component: RessourceData
+            name: 'VoirRessource',
+            component: Ressource
           },
         ]
       },

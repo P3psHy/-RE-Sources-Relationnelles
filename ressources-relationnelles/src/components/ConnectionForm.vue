@@ -16,73 +16,72 @@
 </template>
 
 <script setup lang="ts">
-    import { IonInput, IonButton } from '@ionic/vue';
-    import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import axios from 'axios';
-import { Preferences } from '@capacitor/preferences';
+  import { IonInput, IonButton } from '@ionic/vue';
+  import { ref } from 'vue';
+  import { useRouter } from 'vue-router';
+  import axios from 'axios';
+  import { Preferences } from '@capacitor/preferences';
+  import {API_BASE_URL} from '../config'
 
-// État pour les champs du formulaire
-const login = ref('');
-const password = ref('');
+  // État pour les champs du formulaire
+  const login = ref('');
+  const password = ref('');
 
-// État pour les données utilisateur récupérées
-const userData = ref(null);
+  // État pour les données utilisateur récupérées
+  const userData = ref(null);
 
-// Utiliser le routeur de Vue pour la redirection après la connexion
-const router = useRouter();
+  // Utiliser le routeur de Vue pour la redirection après la connexion
+  const router = useRouter();
 
-// Fonction pour gérer la soumission du formulaire
-const submitForm = async () => {
-  try {
-    // const response = await axios.get('https://127.0.0.1:8000/utilisateur/user/CheckUser', {
-    const response = await axios.post('https://127.0.0.1:8000/utilisateur/user/CheckUser', {
-    // const response = await axios.get('http://127.0.0.1:8000/utilisateur/', {
-        login: login.value,
-        password: password.value      
-    }, { headers: { 
-      'Content-Type': 'multipart/form-data'
-    }
-    });
-    // console.log(response.data)
-
-
-
-
-    if (response.data) {
-      console.log(response.data)
-      userData.value = response.data.user;
-      const data = response.data;
-      for(const key in data){
-        const value = data[key]
-        Preferences.set({key, value})
-        console.log("Saved data : ", key, value)
+  // Fonction pour gérer la soumission du formulaire
+  const submitForm = async () => {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/utilisateur/user/CheckUser`, {
+          login: login.value,
+          password: password.value      
+      }, { headers: { 
+        'Content-Type': 'multipart/form-data'
       }
-      // Ajouter les infos utilisateur en storage
-      router.push('/home');
-    } else {
-      alert(response.data.value);
+      });
+      // console.log(response.data)
+
+
+
+
+      if (response.data) {
+        console.log(response.data)
+        userData.value = response.data.user;
+        const data = response.data;
+        for(const key in data){
+          const value = data[key]
+          Preferences.set({key, value})
+          console.log("Saved data : ", key, value)
+        }
+        // Ajouter les infos utilisateur en storage
+        router.push('/home');
+      } else {
+        alert(response.data.value);
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('An error occurred. Please try again.');
     }
-  } catch (error) {
-    console.error('Error logging in:', error);
-    alert('An error occurred. Please try again.');
-  }
-};
+  };
 
-const clearCache = () => {
-  Preferences.clear()
-  console.log("Cache vidé")
-}
-
-const checkStorage = () => {
-  console.log("test")
-  console.log(Preferences.keys(), Preferences.keys)
-  for(const key in Preferences.keys()){
-    Preferences.get({key}).then(result => {
-      console.log("retreived data : ", key, result.value)
-    })
+  const clearCache = () => {
+    Preferences.clear()
+    console.log("Cache vidé")
   }
-}
+
+  const checkStorage = () => {
+    console.log("test")
+    console.log(Preferences.keys(), Preferences.keys)
+    for(const key in Preferences.keys()){
+      Preferences.get({key}).then(result => {
+        console.log("retreived data : ", key, result.value)
+      })
+    }
+  }
 </script>
   
 

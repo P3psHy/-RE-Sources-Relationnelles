@@ -1,11 +1,5 @@
 <template>
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-  
+    <ion-content :fullscreen="true"> 
       <div id="container">
         <div id="title">
           <h2>Nouvelle Ressource</h2>
@@ -23,7 +17,7 @@
   </template>
   
   <script setup lang="ts">
-    import { IonContent, IonHeader, IonTitle, IonToolbar, IonTextarea } from '@ionic/vue';
+    import { IonContent, IonHeader, IonTitle, IonToolbar, IonTextarea, IonButton } from '@ionic/vue';
   
   </script>
   

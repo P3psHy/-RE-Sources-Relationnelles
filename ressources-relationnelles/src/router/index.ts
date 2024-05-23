@@ -12,6 +12,8 @@ import ConnectionForm from '@/components/ConnectionForm.vue';
 import SubscriptionForm from '@/components/SubscriptionForm.vue';
 import ProfileData from '@/components/ProfileData.vue';
 import ProfileFiles from '@/components/ProfileFiles.vue';
+import RessourceData from '@/components/RessourceData.vue';
+
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -57,13 +59,21 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'ressource',
         name: 'Ressource',
-        component: RessourcePage
+        component: RessourcePage,
+        children: [
+          {
+            path: 'new',
+            name: 'Publier une ressource',
+            component: RessourceNew
+          },
+          {
+            path: 'see',
+            name: 'Voir une ressource',
+            component: RessourceData
+          },
+        ]
       },
-      {
-        path: 'ressource/new',
-        name: 'RessourceNew',
-        component: RessourceNew
-      },
+
       {
         path: 'privacy-policy',
         name: 'PrivacyPolicy',

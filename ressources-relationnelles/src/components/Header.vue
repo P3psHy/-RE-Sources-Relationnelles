@@ -7,7 +7,9 @@
                         <ion-img id="header-logo" @click="goToHome" src="../sources/header-logo.png"></ion-img>
                     </ion-col>
                     <ion-col>
-                        <ion-segment ref="pageName" v-model="pageName">
+                        <!-- v-model="pageName" cause un bug -->
+<!--                         <ion-segment ref="pageName" v-model="pageName"> -->
+                        <ion-segment ref="pageName">
                             <ion-segment-button router-link="/ressource/new" value="Ressource">Publier</ion-segment-button>
                             <ion-segment-button router-link="/us/connexion" value="Connection">Se connecter</ion-segment-button>
                         </ion-segment>

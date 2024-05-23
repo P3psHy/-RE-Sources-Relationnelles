@@ -52,9 +52,9 @@ class RelationUtilisateurController extends AbstractController
         $content = $request->toArray();
 
         //on va chercher les objets
-        $idUtilisateur1 = $content['test_id_utilisateur1'];
-        $idUtilisateur2 = $content['test_id_utilisateur2'];
-        $idTypeRelation = $content['test_id_type_relation'];
+        $idUtilisateur1 = $content['id_utilisateur1'];
+        $idUtilisateur2 = $content['id_utilisateur2'];
+        $idTypeRelation = $content['id_type_relation'];
 
         $utilisateur1 = $utilisateurRepository->find($idUtilisateur1);
         $utilisateur2 = $utilisateurRepository->find($idUtilisateur2);

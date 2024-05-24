@@ -108,8 +108,6 @@
 	// }
 </script>
       
-
-
 <style scoped>
 
 	#formulaire{
@@ -123,10 +121,9 @@
 	#title{
 	font-size: 20px;
 	line-height: 26px;
-
 	color: #FFFFFF;
 	margin-bottom: 5%;
 	}
-
+	
 </style>
       

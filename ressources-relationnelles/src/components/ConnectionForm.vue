@@ -64,6 +64,7 @@
       } else {
         alert(response.data.value);
       }
+
     } catch (error) {
       console.error('Error logging in:', error);
       alert('An error occurred. Please try again.');

@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <div id="container">
-      <router-view></router-view>
+      <RessourceForm />
     </div>
     
   </ion-content>
@@ -14,7 +14,17 @@
 
 <script setup lang="ts">
   import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
-  console.log("testing");
+  import RessourceForm from '@/components/RessourceForm.vue';
+
+  import { onMounted, ref } from 'vue';
+  import axios from "axios";
+  import { API_BASE_URL } from '../config';
+
+  // Récupération des infos de l'utilisateur courant
+
+  onMounted(() => {
+    
+  });
 
 </script>
 

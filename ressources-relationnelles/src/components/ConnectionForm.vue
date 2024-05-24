@@ -7,7 +7,7 @@
   </form>
   <ion-button @click="clearCache" color="danger">Vider le cache</ion-button>
   <ion-button @click="checkStorage">Vérifier le stockage des données</ion-button>
-
+  <ion-button router-link="inscription">Inscription</ion-button>
   <!-- Afficher les données récupérées -->
   <div v-if="userData">
     <h3>User Data:</h3>

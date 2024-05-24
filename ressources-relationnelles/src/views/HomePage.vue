@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonList } from '@ionic/vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonList, useIonRouter } from '@ionic/vue';
 import Ressource from "../components/Ressource.vue";
 import { onMounted, ref } from 'vue';
 import axios from "axios";
@@ -29,6 +29,15 @@ const fetchData = async () => {
     console.error('Error fetching ressources:', error);
   }
 };
+
+// Utiliser le router d'Ionic Vue
+const router = useIonRouter();
+
+// Fonction pour naviguer vers la page de détails de la ressource
+const navigateToRessource = (ressource:any) => {
+  router.push({ name: 'VoirRessource', params: { idRessource: ressource.idRessource } });
+};
+
 
 interface Utilisateur {
   idUtilisateur: number;

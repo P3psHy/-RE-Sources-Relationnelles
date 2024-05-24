@@ -1,16 +1,18 @@
 <template>
-    <ion-card id="ressource">
-      <ion-card-title v-if="ressource">{{ ressource.utilisateur.prenom }} {{ ressource.utilisateur.nom }}</ion-card-title>
-      <ion-card-subtitle v-if="ressource">{{ formattedDate }}</ion-card-subtitle>
-      <h4 v-if="ressource" id="titre_ressource">{{ ressource.titre }} </h4>
-      <ion-card-subtitle v-if="ressource">{{ ressource.categorie.nom }}</ion-card-subtitle>
-      <ion-card-content v-if="ressource" id="description">{{ truncatedDescription }}</ion-card-content>
-      <!--<ion-img v-if="ressource" src="https://data.by-night.fr/uploads/documents/2018/03/31/5ab6d8e4b0ccc689318332.jpg"></ion-img> -->
-      </ion-card>
+  <ion-card id="ressource">
+    <ion-nav-link router-direction="forward" v-if="ressource">
+      <ion-card-title >{{ ressource.utilisateur.prenom }} {{ ressource.utilisateur.nom }}</ion-card-title>
+      <ion-card-subtitle >{{ formattedDate }}</ion-card-subtitle>
+      <h4 id="titre_ressource">{{ ressource.titre }} </h4>
+      <ion-card-subtitle>{{ ressource.categorie.nom }}</ion-card-subtitle>
+      <ion-card-content id="description">{{ truncatedDescription }}</ion-card-content>
+      <!--<ion-img src="https://data.by-night.fr/uploads/documents/2018/03/31/5ab6d8e4b0ccc689318332.jpg"></ion-img>--> 
+    </ion-nav-link>
+  </ion-card>
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg } from '@ionic/vue';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonNavLink } from '@ionic/vue';
 import { computed, defineProps } from 'vue';
 import Vue from 'vue';
 

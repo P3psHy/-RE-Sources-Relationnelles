@@ -46,7 +46,7 @@ class RessourceController extends AbstractController
         
     }
 
-    #[Route('/RessourceUser/{id}', name: 'app_ressource_user_show', methods: ['GET'])]
+    #[Route('/ressources-user/{id}', name: 'app_ressource_user_show', methods: ['GET'])]
     public function showRessourcesFromUser(Request $request, RessourceRepository $ressourceRepository, UtilisateurRepository $utilisateurRepository, SerializerInterface $serializer): Response
     {
         $id = $request->get('id');

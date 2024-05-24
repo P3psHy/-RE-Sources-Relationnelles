@@ -74,6 +74,12 @@ import { Preferences } from '@capacitor/preferences';
 		});
 			if(response){
 				alert("Ressource publiée")
+				titre.value = ''
+				description.value = ''
+				categorie.value = ''
+				typeRessource.value = ''
+				typeRelation.value = []
+				id_utilisateur.value = ''
 				// router.push('connexion');
 			}else{
 				alert('erreur');

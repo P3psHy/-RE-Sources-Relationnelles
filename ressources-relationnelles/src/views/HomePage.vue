@@ -1,34 +1,14 @@
 <template>
-  <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button color="primary"></ion-menu-button>
-        </ion-buttons>
-        <ion-title>TITRE</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Titre</ion-title>
-        </ion-toolbar>
-      </ion-header>
-    
-      <div id="container">
-        <ion-list>
-                  <!-- Loop over each ressource -->
-          <Ressource
-            v-for="r in ressources" :key="r.idRessource" :ressource="r" @click="navigateToRessource(r)">
-          
-        </Ressource>
-        </ion-list>
-
-        
-      </div>
-    </ion-content>
-  </ion-page>
+  <ion-content :fullscreen="true">
+    <div id="container">
+      <ion-list>
+                <!-- Loop over each ressource -->
+        <Ressource
+          v-for="r in ressources" :key="r.idRessource" :ressource="r">
+      </Ressource>
+      </ion-list>
+    </div>
+  </ion-content>
 </template>
 
 <script setup lang="ts">

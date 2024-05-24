@@ -1,17 +1,11 @@
 <template>
   <ion-content :fullscreen="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Ressources</ion-title>
-      </ion-toolbar>
-    </ion-header>
     <div v-if="$grid.breakpoint.includes('l')" id="container-small">
       <RessourceForm />
     </div>
     <div v-if="!$grid.breakpoint.includes('l')" id="container">
       <RessourceForm />
     </div>
-    
   </ion-content>
 </template>
 

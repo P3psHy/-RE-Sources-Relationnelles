@@ -1,13 +1,12 @@
 <template>
     <h2>Créer une nouvelle ressource</h2>
 	<form @submit.prevent="submitForm">
-		<ion-input v-model="titre" type="text" placeholder="Titre" id="input_F_name"></ion-input>
 		<ion-select placeholder="Sélectionner une catégorie" v-model="categorie">
 			<div slot="label">Catégorie <ion-text color="danger">(Requis)</ion-text></div>
 			<ion-select-option 
 				v-for="option in optionsCategorie" 
 				:key="option.id" 
-				:value="option.nom">
+				:value="option.id">
 					{{option.nom}}
 			</ion-select-option>
 		</ion-select>
@@ -16,19 +15,21 @@
 			<ion-select-option 
 				v-for="option in optionsTypeRessource" 
 				:key="option.id" 
-				:value="option.nom">
+				:value="option.id">
 					{{option.nom}}
 			</ion-select-option>
 		</ion-select>
-		<ion-select placeholder="Sélectionner la ou les relation(s) avec qui partager cette ressource" v-model="typeRelation">
-			<div slot="label">Type de relations <ion-text color="danger">(Requis)</ion-text></div>
+		<ion-select placeholder="Sélectionner la ou les relation(s) avec qui partager cette ressource" 
+		v-model="typeRelation" :multiple="true">
+			<div slot="label">Type de relations</div>
 			<ion-select-option 
 				v-for="option in optionsTypeRelation" 
 				:key="option.id" 
-				:value="option.nom">
+				:value="option.id">
 					{{option.nom}}
 			</ion-select-option>
 		</ion-select>
+		<ion-input v-model="titre" type="text" placeholder="Titre" id="input_F_name"></ion-input>
 		<ion-textarea 
 			v-model="description" 
 			label="Description" 
@@ -45,22 +46,27 @@
 	import { ref, onMounted } from 'vue';
 	import axios from 'axios';
 	import {API_BASE_URL} from '../config'
+import { Preferences } from '@capacitor/preferences';
 	
 	const titre = ref('');
 	const description = ref('');
 	const categorie = ref('');
 	const typeRessource = ref('');
 	const typeRelation = ref([]);
+	const id_utilisateur = ref('');
 
 	const submitForm = async () => {
-		const userData = {
+		const ressourceData = {
 			titre: titre.value,
 			description: description.value,
-			categorie: categorie.value,
-			typeRessource: typeRessource.value,
-			typeRelation: typeRelation.value,
+			id_categorie: categorie.value,
+			id_type_ressource: typeRessource.value,
+			ids_type_relation: typeRelation.value,
+			id_utilisateur: id_utilisateur.value
 		};
-		const jsonString = JSON.stringify(userData, null, 2); // Beautify JSON output
+		const jsonString = JSON.stringify(ressourceData, null, 2); // Beautify JSON output
+
+		console.log(jsonString);
 
 		try {
 		const response = await axios.post(`${API_BASE_URL}/ressource/`, jsonString, { 
@@ -120,6 +126,10 @@
 		getTypeRelations();
 		getTypeRessources();
 		getCategories();
+		Preferences.get({key: "id_utilisateur"}).then(result => {
+			console.log("retreived data : ", id_utilisateur, result.value)
+			id_utilisateur.value = result.value;
+		})
 	});
 
 </script>

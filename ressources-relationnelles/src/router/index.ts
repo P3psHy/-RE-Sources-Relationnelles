@@ -37,11 +37,11 @@ const routes: Array<RouteRecordRaw> = [
 						name: 'UserRessources',
 						component: ListRessources
 					},
-          {
-            path: 'see/:idRessource', // Utilisez un paramètre pour l'ID de la ressource
-            name: 'VoirRessource',
-            component: UneRessource
-          }
+					{
+						path: 'see/:idRessource', // Utilisez un paramètre pour l'ID de la ressource
+						name: 'VoirRessource',
+						component: UneRessource
+					}
 				]
 			},
 			{

@@ -4,9 +4,10 @@
       <ion-list>
                 <!-- Loop over each ressource -->
         <Ressource
-          v-for="r in ressources" :key="r.idRessource" :ressource="r">
-      </Ressource>
+          v-for="r in ressources" :key="r.idRessource" :ressource="r" @click="navigateToRessource(r)">
+        </Ressource>
       </ion-list>
+      <router-view></router-view>
     </div>
   </ion-content>
 </template>

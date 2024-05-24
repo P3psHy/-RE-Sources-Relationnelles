@@ -1,5 +1,5 @@
 <template>
-    <div id="container" v-if="ressource">
+    <div id="ressource-popup" v-if="ressource">
       <p><strong>Titre:</strong> {{ ressource.titre }}</p>
       <p><strong>Description:</strong> {{ ressource.description }}</p>
       <p><strong>Utilisateur:</strong> {{ ressource.utilisateur.nom }} {{ ressource.utilisateur.prenom }}</p>
@@ -7,6 +7,7 @@
       <p><strong>Date de publication:</strong> {{ formattedDate }}</p>
       <!--<ion-img src="https://data.by-night.fr/uploads/documents/2018/03/31/5ab6d8e4b0ccc689318332.jpg"></ion-img>--> 
       <!-- Ajoutez d'autres détails de la ressource ici -->
+      <ion-button color="danger" @click="closePopUp">Fermer</ion-button>
     </div>
   </template>
   
@@ -16,6 +17,9 @@ import { IonBackButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, Io
 import { ref, computed } from 'vue';
 import axios from 'axios';
 import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
+  
+const router = useRouter();
 
 const route = useRoute();
 const ressource = ref(null);
@@ -49,6 +53,10 @@ const formattedDate = computed(() => {
   }
   return '';
 });
+
+const closePopUp = () => {
+  router.push("/home")
+}
 
 
   /* import { IonBackButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
@@ -93,10 +101,16 @@ const formattedDate = computed(() => {
   }); */
   </script>
   
-  <style scoped>
-  /* Styles here */
-  p{ 
-    color: white;
+<style scoped>
+/* Styles here */
+  #ressource-popup {
+    width: 70%;
+    height: 70%;
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    background-color: white;
+    box-shadow: 0px 0px 5px black;
   }
-  </style>
+</style>
   

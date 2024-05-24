@@ -11,17 +11,23 @@
 
 <script setup lang="ts">
   import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+  import { onBeforeMount } from 'vue';
+	import { Preferences } from '@capacitor/preferences';
+	import { useRouter } from 'vue-router';
   import RessourceForm from '@/components/RessourceForm.vue';
 
-  import { onMounted, ref } from 'vue';
-  import axios from "axios";
-  import { API_BASE_URL } from '../config';
+	const router = useRouter();
 
-  // Récupération des infos de l'utilisateur courant
-
-  onMounted(() => {
-    
-  });
+	onBeforeMount(() => {
+		Preferences.get({key: "id_utilisateur"}).then(result => {
+			console.log(JSON.stringify(result))
+			if(result.value === null){
+				alert('Vous devez être connecté pour visualiser ce contenu');
+				console.log("redirect")
+				router.push('us/connexion');
+			}
+		})
+	})
 
 </script>
 

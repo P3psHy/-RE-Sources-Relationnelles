@@ -1,5 +1,5 @@
 <template>
-    <ion-header :translucent="true">
+    <ion-header collapse="fade">
         <ion-toolbar>
             <ion-grid>
                 <ion-row>

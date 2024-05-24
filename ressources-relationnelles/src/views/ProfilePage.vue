@@ -1,13 +1,6 @@
 <template>
   <ion-content :fullscreen="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
     <div id="container">
-      <!-- <router-view></router-view> -->
       <div>
         <UserForm />
       </div>
@@ -18,7 +11,7 @@
 
 <script setup lang="ts">
   import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
-  import UserForm from ;
+  import UserForm from '../components/SubscriptionForm.vue';
 
 </script>
 

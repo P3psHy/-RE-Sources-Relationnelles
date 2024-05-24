@@ -1,5 +1,5 @@
 <template>
-    <h2>Créer un compte</h2>
+   <h2>Créer un compte</h2>
 	<form @submit.prevent="submitForm">
 		<ion-input v-model="prenom" type="text" placeholder="Prénom" id="input_F_name"></ion-input>
 		<ion-input v-model="nom" type="text" placeholder="Nom" id="input_name"></ion-input>
@@ -25,44 +25,37 @@
 	const password = ref('');
 	const confirmPSW = ref('');
 
-
 	// Utiliser le routeur de Vue pour la redirection après la connexion
 	const router = useRouter();
 
 	const submitForm = async () => {
 
-	const userData = {
-		nom: nom.value,
-		prenom: prenom.value,
-		mail: mail.value,
-		motDePasse: password.value,
-		departement: departement.value,
-	};
-	const jsonString = JSON.stringify(userData, null, 2); // Beautify JSON output
+    const userData = {
+      nom: nom.value,
+      prenom: prenom.value,
+      mail: mail.value,
+      motDePasse: password.value,
+      departement: departement.value,
+    };
+    const jsonString = JSON.stringify(userData, null, 2); // Beautify JSON output
 
-	try {
-	const response = await axios.post(`${API_BASE_URL}/utilisateur/`, jsonString, 
-	{ headers: { 
-		'Content-Type': 'application/json'
-		// 'Content-Type': 'multipart/form-data'
-
-		}
-		});
-		if(response){
-		router.push('connexion');
-		}else{
-		alert('erreur');
-		}
-
-	}catch (error) {
-		console.error('Error logging in:', error);
-		alert('An error occurred. Please try again.');
-	}
-
-
-	}
-
-
+    try {
+      const response = await axios.post(`${API_BASE_URL}/utilisateur/`, jsonString, 
+        { 
+          headers: { 
+          'Content-Type': 'application/json'
+          }
+        });
+      if(response){
+        router.push('connexion');
+      }else{
+        alert('erreur');
+      }
+    }catch (error) {
+      console.error('Error logging in:', error);
+      alert('An error occurred. Please try again.');
+    }
+  }
 </script>
       
 <style scoped>
@@ -78,7 +71,6 @@
 	#title{
 	font-size: 20px;
 	line-height: 26px;
-	
 	color: #FFFFFF;
 	margin-bottom: 5%;
 	}

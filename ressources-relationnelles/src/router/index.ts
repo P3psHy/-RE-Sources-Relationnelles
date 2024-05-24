@@ -13,6 +13,7 @@ import SubscriptionForm from '@/components/SubscriptionForm.vue';
 import RelationsPage from '@/views/RelationsPage.vue';
 import MessagingPage from '@/views/MessagingPage.vue';
 import Ressource from '@/components/Ressource.vue';
+import UneRessource from '@/components/UneRessource.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -55,10 +56,10 @@ const routes: Array<RouteRecordRaw> = [
             component: RessourceNew
           },
           {
-            path: 'see',
+            path: 'see/:idRessource', // Utilisez un paramètre pour l'ID de la ressource
             name: 'VoirRessource',
-            component: Ressource
-          },
+            component: UneRessource
+          }
         ]
       },
 

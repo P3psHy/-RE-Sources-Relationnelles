@@ -12,7 +12,7 @@
 <script setup lang="ts">
   import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
   import UserForm from "../components/SubscriptionForm.vue";
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, onBeforeMount } from 'vue';
   import axios from 'axios';
 	import {API_BASE_URL} from '../config';
   import { useRouter } from 'vue-router';
@@ -59,6 +59,17 @@
         }
 
     }
+
+    onBeforeMount(() => {
+        Preferences.get({key: "id_utilisateur"}).then(result => {
+            console.log(JSON.stringify(result))
+            if(result.value === null){
+                alert('Vous devez être connecté pour visualiser ce contenu');
+                console.log("redirect")
+                router.push('us/connexion');
+            }
+        })
+    })
 
     onMounted(() => {
         Preferences.get({key: "nom_utilisateur"}).then(result => {

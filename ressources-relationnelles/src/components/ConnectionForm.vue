@@ -52,16 +52,19 @@
         console.log(response.data)
         userData.value = response.data.user;
         const data = response.data;
-        for(const key in data){
-          const value = data[key]
-          Preferences.set({key, value})
-          console.log("Saved data : ", key, value)
-        }
+        Preferences.set({key: "id_utilisateur", value: data.id})
+        Preferences.set({key: "nom_utilisateur", value: data.nom})
+        Preferences.set({key: "prenom_utilisateur", value: data.prenom})
+        Preferences.set({key: "mail_utilisateur", value: data.mail})
+        Preferences.set({key: "departement_utilisateur", value: data.departement})
+        Preferences.set({key: "est_active_utilisateur", value: data.est_active})
+        Preferences.set({key: "role_utilisateur", value: data.role.id})
         // Ajouter les infos utilisateur en storage
         router.push('/home');
       } else {
         alert(response.data.value);
       }
+
     } catch (error) {
       console.error('Error logging in:', error);
       alert('An error occurred. Please try again.');

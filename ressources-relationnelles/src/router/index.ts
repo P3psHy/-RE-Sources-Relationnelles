@@ -9,10 +9,10 @@ import RessourceNew from '@/views/RessourceNew.vue';
 import PrivacyPolicyPage from '@/views/PrivacyPolicy.vue';
 import TermsConditionsPage from '@/views/TermsConditions.vue';
 import ConnectionForm from '@/components/ConnectionForm.vue';
-import SubscriptionForm from '@/components/SubscriptionForm.vue';
 import RelationsPage from '@/views/RelationsPage.vue';
 import MessagingPage from '@/views/MessagingPage.vue';
 import Ressource from '@/components/Ressource.vue';
+import SubscriptionPage from '@/views/SubscriptionPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -40,7 +40,7 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: 'inscription',
             name: 'Inscription',
-            component: SubscriptionForm
+            component: SubscriptionPage
           }
         ]
       },

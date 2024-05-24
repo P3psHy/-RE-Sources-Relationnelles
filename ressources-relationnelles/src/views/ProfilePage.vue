@@ -7,13 +7,18 @@
     </ion-header>
 
     <div id="container">
-      <router-view></router-view>
+      <!-- <router-view></router-view> -->
+      <div>
+        <UserForm />
+      </div>
+      <div>Liste des ressources</div>
     </div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
   import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+  import UserForm from ;
 
 </script>
 

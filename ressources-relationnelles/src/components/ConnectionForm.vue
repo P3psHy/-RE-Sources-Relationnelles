@@ -84,20 +84,6 @@
   }
 </script>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <style scoped>
 
   #formulaire{

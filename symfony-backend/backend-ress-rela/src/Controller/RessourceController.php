@@ -46,6 +46,19 @@ class RessourceController extends AbstractController
         
     }
 
+    #[Route('/RessourceUser/{id}', name: 'app_ressource_user_show', methods: ['GET'])]
+    public function showRessourcesFromUser(Request $request, RessourceRepository $ressourceRepository, UtilisateurRepository $utilisateurRepository, SerializerInterface $serializer): Response
+    {
+        $id = $request->get('id');
+        $user = $utilisateurRepository->findOneBy(['id'=> $id]);
+        $ressources = $ressourceRepository->findby(['utilisateur'=>$user]);
+
+        $json = $serializer->serialize($ressources, 'json', ['groups' => 'Ressource']);
+        return new JsonResponse($json, Response::HTTP_OK, [], true);
+
+        
+    }
+
 
 
     #[Route('/', name: 'app_ressource_new', methods: ['POST'])]

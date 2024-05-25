@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-    import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+    // import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
     import UserForm from "../components/SubscriptionForm.vue";
     import { ref, onMounted, onBeforeMount } from 'vue';
     import axios from 'axios';
@@ -26,7 +26,6 @@
     const nom = ref('');
     const prenom = ref('');
     const departement = ref('');
-    const password = ref('');
 
     // Utiliser le routeur de Vue pour la redirection après la connexion
 	const router = useRouter();

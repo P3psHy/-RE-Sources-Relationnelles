@@ -10,6 +10,8 @@ import TermsConditionsPage from '@/views/TermsConditions.vue';
 import ConnectionForm from '@/components/ConnectionForm.vue';
 import RelationsPage from '@/views/RelationsPage.vue';
 import MessagingPage from '@/views/MessagingPage.vue';
+import Ressource from '@/components/Ressource.vue';
+import UneRessource from '@/components/UneRessource.vue';
 import SubscriptionPage from '@/views/SubscriptionPage.vue';
 import UserProfile from '@/components/UserProfile.vue';
 import ListRessources from '@/components/ListRessources.vue';
@@ -34,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
 						path: 'ressources',
 						name: 'UserRessources',
 						component: ListRessources
+					},
+					{
+						path: 'see/:idRessource', // Utilisez un paramètre pour l'ID de la ressource
+						name: 'VoirRessource',
+						component: UneRessource
 					}
 				]
 			},

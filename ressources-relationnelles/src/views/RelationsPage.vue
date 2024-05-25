@@ -1,11 +1,5 @@
 <template>
   <ion-content :fullscreen="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
     <div id="container">
       <strong>Cette page affichera les relations</strong>
     </div>
@@ -14,7 +8,22 @@
 
 <script setup lang="ts">
   import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+	import { onBeforeMount } from 'vue';
+	import { Preferences } from '@capacitor/preferences';
+	import { useRouter } from 'vue-router';
 
+	const router = useRouter();
+
+	onBeforeMount(() => {
+		Preferences.get({key: "id_utilisateur"}).then(result => {
+			console.log(JSON.stringify(result))
+			if(result.value === null){
+				alert('Vous devez être connecté pour visualiser ce contenu');
+				console.log("redirect")
+				router.push('us/connexion');
+			}
+		})
+	})
 </script>
 
 <style scoped>

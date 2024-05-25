@@ -1,13 +1,6 @@
 <template>
   <ion-content :fullscreen="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
     <div id="container">
-      <!-- <router-view></router-view> -->
       <div>
         <UserForm titre="Mes données" button="Modifier" @submitHandler="submitUpdatedData" v-model:prenom="prenom" v-model:nom="nom" v-model:mail="mail" v-model:departement="departement"/>
         <ion-button @click="desactivateAccount">Désactiver le compte</ion-button>
@@ -20,16 +13,16 @@
 </template>
 
 <script setup lang="ts">
-    import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
-    import UserForm from "../components/SubscriptionForm.vue";
-    import { ref, onMounted } from 'vue';
-    import axios from 'axios';
+  import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+  import UserForm from "../components/SubscriptionForm.vue";
+  import { ref, onMounted, onBeforeMount } from 'vue';
+  import axios from 'axios';
 	import {API_BASE_URL} from '../config';
-    import { useRouter } from 'vue-router';
-    import { Preferences } from '@capacitor/preferences';
-    
-    const idUser = ref('');
-    const mail = ref('');
+  import { useRouter } from 'vue-router';
+  import { Preferences } from '@capacitor/preferences';
+
+  const idUser = ref('');
+  const mail = ref('');
 	const nom = ref('');
 	const prenom = ref('');
 	const departement = ref('');
@@ -139,6 +132,16 @@
         }
     }
 
+    onBeforeMount(() => {
+        Preferences.get({key: "id_utilisateur"}).then(result => {
+            console.log(JSON.stringify(result))
+            if(result.value === null){
+                alert('Vous devez être connecté pour visualiser ce contenu');
+                console.log("redirect")
+                router.push('us/connexion');
+            }
+        })
+    })
 
     onMounted(() => {
         Preferences.get({key: "nom_utilisateur"}).then(result => {

@@ -13,19 +13,20 @@
 </template>
 
 <script setup lang="ts">
-  import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
-  import UserForm from "../components/SubscriptionForm.vue";
-  import { ref, onMounted, onBeforeMount } from 'vue';
-  import axios from 'axios';
-	import {API_BASE_URL} from '../config';
-  import { useRouter } from 'vue-router';
-  import { Preferences } from '@capacitor/preferences';
+    import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
+    import UserForm from "../components/SubscriptionForm.vue";
+    import { ref, onMounted, onBeforeMount } from 'vue';
+    import axios from 'axios';
+    import {API_BASE_URL} from '../config';
+    import { useRouter } from 'vue-router';
+    import { Preferences } from '@capacitor/preferences';
 
-  const idUser = ref('');
-  const mail = ref('');
-	const nom = ref('');
-	const prenom = ref('');
-	const departement = ref('');
+    const idUser = ref('');
+    const mail = ref('');
+    const nom = ref('');
+    const prenom = ref('');
+    const departement = ref('');
+    const password = ref('');
 
     // Utiliser le routeur de Vue pour la redirection après la connexion
 	const router = useRouter();
@@ -38,7 +39,9 @@
             mail: mail,
             motDePasse: password,
             departement: departement,
+            
         };
+        
 
         const jsonString = JSON.stringify(userData, null, 2); // Beautify JSON output
 
@@ -62,6 +65,7 @@
 
     }
 
+    
     const desactivateAccount = async () => {
         alert("Desactivé")
 

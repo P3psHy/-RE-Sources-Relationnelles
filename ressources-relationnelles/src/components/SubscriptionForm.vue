@@ -3,7 +3,15 @@
     <form @submit.prevent="submitForm">
         <ion-input v-model="localPrenom" @input="updatePrenom" type="text" placeholder="Prénom" id="input_F_name"></ion-input>
         <ion-input v-model="localNom" @input="updateNom" type="text" placeholder="Nom" id="input_name"></ion-input>
-        <ion-input v-model="localDepartement" @input="updateDepartement" type="text" placeholder="Département" id="input_login"></ion-input>
+		<ion-select placeholder="Département" v-model="localDepartement" @input="updateDepartement">
+			<div slot="label">Département <ion-text color="danger">(Requis)</ion-text></div>
+			<ion-select-option 
+				v-for="option in departements" 
+				:key="option.id" 
+				:value="option.nom">
+					{{option.nom}}
+			</ion-select-option>
+		</ion-select>
         <ion-input v-model="localMail" type="text" @input="updateMail" placeholder="Adresse mail" id="input_login"></ion-input>
         <ion-input v-model="password" type="password" placeholder="Mot de passe" id="input_password"></ion-input>
         <ion-input v-model="confirmPSW" type="password" placeholder="Confirmer le mot de passe" id="input_confirm_password"></ion-input>
@@ -12,10 +20,10 @@
 </template>
 
 <script setup lang="ts">
-	import { IonInput, IonButton } from '@ionic/vue';
-	import { ref, defineProps, defineEmits, watch } from 'vue';
+	import { IonInput, IonButton, IonSelect, IonSelectOption } from '@ionic/vue';
+	import { ref, defineProps, defineEmits, watch, onMounted } from 'vue';
 	// import { useRouter } from 'vue-router';
-	// import axios from 'axios';
+	import axios from 'axios';
 	// import {API_BASE_URL} from '../config'
 	
 	const emit = defineEmits(['update:prenom', 'update:nom', 'update:mail', 'update:departement', 'update:sumbit', 'submitHandler' ]);
@@ -72,6 +80,19 @@
 		emit('submitHandler', localNom.value, localPrenom.value, localMail.value, password.value, localDepartement.value)
 	}
 
+	const departements = ref([])
+	const getDepartements = async () => {
+		try {
+			const response = await axios.get("jsondb/Departements.json");
+			departements.value = response.data;
+		} catch (error) {
+			console.error('Error fetching departements:', error);
+		}
+	};
+
+	onMounted(() => {
+		getDepartements()
+	})
 
 	// Utiliser le routeur de Vue pour la redirection après la connexion
 

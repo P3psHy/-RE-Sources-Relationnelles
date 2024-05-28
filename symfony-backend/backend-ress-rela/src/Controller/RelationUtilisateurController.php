@@ -17,6 +17,8 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+use function Symfony\Component\VarDumper\Dumper\esc;
+
 #[Route('/RelationUtilisateur')]
 class RelationUtilisateurController extends AbstractController
 {
@@ -39,14 +41,63 @@ class RelationUtilisateurController extends AbstractController
 
     }
 
+    #[Route('/user/{id}', name: 'app_relation_utilisateur_show', methods: ['GET'])]
+    public function showUserRelation(UtilisateurRepository $utilisateurRepository, RelationUtilisateurRepository $relationUtilisateurRepository, int $id,SerializerInterface $serializer){
+
+
+
+        $listUserRelation = [];
+
+        //On récupère l'utilisateur et la liste des Relation
+        $user = $utilisateurRepository->find($id);
+        $listRelationsUtilisateur= $relationUtilisateurRepository->findByUserId($id);
+        
+        //On vérifie dans la liste des relations l'emplacement de l'utilisateur pour ajouter l'autre (ne pas avoir NOTRE utilisateur dans la liste)
+        foreach($listRelationsUtilisateur as $userRela){
+            if($userRela->getIdUtilisateur1() == $user){
+                $relationUser = [
+                    "idRelationUtilisateur" => $userRela->getId(),
+                    "estAccepte" => $userRela->isEstAccepte(),
+                    "idTypeRelation" => $userRela->getIdTypeRelation()->getId(),
+                    "nomTypeRelation" => $userRela->getIdTypeRelation()->getNom(),
+                    "commentaireTypeRelation" => $userRela->getIdTypeRelation()->getCommentaire(),
+                    "idUser" =>$userRela->getIdUtilisateur2()->getId(),
+                    "nomUser" => $userRela->getIdUtilisateur2()->getNom(),
+                    "prenomUser" => $userRela->getIdUtilisateur2()->getPrenom(),
+                    "departementUser" => $userRela->getIdUtilisateur2()->getDepartement()
+                ];
+            }else{
+                $relationUser = [
+                    "idRelationUtilisateur" => $userRela->getId(),
+                    "estAccepte" => $userRela->isEstAccepte(),
+                    "idTypeRelation" => $userRela->getIdTypeRelation()->getId(),
+                    "nomTypeRelation" => $userRela->getIdTypeRelation()->getNom(),
+                    "commentaireTypeRelation" => $userRela->getIdTypeRelation()->getCommentaire(),
+                    "idUser" =>$userRela->getIdUtilisateur1()->getId(),
+                    "nom" => $userRela->getIdUtilisateur1()->getNom(),
+                    "prenom" => $userRela->getIdUtilisateur1()->getPrenom(),
+                    "departement" => $userRela->getIdUtilisateur2()->getDepartement()
+                    
+                ];
+            }
+            $listUserRelation[] = $relationUser;
+        }
+        
+
+
+        $json = $serializer->serialize($listUserRelation, 'json');
+        return new JsonResponse($json, Response::HTTP_OK, [], true);
+    }
+
 
 
     #[Route('/', name: 'app_relation_utilisateur_new', methods: ['POST'])]
     public function new(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator, UtilisateurRepository $utilisateurRepository, TypeRelationRepository $typeRelationRepository): JsonResponse
     {
 
-        $relationUtilisateur = $serializer->deserialize($request->getContent(), RelationUtilisateur::class, 'json');
+        // $relationUtilisateur = $serializer->deserialize($request->getContent(), RelationUtilisateur::class, 'json');
 
+        $relationUtilisateur = new RelationUtilisateur();
 
         // Récupération de l'ensemble des données envoyées sous forme de tableau
         $content = $request->toArray();
@@ -66,6 +117,7 @@ class RelationUtilisateurController extends AbstractController
         $relationUtilisateur->setIdUtilisateur1($utilisateur1);
         $relationUtilisateur->setIdUtilisateur2($utilisateur2);
         $relationUtilisateur->setIdTypeRelation($typeRelation);
+        $relationUtilisateur->setEstAccepte(false);
 
 
 

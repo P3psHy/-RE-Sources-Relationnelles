@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\RelationUtilisateur;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * @extends ServiceEntityRepository<RelationUtilisateur>
@@ -40,4 +41,16 @@ class RelationUtilisateurRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+
+    public function findByUserid(int $userId){
+
+        return $this->createQueryBuilder('ru')
+            ->where('ru.id_utilisateur_1 = :userId')
+            ->orWhere('ru.id_utilisateur_2 = :userId')
+            ->setParameter('userId', $userId)
+            ->getQuery()
+            ->getResult();
+    }
+
 }

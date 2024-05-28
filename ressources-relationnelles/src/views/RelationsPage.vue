@@ -3,16 +3,63 @@
     <div id="container">
       <strong>Cette page affichera les relations</strong>
     </div>
+	<div v-for="relation in listRelation" :key="relation.id">
+		<span>{{ relation.nom }} {{ relation.prenom }}</span>
+	</div>
   </ion-content>
 </template>
 
 <script setup lang="ts">
   import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/vue';
-	import { onBeforeMount } from 'vue';
 	import { Preferences } from '@capacitor/preferences';
 	import { useRouter } from 'vue-router';
+	import {API_BASE_URL} from '../config'
+	import axios from 'axios';
+	import { ref, onMounted, onBeforeMount } from 'vue';
+
+	
 
 	const router = useRouter();
+
+	const idUser = ref('');
+	const listRelation= ref([]);
+
+	const getRelations = async () => {
+		try {
+		const response = await axios.get(`${API_BASE_URL}/RelationUtilisateur/user/16?relationAccepte=0`, 
+            { 
+                headers: { 
+                'Content-Type': 'application/json'
+                }
+            });
+		
+			listRelation.value = response.data;
+		
+	}catch (error) {
+            console.error('Error logging in:', error);
+            alert('An error occurred. Please try again.');
+        }
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	onMounted(() => {
+		getRelations();
+        
+        Preferences.get({key: "id_utilisateur"}).then(result => {
+            idUser.value = result.value;
+        })
+    })
 
 	onBeforeMount(() => {
 		Preferences.get({key: "id_utilisateur"}).then(result => {

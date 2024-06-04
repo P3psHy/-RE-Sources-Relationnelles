@@ -4,13 +4,13 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class TypeRelationControllerTest extends WebTestCase
+class RoleControllerTest extends WebTestCase
 {
 
-    public function testGetAllTypeRelation(): void
+    public function testGetAllRole(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/TypeRelation/');
+        $client->request('GET', '/Role/');
 
         $this->assertResponseIsSuccessful();
 
@@ -18,15 +18,15 @@ class TypeRelationControllerTest extends WebTestCase
 
         // Décoder le contenu JSON
         $data = json_decode($responseContent, true);
-        $this->assertEquals(6,  sizeof($data));
+        $this->assertEquals(4,  sizeof($data));
 
     }
 
 
-    public function testGetOneTypeRelation(): void
+    public function testGetOneRole(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/TypeRelation/19');
+        $client->request('GET', '/TypeRessource/1');
 
         $this->assertResponseIsSuccessful();
 
@@ -34,7 +34,7 @@ class TypeRelationControllerTest extends WebTestCase
 
         // Décoder le contenu JSON
         $data = json_decode($responseContent, true);
-        $this->assertEquals('Soi',  $data['nom']);
+        $this->assertEquals('Utilisateur',  $data['nom']);
 
     }
 

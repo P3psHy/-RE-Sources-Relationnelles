@@ -42,7 +42,7 @@ class UtilisateurController extends AbstractController
         return new JsonResponse($jsonUser, Response::HTTP_OK, [], true);
     }
 
-    #[Route('/user/CheckUser', name: 'app_utilisateur_check_User', methods: ['POST'])]
+    #[Route('/user/CheckUser', name: 'app_utilisateur_check_user', methods: ['POST'])]
     public function checkUser(Request $request, UtilisateurRepository $utilisateurRepository, SerializerInterface $serializer): Response
     {
         $login = $request->get('login');
@@ -55,6 +55,27 @@ class UtilisateurController extends AbstractController
         return new JsonResponse($jsonUsers, Response::HTTP_OK, [], true);
         // return new JsonResponse($user, Response::HTTP_OK, [], true);
     }
+
+
+    #[Route('/user/SearchUser', name: 'app_utilisateur_search_user', methods: ['POST'])]
+    public function getSearchUser(Request $request, UtilisateurRepository $utilisateurRepository, SerializerInterface $serializer): Response
+    {
+        
+        $valueUser = $request->getContent();
+        $data = json_decode($valueUser, true);
+
+        $users = $utilisateurRepository->getListSearchUser($data['nom'], $data['prenom']);
+        
+        // dd($users);
+        // $user = $utilisateurRepository->findOneBy(['mail'=>$login, 'motDePasse'=>$password]);
+
+        $jsonUsers = $serializer->serialize($users, 'json');
+        return new JsonResponse($jsonUsers, Response::HTTP_OK, [], true);
+        // return new JsonResponse($user, Response::HTTP_OK, [], true);
+    }
+
+
+
 
 
     #[Route('/', name: 'app_utilisateur_new', methods: ['POST'])]

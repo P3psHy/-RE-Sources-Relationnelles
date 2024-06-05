@@ -3,9 +3,14 @@
     <div id="container">
       <div>
         <UserForm titre="Mes données" button="Modifier" @submitHandler="submitUpdatedData" v-model:prenom="prenom" v-model:nom="nom" v-model:mail="mail" v-model:departement="departement"/>
-        <ion-button @click="desactivateAccount">Désactiver le compte</ion-button>
-        <ion-button @click="deleteAccount">Supprimer le compte</ion-button>
-
+        <div>
+            <ion-button @click="goToRelation">Mes relations</ion-button>
+        </div>
+        <div>
+            <ion-button @click="desactivateAccount">Désactiver le compte</ion-button>
+            <ion-button @click="deleteAccount">Supprimer le compte</ion-button>
+        </div>
+        
     </div>
       <div>Liste des ressources</div>
     </div>
@@ -65,6 +70,11 @@
     }
 
     
+    
+    const goToRelation = async () => {
+        router.push('relations');
+    }
+
     const desactivateAccount = async () => {
         alert("Desactivé")
 

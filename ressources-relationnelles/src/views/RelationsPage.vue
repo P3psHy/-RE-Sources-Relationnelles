@@ -1,5 +1,5 @@
 <template>
-	<ion-content :fullscreen="true">
+	<ion-content>
 		<div id="container">
 			<form @submit.prevent="getUsersFromName">
 				<ion-label>Chercher un utilisateur</ion-label>
@@ -66,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-  import { IonContent, IonLabel, IonInput, IonButton, IonSelect, IonSelectOption } from '@ionic/vue';
+  import { IonContent, IonLabel, IonInput, IonButton, IonSelect, IonSelectOption, IonList, IonListHeader, IonItem } from '@ionic/vue';
 	import { Preferences } from '@capacitor/preferences';
 	import { useRouter } from 'vue-router';
 	import {API_BASE_URL} from '../config'
@@ -220,14 +220,14 @@
 </script>
 
 <style scoped>
+
+ion-content {
+	overflow-y: auto
+}
+
 #container {
 text-align: center;
-
-position: absolute;
-left: 0;
-right: 0;
-top: 50%;
-transform: translateY(-50%);
+padding: 5%;
 }
 
 #container strong {
@@ -252,5 +252,10 @@ text-decoration: none;
 	min-height: 25%;
 	min-width: 50%;
 }
+
+ion-item {
+	
+}
+
 </style>
   

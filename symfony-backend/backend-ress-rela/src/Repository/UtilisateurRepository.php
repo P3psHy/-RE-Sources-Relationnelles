@@ -16,6 +16,10 @@ class UtilisateurRepository extends ServiceEntityRepository
         parent::__construct($registry, Utilisateur::class);
     }
 
+    
+
+
+
     //    /**
     //     * @return Utilisateur[] Returns an array of Utilisateur objects
     //     */
@@ -40,5 +44,18 @@ class UtilisateurRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+
+
+        public function getListSearchUser(string $nom='', string $prenom=''){
+            $qb = $this->createQueryBuilder('u');
+            $qb->select('u.id, u.nom, u.prenom, u.mail, u.departement')
+               ->where($qb->expr()->like('u.nom', ':nom'))
+               ->andWhere($qb->expr()->like('u.prenom', ':prenom'))
+               ->setParameter('nom', '%' . $nom . '%')
+               ->setParameter('prenom', '%' . $prenom . '%');
+    
+            return $qb->getQuery()->getResult();
+        }
 
     }

@@ -26,7 +26,7 @@ class TypeRelationControllerTest extends WebTestCase
     public function testGetOneTypeRelation(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/TypeRelation/19');
+        $client->request('GET', '/TypeRelation/1');
 
         $this->assertResponseIsSuccessful();
 

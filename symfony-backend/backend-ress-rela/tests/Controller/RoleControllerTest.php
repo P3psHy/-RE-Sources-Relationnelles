@@ -10,7 +10,7 @@ class RoleControllerTest extends WebTestCase
     public function testGetAllRole(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/Role/');
+        $client->request('GET', '/role/');
 
         $this->assertResponseIsSuccessful();
 
@@ -26,7 +26,7 @@ class RoleControllerTest extends WebTestCase
     public function testGetOneRole(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/TypeRessource/1');
+        $client->request('GET', '/role/1');
 
         $this->assertResponseIsSuccessful();
 

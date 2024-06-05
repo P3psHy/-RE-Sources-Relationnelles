@@ -66,12 +66,8 @@ class UtilisateurController extends AbstractController
 
         $users = $utilisateurRepository->getListSearchUser($data['nom'], $data['prenom']);
         
-        // dd($users);
-        // $user = $utilisateurRepository->findOneBy(['mail'=>$login, 'motDePasse'=>$password]);
-
         $jsonUsers = $serializer->serialize($users, 'json');
         return new JsonResponse($jsonUsers, Response::HTTP_OK, [], true);
-        // return new JsonResponse($user, Response::HTTP_OK, [], true);
     }
 
 

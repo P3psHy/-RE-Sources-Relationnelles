@@ -26,7 +26,7 @@ class EtatRessourceControllerTest extends WebTestCase
     public function testGetOneEtatRessourc(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/EtatRessource/13');
+        $client->request('GET', '/EtatRessource/1');
 
         $this->assertResponseIsSuccessful();
 

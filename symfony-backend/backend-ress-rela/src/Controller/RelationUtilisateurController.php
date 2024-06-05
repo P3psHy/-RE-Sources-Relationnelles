@@ -140,35 +140,35 @@ class RelationUtilisateurController extends AbstractController
 
     
 
-    #[Route('/{id}', name: 'app_relation_utilisateur_edit', methods: ['PUT'])]
-    public function edit(Request $request, SerializerInterface $serializer, RelationUtilisateur $currentRelationUtilisateur, EntityManagerInterface $em): JsonResponse 
-    {
-        $updatedRelationUtilisateur = $serializer->deserialize($request->getContent(), 
-                RelationUtilisateur::class, 
-                'json', 
-                [AbstractNormalizer::OBJECT_TO_POPULATE => $currentRelationUtilisateur])
-        ;
+//     #[Route('/{id}', name: 'app_relation_utilisateur_edit', methods: ['PUT'])]
+//     public function edit(Request $request, SerializerInterface $serializer, RelationUtilisateur $currentRelationUtilisateur, EntityManagerInterface $em): JsonResponse 
+//     {
+//         $updatedRelationUtilisateur = $serializer->deserialize($request->getContent(), 
+//                 RelationUtilisateur::class, 
+//                 'json', 
+//                 [AbstractNormalizer::OBJECT_TO_POPULATE => $currentRelationUtilisateur])
+//         ;
         
-        // $content = $request->toArray();
+//         // $content = $request->toArray();
 
-        // //On récupère les ids à manipuler
-        // $idUtilisateur = $content['id_utilisateur'];
-        // $idCategorie = $content['id_categorie'];
-        // $idsTypeRelation = $content['ids_type_relation'];
+//         // //On récupère les ids à manipuler
+//         // $idUtilisateur = $content['id_utilisateur'];
+//         // $idCategorie = $content['id_categorie'];
+//         // $idsTypeRelation = $content['ids_type_relation'];
 
 
-        // $updatedRessource->setUtilisateur($utilisateurRepository->find($idUtilisateur));
-        // $updatedRessource->setCategorie($categorieRepository->find($idCategorie));
+//         // $updatedRessource->setUtilisateur($utilisateurRepository->find($idUtilisateur));
+//         // $updatedRessource->setCategorie($categorieRepository->find($idCategorie));
 
-        // foreach($idsTypeRelation as $idTypeRelation){
-        //     $updatedRessource->addTypeRelation($typeRelationRepository->find($idTypeRelation));
-        // }
+//         // foreach($idsTypeRelation as $idTypeRelation){
+//         //     $updatedRessource->addTypeRelation($typeRelationRepository->find($idTypeRelation));
+//         // }
 
-        $em->persist($updatedRelationUtilisateur);
-        $em->flush();
+//         $em->persist($updatedRelationUtilisateur);
+//         $em->flush();
         
-        return new JsonResponse(null, JsonResponse::HTTP_NO_CONTENT);
-   }
+//         return new JsonResponse(null, JsonResponse::HTTP_NO_CONTENT);
+//    }
 
 
 

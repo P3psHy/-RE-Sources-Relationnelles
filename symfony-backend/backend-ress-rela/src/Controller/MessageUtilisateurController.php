@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use DateTime;
+use DateTimeZone;
 use App\Entity\MessageUtilisateur;
 use App\Form\MessageUtilisateurType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -55,9 +57,12 @@ class MessageUtilisateurController extends AbstractController
     
         $utilisateur1 = $utilisateurRepository->find($idUtilisateur1);
         $utilisateur2 = $utilisateurRepository->find($idUtilisateur2);
+        $dateTime = new DateTime('now', new DateTimeZone('Europe/Paris'));
+
 
         $messageUtilisateur->setUtilisateur1($utilisateur1);
         $messageUtilisateur->setUtilisateur2($utilisateur2);
+        $messageUtilisateur->setdateHeureEnvoi($dateTime);
 
         $utilisateur1->addMessageUtilisateur($messageUtilisateur);
 

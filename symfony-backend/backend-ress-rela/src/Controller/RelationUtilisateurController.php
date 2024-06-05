@@ -17,7 +17,6 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-use function Symfony\Component\VarDumper\Dumper\esc;
 
 #[Route('/RelationUtilisateur')]
 class RelationUtilisateurController extends AbstractController
@@ -41,7 +40,7 @@ class RelationUtilisateurController extends AbstractController
 
     }
 
-    #[Route('/user/{id}', name: 'app_relation_utilisateur_show', methods: ['GET'])]
+    #[Route('/user/{id}', name: 'app_list_relations_utilisateur_show', methods: ['GET'])]
     public function showUserRelation(UtilisateurRepository $utilisateurRepository, RelationUtilisateurRepository $relationUtilisateurRepository, int $id,SerializerInterface $serializer){
 
 

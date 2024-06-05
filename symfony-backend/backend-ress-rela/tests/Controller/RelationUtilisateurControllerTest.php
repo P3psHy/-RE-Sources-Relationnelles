@@ -7,36 +7,36 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class RelationUtilisateurControllerTest extends WebTestCase
 {
 
-    // public function testGetAllRelationUtilisateur(): void
-    // {
-    //     $client = static::createClient();
-    //     $client->request('GET', '/RelationUtilisateur/');
+    public function testGetAllRelationUtilisateur(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/RelationUtilisateur/');
 
-    //     $this->assertResponseIsSuccessful();
+        $this->assertResponseIsSuccessful();
 
-    //     $responseContent = $client->getResponse()->getContent();
+        $responseContent = $client->getResponse()->getContent();
 
-    //     // Décoder le contenu JSON
-    //     $data = json_decode($responseContent, true);
-    //     $this->assertEquals(3,  sizeof($data));
+        // Décoder le contenu JSON
+        $data = json_decode($responseContent, true);
+        $this->assertEquals(3,  sizeof($data));
 
-    // }
+    }
 
 
-    // public function testGetOneRelationUtilisateur(): void
-    // {
-    //     $client = static::createClient();
-    //     $client->request('GET', '/RelationUtilisateur/2');
+    public function testGetOneRelationUtilisateur(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/RelationUtilisateur/2');
 
-    //     $this->assertResponseIsSuccessful();
+        $this->assertResponseIsSuccessful();
 
-    //     $responseContent = $client->getResponse()->getContent();
+        $responseContent = $client->getResponse()->getContent();
 
-    //     // Décoder le contenu JSON
-    //     $data = json_decode($responseContent, true);
-    //     $this->assertEquals('2',  $data['id']);
+        // Décoder le contenu JSON
+        $data = json_decode($responseContent, true);
+        $this->assertEquals('2',  $data['id']);
 
-    // }
+    }
 
     public function testGetListUserRelations(): void
     {
@@ -53,36 +53,36 @@ class RelationUtilisateurControllerTest extends WebTestCase
 
     }
 
-    // public function testAddOneRelationUtilisateur(): void
-    // {
+    public function testAddOneRelationUtilisateur(): void
+    {
 
-    //     $data = [
-    //         'id_utilisateur1' => 1,
-    //         'id_utilisateur2' => 2,
-    //         'id_type_relation' => 2
+        $data = [
+            'id_utilisateur1' => 1,
+            'id_utilisateur2' => 2,
+            'id_type_relation' => 2
 
-    //     ];
-    //     $json = json_encode($data);
+        ];
+        $json = json_encode($data);
 
-    //     $client = static::createClient();
-    //     $client->request(
-    //         'POST',
-    //         '/RelationUtilisateur/',
-    //         [],
-    //         [],
-    //         ['CONTENT_TYPE' => 'application/json'],
-    //         $json
-    //     );
+        $client = static::createClient();
+        $client->request(
+            'POST',
+            '/RelationUtilisateur/',
+            [],
+            [],
+            ['CONTENT_TYPE' => 'application/json'],
+            $json
+        );
 
-    //     $this->assertResponseIsSuccessful();
+        $this->assertResponseIsSuccessful();
 
-    //     $responseContent = $client->getResponse()->getContent();
+        $responseContent = $client->getResponse()->getContent();
 
-    //     // Décoder le contenu JSON
-    //     $data = json_decode($responseContent, true);
-    //     $this->assertEquals('7',  $data['id']);
+        // Décoder le contenu JSON
+        $data = json_decode($responseContent, true);
+        $this->assertEquals('7',  $data['id']);
 
-    // }
+    }
 
     // // public function testEditRelationUtilisateur(): void
     // // {
@@ -103,19 +103,19 @@ class RelationUtilisateurControllerTest extends WebTestCase
     // //     $this->assertResponseIsSuccessful();
     // // }
 
-    // public function testDeleteRelationUtilisateur()
-    // {
-    //     $client = static::createClient();
-    //     $client->request(
-    //         'DELETE',
-    //         '/RelationUtilisateur/7',
-    //         [],
-    //         [],
-    //         ['CONTENT_TYPE' => 'application/json']
-    //     );
+    public function testDeleteRelationUtilisateur()
+    {
+        $client = static::createClient();
+        $client->request(
+            'DELETE',
+            '/RelationUtilisateur/7',
+            [],
+            [],
+            ['CONTENT_TYPE' => 'application/json']
+        );
 
-    //     $this->assertResponseIsSuccessful();
-    // }
+        $this->assertResponseIsSuccessful();
+    }
 
 
 

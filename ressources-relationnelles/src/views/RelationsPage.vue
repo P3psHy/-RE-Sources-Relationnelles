@@ -27,6 +27,7 @@
 										{{option.nom}}
 								</ion-select-option>
 							</ion-select>
+							<ion-button type="submit" id="submit">Ajouter</ion-button>
 						</form>
 					</ion-item>
 				</ion-list>
@@ -40,8 +41,8 @@
 					<ion-item v-if="listRelationEnAttente.length == 0">
 						<ion-label>Aucune relation</ion-label>
 					</ion-item>
-					<ion-item v-for="relation in listRelationEnAttente" :key="relation.id">
-						<ion-label>{{ relation.nom }} {{ relation.prenom }}</ion-label>
+					<ion-item v-for="relation in listRelationEnAttente" :key="relation.idUser">
+						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
 					</ion-item>
 				</ion-list>
 			</div>
@@ -55,8 +56,8 @@
 					<ion-item v-if="listRelation.length == 0">
 						<ion-label>Aucune relation</ion-label>
 					</ion-item>
-					<ion-item v-for="relation in listRelation" :key="relation.id">
-						<ion-label>{{ relation.nom }} {{ relation.prenom }}</ion-label>
+					<ion-item v-for="relation in listRelation" :key="relation.idUser">
+						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
 					</ion-item>
 				</ion-list>
 			</div>
@@ -65,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-  import { IonContent} from '@ionic/vue';
+  import { IonContent, IonLabel, IonInput, IonButton, IonSelect, IonSelectOption } from '@ionic/vue';
 	import { Preferences } from '@capacitor/preferences';
 	import { useRouter } from 'vue-router';
 	import {API_BASE_URL} from '../config'
@@ -80,23 +81,26 @@
 
 	const prenom = ref('');
 	const nom = ref('');
-	
+
 	const optionsTypeRelation = ref([]);
 	const typeRelation = ref('');
 
 	const fetchedUsers = ref([]);
 
 	const getUsersFromName = async () => {
+		console.log("prenom.value", prenom.value)
+		console.log("nom.value", nom.value)
 		const userData = {
 			prenom: prenom.value,
 			nom: nom.value,
 		};
+		console.log("userData", userData)
 		const jsonString = JSON.stringify(userData, null, 2); // Beautify JSON output
 
 		console.log(jsonString);
 
 		try {
-		const response = await axios.post(`${API_BASE_URL}/utilisateur/user/SearchUser/`, jsonString, { 
+		const response = await axios.post(`${API_BASE_URL}/utilisateur/user/SearchUser`, jsonString, { 
 			headers: {'Content-Type': 'application/json'}
 		});
 			if(response){
@@ -155,9 +159,11 @@
 						'Content-Type': 'application/json'
 						}
 					});
+				console.log(response.data);
 				let relationsEnAttente = []
 				let relationsAcceptees = []
-				for(let relation in response.data){
+				for(let relation of response.data){
+					console.log("relation", relation);
 					if(relation.estAcceptee){
 						relationsAcceptees.push(relation)
 					}else{
@@ -185,7 +191,7 @@
 				console.log("redirect")
 				router.push('us/connexion');
 			} else {
-				idUser.value = result.value;
+				idUser.value = parseInt(result.value);
 				console.log("Id utilisateur connecté : " + result.value);
 				await getRelations(); // Ensure getRelations is called only after user ID is set
 			}

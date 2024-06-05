@@ -26,7 +26,7 @@ class TypeRessourceControllerTest extends WebTestCase
     public function testGetOneTypeRessource(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/TypeRessource/26');
+        $client->request('GET', '/TypeRessource/2');
 
         $this->assertResponseIsSuccessful();
 

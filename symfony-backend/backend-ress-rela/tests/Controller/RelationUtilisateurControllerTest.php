@@ -49,7 +49,7 @@ class RelationUtilisateurControllerTest extends WebTestCase
 
         // Décoder le contenu JSON
         $data = json_decode($responseContent, true);
-        $this->assertEquals(3,  sizeof($data));
+        $this->assertEquals(2,  sizeof($data));
 
     }
 
@@ -80,7 +80,7 @@ class RelationUtilisateurControllerTest extends WebTestCase
 
         // Décoder le contenu JSON
         $data = json_decode($responseContent, true);
-        $this->assertEquals('7',  $data['id']);
+        $this->assertEquals('4',  $data['id']);
 
     }
 
@@ -108,7 +108,7 @@ class RelationUtilisateurControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request(
             'DELETE',
-            '/RelationUtilisateur/7',
+            '/RelationUtilisateur/4',
             [],
             [],
             ['CONTENT_TYPE' => 'application/json']

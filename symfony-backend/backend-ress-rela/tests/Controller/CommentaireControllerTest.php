@@ -64,7 +64,7 @@ class CommentaireControllerTest extends WebTestCase
 
         // Décoder le contenu JSON
         $data = json_decode($responseContent, true);
-        $this->assertEquals('contenu',  $data['Ce commentaire vient des test application']);
+        $this->assertEquals('Ce commentaire vient des test application',  $data['contenu']);
 
     }
 

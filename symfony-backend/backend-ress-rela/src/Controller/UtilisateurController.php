@@ -110,6 +110,7 @@ class UtilisateurController extends AbstractController
     #[Route('/{id}', name: 'app_utilisateur_edit', methods: ['PUT'])]
     public function edit(Request $request, SerializerInterface $serializer, Utilisateur $currentUtilisateur, EntityManagerInterface $em, RoleRepository $authorRepository): JsonResponse
     {
+        $psw = $currentUtilisateur->getMotDePasse();
         $updatedUtilisateur = $serializer->deserialize(
             $request->getContent(),
             Utilisateur::class,
@@ -119,6 +120,13 @@ class UtilisateurController extends AbstractController
         $content = $request->toArray();
         $idRole = $content['id_role'] ?? 1;
         $updatedUtilisateur->setRole($authorRepository->find($idRole));
+
+        if(isset($content['password'])){
+            if(empty($content['password'])){
+                $updatedUtilisateur->setMotDePasse($psw);
+            }
+        }
+        
 
         $em->persist($updatedUtilisateur);
         $em->flush();

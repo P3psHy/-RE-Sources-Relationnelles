@@ -8,10 +8,10 @@
                     </ion-col>
                     <ion-col id="header-menu" size="10" size-md="11">
                         <!-- Bouton qui déclenche l'affichage de la barre de recherche -->
-                        <ion-button>
+                        <!-- <ion-button>
                             <ion-icon :icon="search"></ion-icon>
                             <ion-label v-if="$grid.breakpoint.includes('l')">Recherche</ion-label>
-                        </ion-button>
+                        </ion-button> -->
                         <ion-segment ref="pageName">
                             <ion-segment-button v-for="button in menuButtons" :key="button.label" :router-link="button.link" :value="button.value">
                                 <ion-icon :icon="button.icon"></ion-icon>

@@ -221,41 +221,43 @@
 
 <style scoped>
 
-ion-content {
-	overflow-y: auto
-}
+	ion-content {
+		overflow-y: auto
+	}
 
-#container {
-text-align: center;
-padding: 5%;
-}
+	#container {
+		text-align: center;
+		padding: 5%;
+		max-width: 500px;
+		margin: auto;
+	}
 
-#container strong {
-font-size: 20px;
-line-height: 26px;
-}
+	#container strong {
+	font-size: 20px;
+	line-height: 26px;
+	}
 
-#container p {
-font-size: 16px;
-line-height: 22px;
+	#container p {
+	font-size: 16px;
+	line-height: 22px;
 
-color: #8c8c8c;
+	color: #8c8c8c;
 
-margin: 0;
-}
+	margin: 0;
+	}
 
-#container a {
-text-decoration: none;
-}
+	#container a {
+	text-decoration: none;
+	}
 
-.relations-list {
-	min-height: 25%;
-	min-width: 50%;
-}
+	.relations-list {
+		min-height: 25%;
+		min-width: 50%;
+	}
 
-ion-item {
-	
-}
+	ion-item {
+		
+	}
 
 </style>
   

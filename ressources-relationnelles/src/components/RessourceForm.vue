@@ -1,7 +1,7 @@
 <template>
     <h2>Créer une nouvelle ressource</h2>
 	<form @submit.prevent="submitForm">
-		<ion-select placeholder="Sélectionner une catégorie" v-model="categorie">
+		<ion-select placeholder="Sélectionner..." v-model="categorie">
 			<div slot="label">Catégorie <ion-text color="danger">(Requis)</ion-text></div>
 			<ion-select-option 
 				v-for="option in optionsCategorie" 
@@ -10,7 +10,7 @@
 					{{option.nom}}
 			</ion-select-option>
 		</ion-select>
-		<ion-select placeholder="Sélectionner un type de ressource" v-model="typeRessource">
+		<ion-select placeholder="Sélectionner..." v-model="typeRessource">
 			<div slot="label">Type de ressource <ion-text color="danger">(Requis)</ion-text></div>
 			<ion-select-option 
 				v-for="option in optionsTypeRessource" 
@@ -19,7 +19,7 @@
 					{{option.nom}}
 			</ion-select-option>
 		</ion-select>
-		<ion-select placeholder="Sélectionner la ou les relation(s) avec qui partager cette ressource" 
+		<ion-select placeholder="Sélectionner 1 ou +" 
 		v-model="typeRelation" :multiple="true">
 			<div slot="label">Type de relations</div>
 			<ion-select-option 
@@ -33,7 +33,7 @@
 		<ion-textarea 
 			v-model="description" 
 			label="Description" 
-			placeholder="Rédiger une description pour la ressource ici" 
+			placeholder="Rédiger une description ici" 
 			:auto-grow="true">
 				<div slot="label">Description <ion-text color="danger">(Required)</ion-text></div>
 		</ion-textarea>

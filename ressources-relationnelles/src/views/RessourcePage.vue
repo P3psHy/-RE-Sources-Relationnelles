@@ -1,9 +1,6 @@
 <template>
-  <ion-content :fullscreen="true">
-    <div v-if="$grid.breakpoint.includes('l')" id="container-small">
-      <RessourceForm />
-    </div>
-    <div v-if="!$grid.breakpoint.includes('l')" id="container">
+  <ion-content>
+    <div id="container">
       <RessourceForm />
     </div>
   </ion-content>
@@ -32,24 +29,16 @@
 </script>
 
 <style scoped>
-  #container {
-    text-align: center;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+  ion-content {
+		overflow-y: auto
+	}
 
-  #container-small {
-    text-align: center;
-    position: absolute;
-    left: 25%;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50%;
-  }
+	#container {
+		text-align: center;
+		padding: 5%;
+		max-width: 500px;
+		margin: auto;
+	}
 
   #container strong {
     font-size: 20px;

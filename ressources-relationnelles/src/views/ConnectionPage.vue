@@ -1,5 +1,5 @@
 <template>
-  <ion-content :fullscreen="true">
+  <ion-content>
     <div id="container">
       <router-view></router-view>
     </div>
@@ -12,15 +12,16 @@
   </script>
   
   <style scoped>
-  #container {
-    text-align: center;
-    
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+  ion-content {
+		overflow-y: auto
+	}
+
+	#container {
+		text-align: center;
+		padding: 5%;
+		max-width: 500px;
+		margin: auto;
+	}
   
   #container p {
     font-size: 16px;

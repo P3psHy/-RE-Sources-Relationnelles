@@ -121,8 +121,8 @@ class UtilisateurController extends AbstractController
         $idRole = $content['id_role'] ?? 1;
         $updatedUtilisateur->setRole($authorRepository->find($idRole));
 
-        if(isset($content['password'])){
-            if(empty($content['password'])){
+        if(isset($content['motDePasse'])){
+            if(empty($content['motDePasse'])){
                 $updatedUtilisateur->setMotDePasse($psw);
             }
         }

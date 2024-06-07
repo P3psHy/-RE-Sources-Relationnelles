@@ -57,6 +57,12 @@
                 }
             });
             if(response){
+
+                Preferences.set({key: "nom_utilisateur", value: userData.nom})
+                Preferences.set({key: "prenom_utilisateur", value: userData.prenom})
+                Preferences.set({key: "mail_utilisateur", value: userData.mail})
+                Preferences.set({key: "departement_utilisateur", value: userData.departement})
+
                 router.push('profil');
             }else{
                 alert('erreur');

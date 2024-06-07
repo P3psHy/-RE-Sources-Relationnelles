@@ -66,8 +66,8 @@
       }
 
     } catch (error) {
-      console.error('Error logging in:', error);
-      alert('An error occurred. Please try again.');
+      // console.error('Error logging in:', error);
+      alert('Adresse mail ou mot de passe incorrect. Veuillez réessayer');
     }
   };
 

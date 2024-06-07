@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-	import { IonInput, IonButton, IonSelect, IonSelectOption } from '@ionic/vue';
+	import { IonInput, IonButton, IonSelect, IonSelectOption, IonText } from '@ionic/vue';
 	import { ref, defineProps, defineEmits, watch, onMounted } from 'vue';
 	// import { useRouter } from 'vue-router';
 	import axios from 'axios';

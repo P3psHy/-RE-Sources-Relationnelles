@@ -64,7 +64,11 @@ class UtilisateurController extends AbstractController
         $valueUser = $request->getContent();
         $data = json_decode($valueUser, true);
 
-        $users = $utilisateurRepository->getListSearchUser($data['nom'], $data['prenom']);
+        if(empty($data['nom']) && empty($data['prenom'])){
+            $users = array();
+        }else{
+            $users = $utilisateurRepository->getListSearchUser($data['nom'], $data['prenom']);
+        }
         
         $jsonUsers = $serializer->serialize($users, 'json');
         return new JsonResponse($jsonUsers, Response::HTTP_OK, [], true);

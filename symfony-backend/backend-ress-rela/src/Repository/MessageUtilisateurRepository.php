@@ -40,4 +40,41 @@ class MessageUtilisateurRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+
+    public function getListConversation(int $idUser){
+
+
+        $qb = $this->createQueryBuilder('m')
+            ->select('DISTINCT u1.id AS utilisateur1Id, u2.id AS utilisateur2Id, u2.nom, u2.prenom')
+            ->join('m.utilisateur2', 'u2')
+            ->join('m.utilisateur1', 'u1')
+            ->where('m.utilisateur1 = :utilisateur1Id')
+            ->setParameter('utilisateur1Id', $idUser)
+        ;
+
+        return $qb->getQuery()->getResult();
+
+
+
+        // return true;
+    }
+
+    public function getListMessagesConversation(int $idUser1, int $idUser2){
+        $qb = $this->createQueryBuilder('m')
+            ->select('m.id, m.contenu, m.dateHeureEnvoi, u1.id AS utilisateur1Id, u2.id AS utilisateur2Id')
+            ->join('m.utilisateur2', 'u2')
+            ->join('m.utilisateur1', 'u1')
+            ->where('(m.utilisateur1 = :utilisateur1Id AND m.utilisateur2 = :utilisateur2Id)')
+            ->orWhere('(m.utilisateur1 = :utilisateur2Id AND m.utilisateur2 = :utilisateur1Id)')
+            ->setParameter('utilisateur1Id',$idUser1)
+            ->setParameter('utilisateur2Id',$idUser2)
+            ->orderBy('m.dateHeureEnvoi', 'DESC');
+
+    return $qb->getQuery()->getResult();
+
+    }
+
+
+
 }

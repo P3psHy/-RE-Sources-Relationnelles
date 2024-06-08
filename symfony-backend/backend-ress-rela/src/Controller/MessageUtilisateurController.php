@@ -42,6 +42,28 @@ class MessageUtilisateurController extends AbstractController
     }
 
 
+    #[Route('/userConversation/{id}', name: 'app_message_utilisateur_show_user_conversation', methods: ['GET'])]
+    public function showListConversation(MessageUtilisateurRepository $messageUtilisateurRepository, SerializerInterface $serializer, int $id): Response
+    {
+        $listConversation = $messageUtilisateurRepository->getListConversation($id);
+
+        $json = $serializer->serialize($listConversation, 'json');
+        return new JsonResponse($json, Response::HTTP_OK, [], true);
+    }
+
+
+    #[Route('/userMessagesConversation/message', name: 'app_message_utilisateur_show_message_user_conversation', methods: ['GET'])]
+    public function showMessagesConversation(Request $request, MessageUtilisateurRepository $messageUtilisateurRepository, SerializerInterface $serializer): Response
+    {
+        $idUser1 = intval($request->get('idUser1'));
+        $idUser2 = intval($request->get('idUser2'));
+
+        $listMessagesConversation = $messageUtilisateurRepository->getListMessagesConversation($idUser1,$idUser2);
+
+        $json = $serializer->serialize($listMessagesConversation, 'json');
+        return new JsonResponse($json, Response::HTTP_OK, [], true);
+    }
+
 
 
     #[Route('/', name: 'app_message_utilisateur_new', methods: ['POST'])]

@@ -43,6 +43,7 @@
 					</ion-item>
 					<ion-item v-for="relation in listRelationEnAttente" :key="relation.idUser">
 						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
+						<ion-button>Accepter</ion-button>
 						<ion-button>Supprimer</ion-button>
 					</ion-item>
 				</ion-list>
@@ -114,6 +115,9 @@
 				listRelationEnAttente.value.forEach(item => {
 				idUserList.push(item.idUser);
 				});
+				listRelation.value.forEach(item => {
+				idUserList.push(item.idUser);
+				});
 
 				for(let data of response.data){
 					if(!idUserList.includes(data.id)){
@@ -121,16 +125,7 @@
 					}
 				}
 
-				// console.log(response.data[0].id)
-				// fetchedUsers.value = response.data;
-				// alert("Ressource publiée")
-				// titre.value = ''
-				// description.value = ''
-				// categorie.value = ''
-				// typeRessource.value = ''
-				// typeRelation.value = []
-				// id_utilisateur.value = ''
-				// router.push('connexion');
+				
 			}else{
 				alert('Erreur lors de la récupération des utilisateurs. Veuillez réessayer ultérieurement.');
 			}
@@ -180,14 +175,16 @@
 				// console.log(response.data);
 				let relationsEnAttente = []
 				let relationsAcceptees = []
+				
 				for(let relation of response.data){
-					// console.log("relation", relation);
-					if(relation.estAcceptee){
+					// console.log(relation['estAccepte']);
+					if(relation['estAccepte'] === true){	
 						relationsAcceptees.push(relation)
 					}else{
 						relationsEnAttente.push(relation)
 					}
 				}
+
 				listRelation.value = relationsAcceptees;
 				listRelationEnAttente.value = relationsEnAttente;
 			}else{

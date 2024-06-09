@@ -72,7 +72,7 @@
                 Preferences.set({key: "mail_utilisateur", value: userData.mail})
                 Preferences.set({key: "departement_utilisateur", value: userData.departement})
 
-                router.push('profil');
+                location.reload();
             }else{
                 alert('erreur');
             }

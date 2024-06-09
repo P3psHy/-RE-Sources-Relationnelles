@@ -43,8 +43,8 @@
 					</ion-item>
 					<ion-item v-for="relation in listRelationEnAttente" :key="relation.idUser">
 						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
-						<ion-button>Accepter</ion-button>
-						<ion-button>Supprimer</ion-button>
+						<ion-button @click="accepterRelation(relation.idRelationUtilisateur)">Accepter</ion-button>
+						<ion-button @click="supprimerRelation(relation.idRelationUtilisateur)">Supprimer</ion-button>
 					</ion-item>
 				</ion-list>
 			</div>
@@ -60,7 +60,7 @@
 					</ion-item>
 					<ion-item v-for="relation in listRelation" :key="relation.idUser">
 						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
-						<ion-button>Supprimer</ion-button>
+						<ion-button @click="supprimerRelation(relation.idRelationUtilisateur)">Supprimer</ion-button>
 					</ion-item>
 				</ion-list>
 			</div>
@@ -163,6 +163,54 @@
 		}
 	}
 
+	const accepterRelation = async (id) => {
+
+		try {
+
+			const data = {
+				estAccepte : true
+        };
+
+			const response = await axios.put(`${API_BASE_URL}/RelationUtilisateur/${id}`, data, {
+			headers: {'Content-Type': 'application/json'}
+		});
+			if(response){
+				// alert('Relation Ajouté')
+				location.reload();
+			}else{
+				alert('Erreur ?')
+
+			}
+		} catch (error) {
+			console.error('Error accept relation in:', error);
+			alert("Erreur. Veuillez réessayer ultérieurement.");
+		}
+		console.log('Utilisateur Accepte', id)
+	}
+
+
+	const supprimerRelation = async (id) => {
+
+		try {
+			const response = await axios.delete(`${API_BASE_URL}/RelationUtilisateur/${id}`);
+
+			if(response){
+				// alert('relation supprimé')
+				location.reload();
+
+			}else{
+				alert('Erreur ?')
+			}
+
+		} catch (error) {
+			console.error('Error accept relation in:', error);
+			alert("Erreur. Veuillez réessayer ultérieurement.");
+		}
+		console.log('Utilisateur Accepte', id)
+
+	}
+
+
 	const getRelations = async () => {
 		try {
 			if(idUser.value != null){
@@ -175,7 +223,7 @@
 				// console.log(response.data);
 				let relationsEnAttente = []
 				let relationsAcceptees = []
-				
+
 				for(let relation of response.data){
 					// console.log(relation['estAccepte']);
 					if(relation['estAccepte'] === true){	

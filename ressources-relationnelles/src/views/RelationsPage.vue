@@ -43,6 +43,7 @@
 					</ion-item>
 					<ion-item v-for="relation in listRelationEnAttente" :key="relation.idUser">
 						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
+						<ion-button>Supprimer</ion-button>
 					</ion-item>
 				</ion-list>
 			</div>
@@ -58,6 +59,7 @@
 					</ion-item>
 					<ion-item v-for="relation in listRelation" :key="relation.idUser">
 						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
+						<ion-button>Supprimer</ion-button>
 					</ion-item>
 				</ion-list>
 			</div>
@@ -88,23 +90,38 @@
 	const fetchedUsers = ref([]);
 
 	const getUsersFromName = async () => {
-		console.log("prenom.value", prenom.value)
-		console.log("nom.value", nom.value)
+		// console.log("prenom.value", prenom.value)
+		// console.log("nom.value", nom.value)
 		const userData = {
 			prenom: prenom.value,
 			nom: nom.value,
 		};
-		console.log("userData", userData)
+		// console.log("userData", userData)
 		const jsonString = JSON.stringify(userData, null, 2); // Beautify JSON output
 
-		console.log(jsonString);
+		// console.log(jsonString);
 
 		try {
 		const response = await axios.post(`${API_BASE_URL}/utilisateur/user/SearchUser`, jsonString, { 
 			headers: {'Content-Type': 'application/json'}
 		});
+
 			if(response){
-				fetchedUsers.value = response.data;
+
+				let idUserList = [];
+				// Utiliser forEach pour itérer sur chaque élément et ajouter idUser à idUserList
+				listRelationEnAttente.value.forEach(item => {
+				idUserList.push(item.idUser);
+				});
+
+				for(let data of response.data){
+					if(!idUserList.includes(data.id)){
+						fetchedUsers.value.push(data);
+					}
+				}
+
+				// console.log(response.data[0].id)
+				// fetchedUsers.value = response.data;
 				// alert("Ressource publiée")
 				// titre.value = ''
 				// description.value = ''
@@ -131,7 +148,7 @@
 		};
 		const jsonString = JSON.stringify(relationData, null, 2); // Beautify JSON output
 
-		console.log(jsonString);
+		// console.log(jsonString);
 
 		try {
 		const response = await axios.post(`${API_BASE_URL}/RelationUtilisateur/`, jsonString, { 
@@ -159,11 +176,11 @@
 						'Content-Type': 'application/json'
 						}
 					});
-				console.log(response.data);
+				// console.log(response.data);
 				let relationsEnAttente = []
 				let relationsAcceptees = []
 				for(let relation of response.data){
-					console.log("relation", relation);
+					// console.log("relation", relation);
 					if(relation.estAcceptee){
 						relationsAcceptees.push(relation)
 					}else{
@@ -185,14 +202,14 @@
 	const getUserIdAndRelations = async () => {
 		try {
 			const result = await Preferences.get({ key: "id_utilisateur" });
-			console.log(JSON.stringify(result))
+			// console.log(JSON.stringify(result))
 			if (result.value === null) {
 				alert('Vous devez être connecté pour visualiser ce contenu');
 				console.log("redirect")
 				router.push('us/connexion');
 			} else {
 				idUser.value = parseInt(result.value);
-				console.log("Id utilisateur connecté : " + result.value);
+				// console.log("Id utilisateur connecté : " + result.value);
 				await getRelations(); // Ensure getRelations is called only after user ID is set
 			}
 		} catch (error) {
@@ -204,9 +221,9 @@
 	const getTypeRelations = async () => {
 		try {
 			const response = await axios.get(`${API_BASE_URL}/TypeRelation`);
-			console.log(response.data)
+			// console.log(response.data)
 			optionsTypeRelation.value = response.data;
-			console.log(optionsTypeRelation.value)
+			// console.log(optionsTypeRelation.value)
 		} catch (error) {
 			console.error('Error fetching type relations:', error);
 		}

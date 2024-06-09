@@ -107,7 +107,8 @@
 		});
 
 			if(response){
-
+				// On réinitialise la liste des utilisateurs trouvé
+				fetchedUsers.value = [];
 				let idUserList = [];
 				// Utiliser forEach pour itérer sur chaque élément et ajouter idUser à idUserList
 				listRelationEnAttente.value.forEach(item => {

@@ -151,8 +151,8 @@
 			headers: {'Content-Type': 'application/json'}
 		});
 			if(response){
-				alert("Relation ajoutée")
 				typeRelation.value = ""
+				location.reload();
 			}else{
 				alert("Erreur lors de l'ajout de la relation. Veuillez réessayer ultérieurement.");
 			}

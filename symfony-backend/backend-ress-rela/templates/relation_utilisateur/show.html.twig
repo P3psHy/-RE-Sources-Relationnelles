@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RelationUtilisateur{% endblock %}
+
+{% block body %}
+    <h1>RelationUtilisateur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ relation_utilisateur.id }}</td>
+            </tr>
+            <tr>
+                <th>EstAccepte</th>
+                <td>{{ relation_utilisateur.estAccepte ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_relation_utilisateur_index') }}">back to list</a>
+
+    <a href="{{ path('app_relation_utilisateur_edit', {'id': relation_utilisateur.id}) }}">edit</a>
+
+    {{ include('relation_utilisateur/_delete_form.html.twig') }}
+{% endblock %}

@@ -83,3 +83,4 @@ build/
 
 # Embedded web-server pid file
 /.web-server-pid
+ressources-relationnelles/src/config.js

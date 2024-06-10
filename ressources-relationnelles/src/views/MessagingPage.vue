@@ -28,15 +28,16 @@
 </script>
 
 <style scoped>
-#container {
-text-align: center;
+	ion-content {
+		overflow-y: auto
+	}
 
-position: absolute;
-left: 0;
-right: 0;
-top: 50%;
-transform: translateY(-50%);
-}
+	#container {
+		text-align: center;
+		padding: 5%;
+		max-width: 600px;
+		margin: auto;
+	}
 
 #container strong {
 font-size: 20px;

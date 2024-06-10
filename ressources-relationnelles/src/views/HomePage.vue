@@ -1,15 +1,16 @@
 <template>
-  <ion-content>
-    <div id="container">
-      <ion-list>
-                <!-- Loop over each ressource -->
-        <Ressource
-          v-for="r in ressources" :key="r.idRessource" :ressource="r" @click="navigateToRessource(r)">
-        </Ressource>
-      </ion-list>
-      <router-view></router-view>
-    </div>
-  </ion-content>
+	<ion-content>
+		<div id="container">
+			
+			<ion-list>
+						<!-- Loop over each ressource -->
+				<Ressource
+				v-for="r in ressources" :key="r.id" :ressource="r" @click="navigateToRessource(r)">
+				</Ressource>
+			</ion-list>
+			<router-view></router-view>
+		</div>
+	</ion-content>
 </template>
 
 <script setup lang="ts">
@@ -35,7 +36,7 @@
 
 	// Fonction pour naviguer vers la page de détails de la ressource
 	const navigateToRessource = (ressource:any) => {
-	router.push({ name: 'VoirRessource', params: { idRessource: ressource.idRessource } });
+		router.push({ name: 'VoirRessource', params: { idRessource: ressource.id } });
 	};
 
 

@@ -1,5 +1,5 @@
 <template>
-  <UserForm titre="Créer mon compte" @submitHandler="submitForm" button="Continuer" prenom="" nom="" mail="" departement=""/>
+  <UserForm titre="Créer mon compte" @submitHandler="submitForm" button="S'inscrire" prenom="" nom="" mail="" departement=""/>
 </template>
   
     <script setup lang="ts">

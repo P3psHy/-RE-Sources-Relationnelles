@@ -38,6 +38,8 @@ dans le dossier /symfony-backend/backend-ress-rela/ tapez les commandes:
 
 Ouvrer une invite de commande dans la racine du projet, allez dans /ressource-relationnelles et tapez la commande:
 ionic serve
+ - faire npm install
+ - faire npm install @capacitor/core@latest @capacitor/cli@latest @capacitor/android@latest @capacitor/ios@latest
 
 Le site se lancera en local à l'adresse: http://localhost:8100
 

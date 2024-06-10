@@ -39,5 +39,5 @@ dans le dossier /symfony-backend/backend-ress-rela/ tapez les commandes:
 Ouvrer une invite de commande dans la racine du projet, allez dans /ressource-relationnelles et tapez la commande:
 ionic serve
 
-Le site se lancera.
+Le site se lancera en local à l'adresse: http://localhost:8100
 

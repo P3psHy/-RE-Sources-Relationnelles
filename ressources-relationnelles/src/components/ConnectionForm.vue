@@ -1,12 +1,13 @@
 <template>
 <h2>Se connecter</h2>
 <form @submit.prevent="submitForm">
-    <ion-input v-model="login" placeholder="Login" required></ion-input>
-    <ion-input type="password" v-model="password" placeholder="Password" required></ion-input>
-    <ion-button type="submit">Submit</ion-button>
+    <ion-input v-model="login" placeholder="Email" required></ion-input>
+    <ion-input type="password" v-model="password" placeholder="Mot de passe" required></ion-input>
+    <ion-button type="submit">Se connecter</ion-button>
   </form>
-  <ion-button @click="clearCache" color="danger">Vider le cache</ion-button>
-  <ion-button @click="checkStorage">Vérifier le stockage des données</ion-button>
+  <hr/>
+  <!-- <ion-button @click="clearCache" color="danger">Vider le cache</ion-button>
+  <ion-button @click="checkStorage">Vérifier le stockage des données</ion-button> -->
   <ion-button router-link="inscription">Inscription</ion-button>
   <!-- Afficher les données récupérées -->
   <div v-if="userData">
@@ -71,20 +72,20 @@
     }
   };
 
-  const clearCache = () => {
-    Preferences.clear()
-    console.log("Cache vidé")
-  }
+  // const clearCache = () => {
+  //   Preferences.clear()
+  //   console.log("Cache vidé")
+  // }
 
-  const checkStorage = () => {
-    console.log("test")
-    console.log(Preferences.keys(), Preferences.keys)
-    for(const key in Preferences.keys()){
-      Preferences.get({key}).then(result => {
-        console.log("retreived data : ", key, result.value)
-      })
-    }
-  }
+  // const checkStorage = () => {
+  //   console.log("test")
+  //   console.log(Preferences.keys(), Preferences.keys)
+  //   for(const key in Preferences.keys()){
+  //     Preferences.get({key}).then(result => {
+  //       console.log("retreived data : ", key, result.value)
+  //     })
+  //   }
+  // }
 </script>
   
   <style scoped>

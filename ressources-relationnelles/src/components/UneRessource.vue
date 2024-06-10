@@ -74,6 +74,7 @@
     left: 15%;
     background-color: white;
     box-shadow: 0px 0px 5px black;
+    overflow-y: auto;
   }
 </style>
   

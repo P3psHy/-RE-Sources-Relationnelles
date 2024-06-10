@@ -1,8 +1,8 @@
 <template>
     <h2>Créer une nouvelle ressource</h2>
 	<form @submit.prevent="submitForm">
-		<ion-select placeholder="Sélectionner..." v-model="categorie">
-			<div slot="label">Catégorie <ion-text color="danger">(Requis)</ion-text></div>
+		<ion-select placeholder="Sélectionner..." v-model="categorie" required>
+			<div slot="label">Catégorie <ion-text color="danger">*</ion-text></div>
 			<ion-select-option 
 				v-for="option in optionsCategorie" 
 				:key="option.id" 
@@ -10,8 +10,8 @@
 					{{option.nom}}
 			</ion-select-option>
 		</ion-select>
-		<ion-select placeholder="Sélectionner..." v-model="typeRessource">
-			<div slot="label">Type de ressource <ion-text color="danger">(Requis)</ion-text></div>
+		<ion-select placeholder="Sélectionner..." v-model="typeRessource" required>
+			<div slot="label">Type de ressource <ion-text color="danger">*</ion-text></div>
 			<ion-select-option 
 				v-for="option in optionsTypeRessource" 
 				:key="option.id" 
@@ -19,7 +19,7 @@
 					{{option.nom}}
 			</ion-select-option>
 		</ion-select>
-		<ion-select placeholder="Sélectionner 1 ou +" 
+		<ion-select placeholder="Sélectionner 1 ou +"
 		v-model="typeRelation" :multiple="true">
 			<div slot="label">Type de relations</div>
 			<ion-select-option 
@@ -29,13 +29,14 @@
 					{{option.nom}}
 			</ion-select-option>
 		</ion-select>
-		<ion-input v-model="titre" type="text" placeholder="Titre" id="input_F_name"></ion-input>
-		<ion-textarea 
+		<ion-input v-model="titre" type="text" placeholder="Titre" id="input_F_name" required>
+			<div slot="label">Titre <ion-text color="danger">*</ion-text></div>
+		</ion-input>
+		<ion-textarea required
 			v-model="description" 
 			label="Description" 
 			placeholder="Rédiger une description ici" 
 			:auto-grow="true">
-				<div slot="label">Description <ion-text color="danger">(Required)</ion-text></div>
 		</ion-textarea>
 		<ion-button type="submit" id="submit">Continuer</ion-button>
 	</form>

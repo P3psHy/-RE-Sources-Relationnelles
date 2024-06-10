@@ -249,7 +249,7 @@
     #container {
 		text-align: center;
 		padding: 5%;
-		max-width: 500px;
+		max-width: 600px;
 		margin: auto;
 	}
 

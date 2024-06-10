@@ -1,11 +1,10 @@
 <template>
 	<ion-content>
 		<div id="container">
-			
 			<ion-list>
 						<!-- Loop over each ressource -->
 				<Ressource
-				v-for="r in ressources" :key="r.id" :ressource="r" @click="navigateToRessource(r)">
+				v-for="r in ressources" :key="r.id" :ressource="r">
 				</Ressource>
 			</ion-list>
 			<router-view></router-view>
@@ -30,15 +29,6 @@
 			console.error('Erreur lors de la récupération des ressources :', error);
 		}
 	};
-
-	// Utiliser le router d'Ionic Vue
-	const router = useIonRouter();
-
-	// Fonction pour naviguer vers la page de détails de la ressource
-	const navigateToRessource = (ressource:any) => {
-		router.push({ name: 'VoirRessource', params: { idRessource: ressource.id } });
-	};
-
 
 	interface Utilisateur {
 	idUtilisateur: number;
@@ -112,7 +102,7 @@
 	#container {
 		text-align: center;
 		padding: 5%;
-		max-width: 500px;
+		max-width: 600px;
 		margin: auto;
 	}
 

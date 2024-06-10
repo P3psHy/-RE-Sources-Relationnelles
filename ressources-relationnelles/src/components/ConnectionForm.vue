@@ -18,11 +18,12 @@
 
 <script setup lang="ts">
   import { IonInput, IonButton } from '@ionic/vue';
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
   import { useRouter } from 'vue-router';
   import axios from 'axios';
   import { Preferences } from '@capacitor/preferences';
   import {API_BASE_URL} from '../config'
+  import { Device } from '@capacitor/device';
 
   // État pour les champs du formulaire
   const login = ref('');
@@ -33,6 +34,8 @@
 
   // Utiliser le routeur de Vue pour la redirection après la connexion
   const router = useRouter();
+
+  const deviceType = ref(null);
 
   // Fonction pour gérer la soumission du formulaire
   const submitForm = async () => {
@@ -53,6 +56,10 @@
         console.log(response.data)
         userData.value = response.data.user;
         const data = response.data;
+        if(data.role.id != 1 && (deviceType.value == "android" || deviceType.value == "iPhone")){
+          alert("Vous ne pouvez pas vous connecter en tant qu'administrateur ou modérateur depuis ce type d'appareil.")
+          return;
+        }
         Preferences.set({key: "id_utilisateur", value: data.id})
         Preferences.set({key: "nom_utilisateur", value: data.nom})
         Preferences.set({key: "prenom_utilisateur", value: data.prenom})
@@ -86,6 +93,15 @@
   //     })
   //   }
   // }
+  const logDeviceInfo = async () => {
+    const info = await Device.getInfo();
+
+    deviceType.value = info.operatingSystem
+  };
+
+  onMounted(() => {
+    logDeviceInfo();
+  })
 </script>
   
   <style scoped>

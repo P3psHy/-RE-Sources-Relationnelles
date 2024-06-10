@@ -80,7 +80,7 @@ import { Preferences } from '@capacitor/preferences';
 				typeRessource.value = ''
 				typeRelation.value = []
 				id_utilisateur.value = ''
-				// router.push('connexion');
+				location.reload();
 			}else{
 				alert('erreur');
 			}

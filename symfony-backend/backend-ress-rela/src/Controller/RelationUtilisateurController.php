@@ -63,7 +63,8 @@ class RelationUtilisateurController extends AbstractController
                     "idUser" =>$userRela->getIdUtilisateur2()->getId(),
                     "nomUser" => $userRela->getIdUtilisateur2()->getNom(),
                     "prenomUser" => $userRela->getIdUtilisateur2()->getPrenom(),
-                    "departementUser" => $userRela->getIdUtilisateur2()->getDepartement()
+                    "departementUser" => $userRela->getIdUtilisateur2()->getDepartement(),
+                    "estReceveur"=>false
                 ];
             }else{
                 $relationUser = [
@@ -73,10 +74,11 @@ class RelationUtilisateurController extends AbstractController
                     "nomTypeRelation" => $userRela->getIdTypeRelation()->getNom(),
                     "commentaireTypeRelation" => $userRela->getIdTypeRelation()->getCommentaire(),
                     "idUser" =>$userRela->getIdUtilisateur1()->getId(),
-                    "nom" => $userRela->getIdUtilisateur1()->getNom(),
-                    "prenom" => $userRela->getIdUtilisateur1()->getPrenom(),
-                    "departement" => $userRela->getIdUtilisateur2()->getDepartement()
-                    
+                    "nomUser" => $userRela->getIdUtilisateur1()->getNom(),
+                    "prenomUser" => $userRela->getIdUtilisateur1()->getPrenom(),
+                    "departementUser" => $userRela->getIdUtilisateur2()->getDepartement(),
+                    "estReceveur"=>true
+
                 ];
             }
             $listUserRelation[] = $relationUser;

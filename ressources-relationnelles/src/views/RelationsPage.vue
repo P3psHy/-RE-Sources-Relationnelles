@@ -32,10 +32,27 @@
 					</ion-item>
 				</ion-list>
 			</div>
+			<br/>
 			<div class="relations-list">
 				<ion-list>
 					<ion-list-header>
-						<ion-label>Relations en attente :</ion-label>
+						<ion-label>Mes demandes en attente :</ion-label>
+						<ion-button>Tout voir</ion-button>
+					</ion-list-header>
+					<ion-item v-if="listMesRelationEnAttente.length == 0">
+						<ion-label>Aucune relation</ion-label>
+					</ion-item>
+					<ion-item v-for="relation in listMesRelationEnAttente" :key="relation.idUser">
+						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
+						<ion-button color="danger" @click="supprimerRelation(relation.idRelationUtilisateur)">Annuler</ion-button>
+					</ion-item>
+				</ion-list>
+			</div>
+			<br/>
+			<div class="relations-list">
+				<ion-list>
+					<ion-list-header>
+						<ion-label>	 En attente de réponse :</ion-label>
 						<ion-button>Tout voir</ion-button>
 					</ion-list-header>
 					<ion-item v-if="listRelationEnAttente.length == 0">
@@ -44,7 +61,7 @@
 					<ion-item v-for="relation in listRelationEnAttente" :key="relation.idUser">
 						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
 						<ion-button @click="accepterRelation(relation.idRelationUtilisateur)">Accepter</ion-button>
-						<ion-button @click="supprimerRelation(relation.idRelationUtilisateur)">Supprimer</ion-button>
+						<ion-button color="danger" @click="supprimerRelation(relation.idRelationUtilisateur)">Refuser</ion-button>
 					</ion-item>
 				</ion-list>
 			</div>
@@ -60,7 +77,7 @@
 					</ion-item>
 					<ion-item v-for="relation in listRelation" :key="relation.idUser">
 						<ion-label>{{ relation.nomUser }} {{ relation.prenomUser }} - <i>{{ relation.departementUser }}</i> - {{ relation.nomTypeRelation }}</ion-label>
-						<ion-button @click="supprimerRelation(relation.idRelationUtilisateur)">Supprimer</ion-button>
+						<ion-button color="danger" @click="supprimerRelation(relation.idRelationUtilisateur)">Supprimer</ion-button>
 					</ion-item>
 				</ion-list>
 			</div>
@@ -80,6 +97,7 @@
 
 	const idUser = ref(null);
 	const listRelationEnAttente= ref([]);
+	const listMesRelationEnAttente= ref([]);
 	const listRelation= ref([]);
 
 	const prenom = ref('');
@@ -113,6 +131,9 @@
 				let idUserList = [];
 				// Utiliser forEach pour itérer sur chaque élément et ajouter idUser à idUserList
 				listRelationEnAttente.value.forEach(item => {
+				idUserList.push(item.idUser);
+				});
+				listMesRelationEnAttente.value.forEach(item => {
 				idUserList.push(item.idUser);
 				});
 				listRelation.value.forEach(item => {
@@ -222,19 +243,25 @@
 					});
 				// console.log(response.data);
 				let relationsEnAttente = []
+				let mesRelationsEnAttente = []
 				let relationsAcceptees = []
 
 				for(let relation of response.data){
-					// console.log(relation['estAccepte']);
 					if(relation['estAccepte'] === true){	
 						relationsAcceptees.push(relation)
 					}else{
-						relationsEnAttente.push(relation)
+						if(relation['estReceveur'] === false){
+							mesRelationsEnAttente.push(relation)
+						}else{
+							relationsEnAttente.push(relation)
+						}
 					}
 				}
 
+				console.log('listeMesRelationEnAttente', mesRelationsEnAttente)
 				listRelation.value = relationsAcceptees;
 				listRelationEnAttente.value = relationsEnAttente;
+				listMesRelationEnAttente.value = mesRelationsEnAttente;
 			}else{
 				alert("Votre profil d'utilisateur n'est pas reconnu.")
 			}

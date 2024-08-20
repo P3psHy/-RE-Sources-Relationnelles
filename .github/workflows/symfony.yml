@@ -27,6 +27,9 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
+    - name: Install Symfony PHPUnit Bridge
+      run: composer require --dev symfony/phpunit-bridge
+
     - name: Make PHPUnit executable
       run: chmod +x symfony-backend/backend-ress-rela/bin/phpunit
 

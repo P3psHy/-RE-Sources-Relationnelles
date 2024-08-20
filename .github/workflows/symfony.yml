@@ -43,4 +43,4 @@ jobs:
         ls ./symfony-backend/backend-ress-rela/bin
 
     - name: Run PHPUnit tests
-      run: ./vendor/bin/phpunit --testdox
+      run: ./vendor/bin/phpunit --testdox -debug --coverage-text

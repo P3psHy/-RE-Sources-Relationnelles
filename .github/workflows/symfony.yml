@@ -27,5 +27,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
+    - name: Make PHPUnit executable
+      run: chmod +x symfony-backend/backend-ress-rela/bin/phpunit
+
     - name: Run PHPUnit tests
       run: ./symfony-backend/backend-ress-rela/bin/phpunit --testdox

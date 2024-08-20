@@ -34,9 +34,7 @@ jobs:
       run: chmod +x symfony-backend/backend-ress-rela/bin/phpunit
 
     - name: Check PHPUnit Bridge
-      run: |
-        ls ./symfony-backend/backend-ress-rela/bin
-        ls ./symfony-backend/vendor/bin
+      run: ls ./symfony-backend/vendor/bin
 
     - name: Run PHPUnit tests
       run: ./symfony-backend/backend-ress-rela/bin/phpunit --testdox

@@ -20,7 +20,7 @@ jobs:
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.1' # Changez selon la version PHP de votre projet
+        php-version: '8.2' # Changez selon la version PHP de votre projet
         extensions: mbstring, pdo, pdo_mysql
         ini-values: memory_limit=-1
 

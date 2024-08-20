@@ -1,51 +1,31 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Symfony
+# .github/workflows/ci.yml
+name: Run Symfony Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+    branches:
+      - main
 
 jobs:
-  symfony-tests:
+  tests:
     runs-on: ubuntu-latest
+
     steps:
-    #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,
-    # change this to (see https://github.com/shivammathur/setup-php#bookmark-versioning):
-    # uses: shivammathur/setup-php@v2
-    - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.0'
-    - uses: actions/checkout@v4
-    - name: Copy .env.test.local
-      run: php -r "file_exists('.env.test.local') || copy('.env.test', '.env.test.local');"
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-    - name: Install Dependencies
-      run: |
-        composer update
-        composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-    - name: Create Database
-      run: |
-        mkdir -p data
-        touch data/database.sqlite
-    - name: Make PHPUnit executable
-      run: chmod +x symfony-backend/backend-ress-rela/bin/phpunit
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
-      env:
-        DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
-      run: symfony-backend/backend-ress-rela/bin/phpunit
+        php-version: '8.1' # Changez selon la version PHP de votre projet
+        extensions: mbstring, pdo, pdo_mysql
+        ini-values: memory_limit=-1
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Run PHPUnit tests
+      run: .symfony-backend/backend-ress-rela/bin/phpunit --testdox

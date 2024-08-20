@@ -30,6 +30,9 @@ jobs:
     - name: Install Symfony PHPUnit Bridge
       run: composer require --dev symfony/phpunit-bridge
 
+    - name: Install Symfony PHPUnit 
+      run: composer require --dev phpunit/phpunit
+
     - name: Make PHPUnit executable
       run: chmod +x symfony-backend/backend-ress-rela/bin/phpunit
 
@@ -40,4 +43,4 @@ jobs:
         ls ./symfony-backend/backend-ress-rela/bin
 
     - name: Run PHPUnit tests
-      run: ./vendor/bin/simple-phpunit --testdox
+      run: ./vendor/bin/phpunit --testdox

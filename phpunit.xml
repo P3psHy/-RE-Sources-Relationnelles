@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    bootstrap="vendor/autoload.php"
+    colors="true"
+    verbose="true"
+    stopOnFailure="true"
+    >
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory>./symfony-backend/backend-ress-rela/tests</directory>
+        </testsuite>
+    </testsuites>
+    <logging>
+        <log type="junit" target="tests/_output/junit.xml"/>
+    </logging>
+</phpunit>

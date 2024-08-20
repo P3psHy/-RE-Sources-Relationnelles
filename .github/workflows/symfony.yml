@@ -40,4 +40,4 @@ jobs:
         ls ./symfony-backend/backend-ress-rela/bin
 
     - name: Run PHPUnit tests
-      run: ./symfony-backend/backend-ress-rela/bin/phpunit --testdox
+      run: ./vendor/bin/simple-phpunit --testdox

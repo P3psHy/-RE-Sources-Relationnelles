@@ -24,6 +24,9 @@ jobs:
         extensions: mbstring, pdo, pdo_mysql
         ini-values: memory_limit=-1
 
+    - name: Update dependencies
+      run: composer update
+
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New EtatRessource{% endblock %}
+
+{% block body %}
+    <h1>Create new EtatRessource</h1>
+
+    {{ include('etat_ressource/_form.html.twig') }}
+
+    <a href="{{ path('app_etat_ressource_index') }}">back to list</a>
+{% endblock %}

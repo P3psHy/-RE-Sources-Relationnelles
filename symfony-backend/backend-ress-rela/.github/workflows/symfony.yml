@@ -1,0 +1,49 @@
+# .github/workflows/ci.yml
+name: Run Symfony Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2' # Changez selon la version PHP de votre projet
+        extensions: mbstring, pdo, pdo_mysql
+        ini-values: memory_limit=-1
+
+    - name: Update dependencies
+      run: composer update
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Install Symfony PHPUnit Bridge
+      run: composer require --dev symfony/phpunit-bridge
+
+    - name: Install Symfony PHPUnit 
+      run: composer require --dev phpunit/phpunit
+
+    - name: Make PHPUnit executable
+      run: chmod +x symfony-backend/backend-ress-rela/bin/phpunit
+
+    - name: Check PHPUnit Bridge
+      run: |
+        ls ./vendor/bin
+        ls ./symfony-backend/vendor/bin
+        ls ./symfony-backend/backend-ress-rela/bin
+
+    - name: Run PHPUnit tests
+      run: ./vendor/bin/phpunit --testdox -debug --coverage-text

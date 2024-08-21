@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit RelationUtilisateur{% endblock %}
+
+{% block body %}
+    <h1>Edit RelationUtilisateur</h1>
+
+    {{ include('relation_utilisateur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_relation_utilisateur_index') }}">back to list</a>
+
+    {{ include('relation_utilisateur/_delete_form.html.twig') }}
+{% endblock %}
